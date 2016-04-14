@@ -203,7 +203,7 @@ public class GanzZahl implements Comparable<GanzZahl> {
 	 *            der aktuelle Zustand dieses Wertes
 	 */
 	public final void setZustand(final AbstractDavZustand zustand) {
-		assert(zustand != null);
+		assert zustand != null;
 		wert = zustand.getCode();
 		aktuellerZustand = zustand;
 	}
@@ -261,6 +261,12 @@ public class GanzZahl implements Comparable<GanzZahl> {
 		}
 
 		return gleich;
+	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
 	}
 
 	@Override

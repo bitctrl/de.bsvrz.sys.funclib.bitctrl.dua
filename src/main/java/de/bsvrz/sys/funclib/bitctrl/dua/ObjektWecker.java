@@ -56,19 +56,19 @@ public class ObjektWecker implements IKontrollProzessListener<Long> {
 	/**
 	 * Interner Kontrollprozess.
 	 */
-	protected KontrollProzess<Long> kontrollProzess = new KontrollProzess<>();
+	private final KontrollProzess<Long> kontrollProzess = new KontrollProzess<>();
 
 	/**
 	 * Mapt alle Weckzeitpunkte auf die Liste der Objekte, die geweckt werden
 	 * sollen.
 	 */
-	protected SortedMap<Long, Set<IObjektWeckerListener>> weckZeitpunktAufObjekte = Collections
+	private final SortedMap<Long, Set<IObjektWeckerListener>> weckZeitpunktAufObjekte = Collections
 			.synchronizedSortedMap(new TreeMap<Long, Set<IObjektWeckerListener>>());
 
 	/**
 	 * Mapt alle zu weckenden Objekte auf den Weckzeitpunkt.
 	 */
-	protected Map<IObjektWeckerListener, Long> objektAufWeckZeitpunkt = Collections
+	private final Map<IObjektWeckerListener, Long> objektAufWeckZeitpunkt = Collections
 			.synchronizedMap(new HashMap<IObjektWeckerListener, Long>());
 
 	/**

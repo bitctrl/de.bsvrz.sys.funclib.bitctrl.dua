@@ -26,7 +26,7 @@
 
 package de.bsvrz.sys.funclib.bitctrl.dua.ufd.modell;
 
-import java.util.IdentityHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 import de.bsvrz.dav.daf.main.ClientDavInterface;
@@ -54,7 +54,7 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	/**
 	 * statische Instanzen dieser Klasse.
 	 */
-	private static Map<SystemObject, DUAUmfeldDatenSensor> instanzen = new IdentityHashMap<>();
+	private static Map<SystemObject, DUAUmfeldDatenSensor> instanzen = new HashMap<>();
 
 	/**
 	 * das Systemobjekt.

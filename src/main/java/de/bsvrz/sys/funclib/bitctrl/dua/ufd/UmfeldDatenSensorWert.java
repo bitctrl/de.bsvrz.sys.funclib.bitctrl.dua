@@ -294,6 +294,11 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 	}
 
 	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	@Override
 	public int compareTo(final UmfeldDatenSensorWert that) {
 		if (that == null) {
 			throw new NullPointerException("Vergleichswert ist <<null>>");

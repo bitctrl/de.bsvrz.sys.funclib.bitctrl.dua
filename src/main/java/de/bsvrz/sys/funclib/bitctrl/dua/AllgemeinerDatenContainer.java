@@ -84,6 +84,11 @@ public class AllgemeinerDatenContainer {
 		return false;
 	}
 
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
 	/**
 	 * Erfragt eine Zeichenkette, welche die aktuellen Werte aller über
 	 * Getter-Methoden zugänglichen Member-Variable enthält.

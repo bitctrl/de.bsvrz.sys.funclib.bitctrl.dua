@@ -26,6 +26,7 @@
 
 package de.bsvrz.sys.funclib.bitctrl.dua;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
@@ -68,12 +69,12 @@ public class KontrollProzess<T> {
 	 * ein Objekt mit einer bestimmten Information, das beim nächsten
 	 * Aufrufzeitpunkt an alle Beobachterobjekte weitergeleitet wird.
 	 */
-	protected T aktuelleInformation;
+	private T aktuelleInformation;
 
 	/**
 	 * Menge von Beobachtern, die auf diesen Prozess hören.
 	 */
-	protected Collection<IKontrollProzessListener<T>> listenerMenge = Collections
+	private final Collection<IKontrollProzessListener<T>> listenerMenge = Collections
 			.synchronizedSet(new HashSet<IKontrollProzessListener<T>>());
 
 	/**
@@ -96,10 +97,11 @@ public class KontrollProzess<T> {
 	 */
 	public final synchronized void setNaechstenAufrufZeitpunkt(final long zeitpunktInMillis) {
 		if (this.naechsterAufrufZeitpunkt != zeitpunktInMillis) {
+			final SimpleDateFormat dateFormat = new SimpleDateFormat(DUAKonstanten.ZEIT_FORMAT_GENAU_STR);
 			Debug.getLogger()
-					.info("Der eingeplante Kontrollzeitpunkt wird verändert" + "\nAlt: "
-							+ DUAKonstanten.ZEIT_FORMAT_GENAU.format(new Date(this.naechsterAufrufZeitpunkt))
-							+ "\nNeu: " + DUAKonstanten.ZEIT_FORMAT_GENAU.format(new Date(zeitpunktInMillis)));
+			.info("Der eingeplante Kontrollzeitpunkt wird verändert" + "\nAlt: "
+					+ dateFormat.format(new Date(this.naechsterAufrufZeitpunkt)) + "\nNeu: "
+					+ dateFormat.format(new Date(zeitpunktInMillis)));
 			this.naechsterAufrufZeitpunkt = zeitpunktInMillis;
 			this.prozess.cancel();
 			this.timer.purge();

@@ -54,12 +54,12 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 	/**
 	 * Mapt alle Messquerschnitt-Systemobjekte auf Objekte dieser Klasse.
 	 */
-	protected static Map<SystemObject, MessQuerschnitt> sysObjMqObjMap = new HashMap<>();
+	private static Map<SystemObject, MessQuerschnitt> sysObjMqObjMap = new HashMap<>();
 
 	/**
 	 * Datenverteiler-Verbindung.
 	 */
-	protected static ClientDavInterface sDav;
+	private static ClientDavInterface sDav;
 
 	/**
 	 * Menge der an diesem Messquerschnitt definierten Fahstreifen.

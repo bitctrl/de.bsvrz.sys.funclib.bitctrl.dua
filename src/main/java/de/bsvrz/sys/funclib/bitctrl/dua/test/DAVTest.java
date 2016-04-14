@@ -32,6 +32,7 @@ import de.bsvrz.dav.daf.main.ClientDavInterface;
 import de.bsvrz.sys.funclib.application.StandardApplication;
 import de.bsvrz.sys.funclib.application.StandardApplicationRunner;
 import de.bsvrz.sys.funclib.commandLineArgs.ArgumentList;
+import de.bsvrz.sys.funclib.debug.Debug;
 
 /**
  * Stellt eine Datenverteiler-Verbindung zur Verfügung.
@@ -40,10 +41,12 @@ import de.bsvrz.sys.funclib.commandLineArgs.ArgumentList;
  */
 public final class DAVTest {
 
+	private static final Debug LOGGER = Debug.getLogger();
+
 	/**
 	 * Verbindung zum Datenverteiler.
 	 */
-	protected static ClientDavInterface verbindung;
+	private static ClientDavInterface verbindung;
 
 	/**
 	 * Randomizer.
@@ -116,7 +119,7 @@ public final class DAVTest {
 			try {
 				Thread.sleep(5L);
 			} catch (final InterruptedException ex) {
-				//
+				DAVTest.LOGGER.finest(ex.getLocalizedMessage(), ex);
 			}
 		}
 	}

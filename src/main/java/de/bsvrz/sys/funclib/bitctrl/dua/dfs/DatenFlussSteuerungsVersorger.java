@@ -60,7 +60,7 @@ public class DatenFlussSteuerungsVersorger implements ClientReceiverInterface {
 	/**
 	 * die statische Instanz dieser Klasse.
 	 */
-	protected static DatenFlussSteuerungsVersorger instanz;
+	private static DatenFlussSteuerungsVersorger instanz;
 
 	/**
 	 * Erfragt die statische Instanz dieser Klasse. Diese liest die Parameter
@@ -124,6 +124,14 @@ public class DatenFlussSteuerungsVersorger implements ClientReceiverInterface {
 			DatenFlussSteuerungsVersorger.instanz = new DatenFlussSteuerungsVersorger(verwaltung, dfsObjekt);
 		}
 		return DatenFlussSteuerungsVersorger.instanz;
+	}
+
+	/**
+	 * Funktion nur für Testzwecke: Entfernt die globale Instanz der Klasse, um
+	 * eine Neuinitialisierng zu erzwingen.
+	 */
+	public static void reset() {
+		DatenFlussSteuerungsVersorger.instanz = null;
 	}
 
 	/**

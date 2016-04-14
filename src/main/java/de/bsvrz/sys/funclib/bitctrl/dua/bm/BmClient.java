@@ -48,7 +48,7 @@ public class BmClient implements ClientReceiverInterface {
 	/**
 	 * statische Instanz dieser Klasse.
 	 */
-	protected static BmClient instanz;
+	private static BmClient instanz;
 
 	/**
 	 * Beobachter.

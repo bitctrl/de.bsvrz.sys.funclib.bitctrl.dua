@@ -54,12 +54,12 @@ public class MessStellenGruppe extends AbstractSystemObjekt {
 	/**
 	 * Mapt alle MessStelleGruppe-Systemobjekte auf Objekte dieser Klasse.
 	 */
-	protected static Map<SystemObject, MessStellenGruppe> sysObjMsgObjMap = new HashMap<>();
+	private static Map<SystemObject, MessStellenGruppe> sysObjMsgObjMap = new HashMap<>();
 
 	/**
 	 * Datenverteiler-Verbindung..
 	 */
-	protected static ClientDavInterface sDav;
+	private static ClientDavInterface sDav;
 
 	/**
 	 * Messstellen dieser Gruppe (sortiert wie in Konfiguration).

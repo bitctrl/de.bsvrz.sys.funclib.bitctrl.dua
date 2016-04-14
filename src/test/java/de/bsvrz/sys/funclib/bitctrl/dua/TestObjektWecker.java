@@ -31,7 +31,6 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.junit.Test;
 
-import de.bsvrz.sys.funclib.bitctrl.app.Pause;
 import de.bsvrz.sys.funclib.bitctrl.dua.schnittstellen.IObjektWeckerListener;
 import de.bsvrz.sys.funclib.bitctrl.dua.test.DAVTest;
 
@@ -59,9 +58,10 @@ public class TestObjektWecker {
 	 */
 	private final HashMap<TestWeckObjekt, Integer> zuWeckendeObjekte = new HashMap<>();
 
-	/** führt den Test1 aus. */
+	/** führt den Test1 aus.
+	 * @throws InterruptedException */
 	@Test
-	public void test1() {
+	public void test1() throws InterruptedException {
 
 		long jetzt = System.currentTimeMillis();
 		long jetztPlus2Sek = jetzt + (TimeUnit.SECONDS.toMillis(2));
@@ -73,13 +73,13 @@ public class TestObjektWecker {
 		final TestWeckObjekt t2 = new TestWeckObjekt("2", jetztPlus2Sek);
 		final TestWeckObjekt t3 = new TestWeckObjekt("3", jetztPlus2Sek);
 
-		Pause.warte(500L);
+		TimeUnit.MILLISECONDS.sleep(500L);
 
 		final TestWeckObjekt t4 = new TestWeckObjekt("4", jetztPlus3Sek);
 		final TestWeckObjekt t5 = new TestWeckObjekt("5", jetztPlus3Sek);
 		final TestWeckObjekt t6 = new TestWeckObjekt("6", jetztPlus3Sek);
 
-		Pause.warte(2500L);
+		TimeUnit.MILLISECONDS.sleep(2500L);
 
 		final TestWeckObjekt t7 = new TestWeckObjekt("7", jetztPlus7Sek);
 		final TestWeckObjekt t8 = new TestWeckObjekt("8", jetztPlus5Sek);
@@ -121,7 +121,9 @@ public class TestObjektWecker {
 			t1.setNeuenWeckZeitPunkt(jetztPlus5Sek);
 			t1.setNeuenWeckZeitPunkt(jetztPlus3Sek);
 			t1.setWeckerAus();
-			Pause.warte(2900);
+
+			TimeUnit.MILLISECONDS.sleep(2900);
+
 			t3.setNeuenWeckZeitPunkt(jetztPlus3Sek);
 
 			t4.setNeuenWeckZeitPunkt(jetztPlus5Sek);

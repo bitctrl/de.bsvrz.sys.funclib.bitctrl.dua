@@ -55,12 +55,12 @@ public class FahrStreifen extends AbstractSystemObjekt {
 	 * Mapt alle Fahrstreifen-Systemobjekte auf Objekte der Klasse
 	 * <code>FahrStreifen</code>.
 	 */
-	protected static Map<SystemObject, FahrStreifen> sysObjFsObjMap = new HashMap<>();
+	private static Map<SystemObject, FahrStreifen> sysObjFsObjMap = new HashMap<>();
 
 	/**
 	 * Datenverteiler-Verbindung.
 	 */
-	protected static ClientDavInterface sDav;
+	private static ClientDavInterface sDav;
 
 	/**
 	 * die Lage dieses Fahrtreifens.

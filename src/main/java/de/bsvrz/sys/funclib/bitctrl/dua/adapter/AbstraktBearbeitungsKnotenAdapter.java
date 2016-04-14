@@ -111,6 +111,12 @@ public abstract class AbstraktBearbeitungsKnotenAdapter implements IBearbeitungs
 		return knoten;
 	}
 
+	/**
+	 * ermittelt, ob die Ergebnisse der Verarbeitung in diesem Knoten publiziert
+	 * werden sollen.
+	 *
+	 * @return den Zustand
+	 */
 	public boolean isPublizieren() {
 		return publizieren;
 	}

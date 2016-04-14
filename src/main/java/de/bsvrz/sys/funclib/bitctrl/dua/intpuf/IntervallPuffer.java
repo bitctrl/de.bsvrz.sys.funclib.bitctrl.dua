@@ -166,11 +166,11 @@ public class IntervallPuffer<T extends IIntervallDatum<T>> {
 		 */
 		protected Intervall(final IIntervallPufferElement<T1> element) throws IntervallPufferException {
 			super(element.getIntervallStart(), element.getIntervallEnde());
-			inhalt = element.getInhalt();
+			setInhalt(element.getInhalt());
 			this.granularitaet = getIntervallEnde() - getIntervallStart();
 			if (this.granularitaet < 0) {
 				throw new IntervallPufferException("Intervallende (" + getIntervallEnde()
-						+ ") liegt vor Intervallanfang (" + getIntervallStart() + "):\n" + inhalt);
+				+ ") liegt vor Intervallanfang (" + getIntervallStart() + "):\n" + getInhalt());
 			}
 		}
 
@@ -186,9 +186,9 @@ public class IntervallPuffer<T extends IIntervallDatum<T>> {
 		protected final void setStart(final long start) throws IntervallPufferException {
 			if ((getIntervallEnde() - start) < 0) {
 				throw new IntervallPufferException("Intervallende (" + getIntervallEnde()
-						+ ") liegt vor Intervallanfang (" + getIntervallStart() + "):\n" + inhalt);
+				+ ") liegt vor Intervallanfang (" + getIntervallStart() + "):\n" + getInhalt());
 			}
-			intervallStart = start;
+			setIntervallStart(start);
 		}
 
 		/**
@@ -201,9 +201,9 @@ public class IntervallPuffer<T extends IIntervallDatum<T>> {
 		 *         im Puffer kompatibel ist
 		 */
 		protected final boolean isKompatibel(final IIntervallPufferElement<T1> element) {
-			return element.getInhalt().istGleich(inhalt)
+			return element.getInhalt().istGleich(getInhalt())
 					&& ((element.getIntervallEnde() - element.getIntervallStart()) == this.granularitaet)
-					&& (intervallEnde == element.getIntervallStart());
+					&& (getIntervallEnde() == element.getIntervallStart());
 		}
 
 		/**
@@ -217,7 +217,7 @@ public class IntervallPuffer<T extends IIntervallDatum<T>> {
 		 */
 		protected final void add(final IIntervallPufferElement<T1> element) throws IntervallPufferException {
 			if (isKompatibel(element)) {
-				intervallEnde += granularitaet;
+				setIntervallEnde(getIntervallEnde() + granularitaet);
 			} else {
 				throw new IntervallPufferException(
 						"Versuch inkompatibles Datum\n" + element + "einzufuegen in Puffer:\n" + this);
@@ -235,8 +235,8 @@ public class IntervallPuffer<T extends IIntervallDatum<T>> {
 
 		@Override
 		public String toString() {
-			return "[" + intervallStart + ", " + intervallEnde + "] Granularitaet: " + this.granularitaet + "\n"
-					+ inhalt;
+			return "[" + getIntervallStart() + ", " + getIntervallEnde() + "] Granularitaet: " + this.granularitaet + "\n"
+					+ getInhalt();
 		}
 
 	}

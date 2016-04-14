@@ -39,17 +39,17 @@ public class IntervallPufferElementAdapter<T extends IIntervallDatum<T>> impleme
 	/**
 	 * der Inhalt.
 	 */
-	protected T inhalt;
+	private  T inhalt;
 
 	/**
 	 * Intervallende.
 	 */
-	protected long intervallEnde = -1;
+	private long intervallEnde = -1;
 
 	/**
 	 * Intervallanfang.
 	 */
-	protected long intervallStart = -1;
+	private long intervallStart = -1;
 
 	/**
 	 * Standardkonstruktor.
@@ -83,6 +83,18 @@ public class IntervallPufferElementAdapter<T extends IIntervallDatum<T>> impleme
 	public String toString() {
 		return "[" + this.intervallStart + ", " + this.intervallEnde + "]: "
 				+ (this.inhalt == null ? "leer" : this.inhalt);
+	}
+
+	protected void setInhalt(final T inhalt) {
+		this.inhalt = inhalt;
+	}
+
+	protected void setIntervallStart(final long intervallStart) {
+		this.intervallStart = intervallStart;
+	}
+
+	protected void setIntervallEnde(final long intervallEnde) {
+		this.intervallEnde = intervallEnde;
 	}
 
 }

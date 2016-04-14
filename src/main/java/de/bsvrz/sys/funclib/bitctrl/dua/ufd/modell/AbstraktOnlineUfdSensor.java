@@ -172,4 +172,14 @@ public abstract class AbstraktOnlineUfdSensor<G> implements ClientReceiverInterf
 		this.onlineWert = onlineWert;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = (prime * result) + ((objekt == null) ? 0 : objekt.hashCode());
+		return result;
+	}
+
+
+
 }

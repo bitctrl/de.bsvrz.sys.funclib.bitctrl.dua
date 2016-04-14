@@ -26,6 +26,7 @@
 
 package de.bsvrz.sys.funclib.bitctrl.dua.testausfall;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -262,7 +263,7 @@ implements IKontrollProzessListener<Long> {
 				}
 			}
 
-			if (gefundenInKontrollZeitpunkt >= 0) {
+			if ((kontrollObjekte != null) && (gefundenInKontrollZeitpunkt >= 0)) {
 				if (kontrollObjekte.isEmpty()) {
 					kontrollZeitpunkte.remove(gefundenInKontrollZeitpunkt);
 				}
@@ -283,7 +284,7 @@ implements IKontrollProzessListener<Long> {
 			}
 		} else {
 			AbstraktAusfallUeberwachung.LOGGER.warning(
-					"Der Kontrollzeitpunkt " + DUAKonstanten.ZEIT_FORMAT_GENAU.format(new Date(kontrollZeitpunkt))
+					"Der Kontrollzeitpunkt " + new SimpleDateFormat(DUAKonstanten.ZEIT_FORMAT_GENAU_STR).format(new Date(kontrollZeitpunkt))
 					+ " wurde inzwischen entfernt");
 		}
 

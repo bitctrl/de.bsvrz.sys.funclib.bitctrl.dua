@@ -157,10 +157,19 @@ public class DAVObjektAnmeldung implements Comparable<DAVObjektAnmeldung> {
 			final DAVObjektAnmeldung that = (DAVObjektAnmeldung) obj;
 			result = getObjekt().equals(that.getObjekt())
 					&& getDatenBeschreibung().getAttributeGroup()
-							.equals(that.getDatenBeschreibung().getAttributeGroup())
+					.equals(that.getDatenBeschreibung().getAttributeGroup())
 					&& getDatenBeschreibung().getAspect().equals(that.getDatenBeschreibung().getAspect());
 		}
 
+		return result;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = (prime * result) + ((datenBeschreibung == null) ? 0 : datenBeschreibung.hashCode());
+		result = (prime * result) + ((objekt == null) ? 0 : objekt.hashCode());
 		return result;
 	}
 

@@ -91,4 +91,13 @@ public class ObjektResultat implements Comparable<ObjektResultat> {
 		return resultat.toString();
 	}
 
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = (prime * result) + ((resultat == null) ? 0 : resultat.hashCode());
+		return result;
+	}
+
 }

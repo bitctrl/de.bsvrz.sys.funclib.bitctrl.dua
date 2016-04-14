@@ -44,7 +44,7 @@ public class DuaVerkehrsNetz {
 	/**
 	 * Flag: Wurde das statische DUA-Verkehrsnetz bereits initialisiert?
 	 */
-	protected static boolean initialisiert;
+	private static boolean initialisiert;
 
 	/**
 	 * Standardkonstruktor.
@@ -125,7 +125,7 @@ public class DuaVerkehrsNetz {
 
 				if (fs.getNachbarFahrStreifen() == null) {
 					Debug.getLogger()
-							.warning("Für Fahrstreifen " + fs + " kann " + "kein Nachbarfahrstreifen ermittelt werden");
+					.warning("Für Fahrstreifen " + fs + " kann " + "kein Nachbarfahrstreifen ermittelt werden");
 				}
 
 				if (fs.getErsatzFahrStreifen() == null) {
@@ -154,7 +154,7 @@ public class DuaVerkehrsNetz {
 
 				if (fs.getErsatzFahrStreifen() == null) {
 					Debug.getLogger()
-							.warning("Für Fahrstreifen " + fs + " kann " + "kein Ersatzfahrstreifen ermittelt werden");
+					.warning("Für Fahrstreifen " + fs + " kann " + "kein Ersatzfahrstreifen ermittelt werden");
 				}
 			}
 		}
