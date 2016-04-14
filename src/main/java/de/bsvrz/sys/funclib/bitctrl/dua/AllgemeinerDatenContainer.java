@@ -86,7 +86,7 @@ public class AllgemeinerDatenContainer {
 
 	@Override
 	public int hashCode() {
-		return super.hashCode();
+		throw new UnsupportedOperationException("Kein hashCode() ermittelbar");
 	}
 
 	/**

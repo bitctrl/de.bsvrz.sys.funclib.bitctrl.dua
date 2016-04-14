@@ -294,14 +294,7 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = (prime * result) + ((datenArt == null) ? 0 : datenArt.hashCode());
-		result = (prime * result) + ((ersatzSensor == null) ? 0 : ersatzSensor.hashCode());
-		result = (prime * result) + (hauptSensor ? 1231 : 1237);
-		result = (prime * result) + (int) (maxZeitMessWertErsetzung ^ (maxZeitMessWertErsetzung >>> 32));
-		result = (prime * result) + (int) (maxZeitMessWertFortschreibung ^ (maxZeitMessWertFortschreibung >>> 32));
-		result = (prime * result) + ((nachfolger == null) ? 0 : nachfolger.hashCode());
 		result = (prime * result) + ((objekt == null) ? 0 : objekt.hashCode());
-		result = (prime * result) + ((vorgaenger == null) ? 0 : vorgaenger.hashCode());
 		return result;
 	}
 

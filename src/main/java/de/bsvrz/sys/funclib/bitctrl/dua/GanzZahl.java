@@ -265,8 +265,7 @@ public class GanzZahl implements Comparable<GanzZahl> {
 
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
+		throw new UnsupportedOperationException("Kein hashCode() ermittelbar");
 	}
 
 	@Override

@@ -320,15 +320,7 @@ public abstract class AbstraktMesswert extends MesswertMarkierung implements Com
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = (prime * result) + ((attName == null) ? 0 : attName.hashCode());
-		result = (prime * result) + ((guete == null) ? 0 : guete.hashCode());
-		result = (prime * result) + verfahren;
-		final long temp = Double.doubleToLongBits(wertSkaliert);
-		result = (prime * result) + (int) (temp ^ (temp >>> 32));
-		result = (prime * result) + (int) (wertUnskaliert ^ (wertUnskaliert >>> 32));
-		return result;
+		throw new UnsupportedOperationException("Kein hashCode() ermittelbar");
 	}
 
 	/**

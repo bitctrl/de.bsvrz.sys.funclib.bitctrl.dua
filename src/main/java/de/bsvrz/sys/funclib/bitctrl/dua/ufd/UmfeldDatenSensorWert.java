@@ -295,7 +295,7 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 
 	@Override
 	public int hashCode() {
-		return super.hashCode();
+		throw new UnsupportedOperationException("Kein hashCode() ermittelbar");
 	}
 
 	@Override

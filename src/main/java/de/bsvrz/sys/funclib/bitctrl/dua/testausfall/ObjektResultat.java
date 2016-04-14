@@ -96,7 +96,7 @@ public class ObjektResultat implements Comparable<ObjektResultat> {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = (prime * result) + ((resultat == null) ? 0 : resultat.hashCode());
+		result = (prime * result) + resultat.getObject().hashCode();
 		return result;
 	}
 
