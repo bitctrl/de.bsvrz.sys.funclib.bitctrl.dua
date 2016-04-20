@@ -299,6 +299,8 @@ public abstract class AbstraktMesswert extends MesswertMarkierung implements Com
 		datum.getItem(attName).getItem("Güte").getUnscaledValue("Verfahren").set(verfahren);
 	}
 
+	/* FIXME equals und hashCode verletzt den API-Kontrakt und sollte
+	 * hier entfernt bzw. überdacht werden. */
 	@Override
 	public boolean equals(final Object obj) {
 		boolean gleich = false;
@@ -316,11 +318,6 @@ public abstract class AbstraktMesswert extends MesswertMarkierung implements Com
 	public String toString() {
 		return (isSkaliert() ? getWertSkaliert() : getWertUnskaliert()) + " " + super.toString() + " "
 				+ guete.getSkaliertenWert() + " (" + verfahren + ")";
-	}
-
-	@Override
-	public int hashCode() {
-		throw new UnsupportedOperationException("Kein hashCode() ermittelbar");
 	}
 
 	/**

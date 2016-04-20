@@ -235,6 +235,8 @@ public class MesswertMarkierung implements Cloneable {
 		this.veraendert = veraendert;
 	}
 
+	/* FIXME equals und hashCode verletzt den API-Kontrakt und sollte
+	 * hier entfernt bzw. überdacht werden. */
 	@Override
 	public boolean equals(final Object obj) {
 		boolean gleich = false;
@@ -256,11 +258,6 @@ public class MesswertMarkierung implements Cloneable {
 				+ (formalMin ? "fMin " : Constants.EMPTY_STRING) + (logischMax ? "lMax " : Constants.EMPTY_STRING)
 				+ (logischMin ? "lMin " : Constants.EMPTY_STRING) + (implausibel ? "Impl " : Constants.EMPTY_STRING)
 				+ (interpoliert ? "Intp " : Constants.EMPTY_STRING);
-	}
-
-	@Override
-	public int hashCode() {
-		throw new UnsupportedOperationException("Kein hashCode() ermittelbar");
 	}
 
 }

@@ -88,6 +88,7 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 	 *
 	 * @param datenArt
 	 *            die Datenart des Wertes
+	 * @param l
 	 */
 	public UmfeldDatenSensorWert(final UmfeldDatenArt datenArt) {
 		this.datenArt = datenArt;
@@ -281,6 +282,8 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 		return wertStr;
 	}
 
+	/* FIXME equals und hashCode verletzt den API-Kontrakt und sollte
+	 * hier entfernt bzw. überdacht werden. */
 	@Override
 	public boolean equals(final Object obj) {
 		boolean gleich = false;
@@ -291,11 +294,6 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 		}
 
 		return gleich;
-	}
-
-	@Override
-	public int hashCode() {
-		throw new UnsupportedOperationException("Kein hashCode() ermittelbar");
 	}
 
 	@Override

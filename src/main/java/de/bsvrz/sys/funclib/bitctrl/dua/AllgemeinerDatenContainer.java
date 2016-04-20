@@ -47,6 +47,9 @@ public class AllgemeinerDatenContainer {
 	 * sind dann gleich, wenn sie vom selben Typ sind und wenn alle
 	 * Getter-Methoden die gleichen Werte zurückliefern.
 	 *
+	 * FIXME equals und hashCode verletzt den API-Kontrakt und sollte
+	 * hier entfernt bzw. überdacht werden.
+	 *
 	 * @param that
 	 *            ein anderes Objekt
 	 * @return ob die beiden Objekte inhaltlich gleich sind
@@ -82,11 +85,6 @@ public class AllgemeinerDatenContainer {
 		}
 
 		return false;
-	}
-
-	@Override
-	public int hashCode() {
-		throw new UnsupportedOperationException("Kein hashCode() ermittelbar");
 	}
 
 	/**

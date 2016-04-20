@@ -162,7 +162,7 @@ public class GanzZahl implements Comparable<GanzZahl> {
 	 * @param wert
 	 *            festzulegender Wert
 	 */
-	public final void setWert(final long wert) {
+	public void setWert(final long wert) {
 		this.wert = wert;
 
 		if (zustaende != null) {
@@ -251,6 +251,8 @@ public class GanzZahl implements Comparable<GanzZahl> {
 		return s;
 	}
 
+	/* FIXME equals und hashCode verletzt den API-Kontrakt und sollte
+	 * hier entfernt bzw. überdacht werden. */
 	@Override
 	public boolean equals(final Object obj) {
 		boolean gleich = false;
@@ -261,11 +263,6 @@ public class GanzZahl implements Comparable<GanzZahl> {
 		}
 
 		return gleich;
-	}
-
-	@Override
-	public int hashCode() {
-		throw new UnsupportedOperationException("Kein hashCode() ermittelbar");
 	}
 
 	@Override
