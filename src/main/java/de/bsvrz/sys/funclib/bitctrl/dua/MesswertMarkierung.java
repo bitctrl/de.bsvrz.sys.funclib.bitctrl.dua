@@ -38,42 +38,42 @@ public class MesswertMarkierung implements Cloneable {
 	/**
 	 * der Wert von <code>*.Status.Erfassung.NichtErfasst</code>.
 	 */
-	private boolean nichtErfasst;
+	protected boolean nichtErfasst;
 
 	/**
 	 * der Wert von <code>*.Status.MessWertErsetzung.Implausibel</code>.
 	 */
-	private boolean implausibel;
+	protected boolean implausibel;
 
 	/**
 	 * der Wert von <code>*.Status.MessWertErsetzung.Interpoliert</code>.
 	 */
-	private boolean interpoliert;
+	protected boolean interpoliert;
 
 	/**
 	 * der Wert von <code>*.Status.PlFormal.WertMax</code>.
 	 */
-	private boolean formalMax;
+	protected boolean formalMax;
 
 	/**
 	 * der Wert von <code>*.Status.PlFormal.WertMin</code>.
 	 */
-	private boolean formalMin;
+	protected boolean formalMin;
 
 	/**
 	 * der Wert von <code>*.Status.PlLogisch.WertMaxLogisch</code>.
 	 */
-	private boolean logischMax;
+	protected boolean logischMax;
 
 	/**
 	 * der Wert von <code>*.Status.PlLogisch.WertMinLogisch</code>.
 	 */
-	private boolean logischMin;
+	protected boolean logischMin;
 
 	/**
 	 * zeigt an, ob eine der Setter-Methoden benutzt wurde.
 	 */
-	private boolean veraendert;
+	protected boolean veraendert;
 
 	/**
 	 * Erfragt den Wert von <code>*.Status.MessWertErsetzung.Interpoliert</code>

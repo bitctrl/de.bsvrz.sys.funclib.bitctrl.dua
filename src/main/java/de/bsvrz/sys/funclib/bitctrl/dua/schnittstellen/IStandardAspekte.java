@@ -67,7 +67,7 @@ public interface IStandardAspekte {
 	 * @return die Objektanmeldungen, die für die Publikation unter den
 	 *         Standardaspekten durchgeführt werden müssen (ggf. leere Menge)
 	 */
-	Collection<DAVObjektAnmeldung> getStandardAnmeldungen(final Collection<SystemObject> objektFilter);
+	Collection<DAVObjektAnmeldung> getStandardAnmeldungen(final SystemObject[] objektFilter);
 
 	/**
 	 * Erfragt alle Attributgruppen, die innerhalb dieser

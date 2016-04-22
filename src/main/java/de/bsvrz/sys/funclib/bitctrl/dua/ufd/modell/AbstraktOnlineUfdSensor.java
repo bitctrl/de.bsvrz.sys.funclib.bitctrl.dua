@@ -65,7 +65,7 @@ public abstract class AbstraktOnlineUfdSensor<G> implements ClientReceiverInterf
 	/**
 	 * aktueller Onlinewert.
 	 */
-	private G onlineWert;
+	protected G onlineWert;
 
 	/**
 	 * Initialisiert dieses Objekt.

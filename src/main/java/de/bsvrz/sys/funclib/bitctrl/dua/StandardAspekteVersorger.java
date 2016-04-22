@@ -58,7 +58,7 @@ import de.bsvrz.sys.funclib.debug.Debug;
 public abstract class StandardAspekteVersorger {
 
 	/** Verbindung zum Verwaltungsmodul. */
-	private final IVerwaltung verwaltung;
+	protected final IVerwaltung verwaltung;
 
 	/**
 	 * Die Informationen über die Standardaspekte für die Publikation einer
@@ -66,10 +66,10 @@ public abstract class StandardAspekteVersorger {
 	 * initialisiert, das zurückgegeben wird, wenn die Standardaspekte nicht zur
 	 * Verfügung stehen).
 	 */
-	private IStandardAspekte standardAspekte = new IStandardAspekte() {
+	protected IStandardAspekte standardAspekte = new IStandardAspekte() {
 
 		@Override
-		public Collection<DAVObjektAnmeldung> getStandardAnmeldungen(final Collection<SystemObject> objektFilter) {
+		public Collection<DAVObjektAnmeldung> getStandardAnmeldungen(final SystemObject[] objektFilter) {
 			return new ArrayList<>();
 		}
 
@@ -196,10 +196,10 @@ public abstract class StandardAspekteVersorger {
 		}
 
 		@Override
-		public final Collection<DAVObjektAnmeldung> getStandardAnmeldungen(final Collection<SystemObject> objektFilter) {
+		public final Collection<DAVObjektAnmeldung> getStandardAnmeldungen(final SystemObject[] objektFilter) {
 			Collection<DAVObjektAnmeldung> anmeldungen = new TreeSet<>();
 
-			if ((objektFilter == null) || objektFilter.isEmpty()) {
+			if ((objektFilter == null) || (objektFilter.length <= 0)) {
 				anmeldungen = anmeldungenGlobal;
 			} else {
 				final HashSet<SystemObject> objekte = new HashSet<>();

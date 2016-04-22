@@ -80,7 +80,7 @@ public interface IVerwaltung extends StandardApplication, ClientReceiverInterfac
 	 *
 	 * @return alle zu bearbeitenden Objekte
 	 */
-	Collection<SystemObject> getSystemObjekte();
+	SystemObject[] getSystemObjekte();
 
 	/**
 	 * Erfragt die dem Verwaltungsmodul übergebenen Konfigurationsbereiche.

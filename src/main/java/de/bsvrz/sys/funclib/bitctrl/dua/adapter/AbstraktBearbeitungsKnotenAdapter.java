@@ -44,27 +44,27 @@ public abstract class AbstraktBearbeitungsKnotenAdapter implements IBearbeitungs
 	/**
 	 * nächster Bearbeitungsknoten.
 	 */
-	private IBearbeitungsKnoten knoten;
+	protected IBearbeitungsKnoten knoten;
 
 	/**
 	 * <b>FLAG</b>: Soll publiziert werden?
 	 */
-	private boolean publizieren;
+	protected boolean publizieren;
 
 	/**
 	 * Verbindung zum Verwaltungsmodul.
 	 */
-	private IVerwaltung verwaltung;
+	protected IVerwaltung verwaltung;
 
 	/**
 	 * Schnittstelle zu den Informationen über die Standardpublikationsaspekte.
 	 */
-	private IStandardAspekte standardAspekte;
+	protected IStandardAspekte standardAspekte;
 
 	/**
 	 * Anmeldungen zum Publizieren von verarbeiteten Daten.
 	 */
-	private DAVSendeAnmeldungsVerwaltung publikationsAnmeldungen;
+	protected DAVSendeAnmeldungsVerwaltung publikationsAnmeldungen;
 
 	@Override
 	public void setPublikation(final boolean publizieren1) {

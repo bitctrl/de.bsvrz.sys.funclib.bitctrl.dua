@@ -14,6 +14,10 @@ genutzt werden oder potentiell genutzt werden können.
 Versionsgeschichte
 ==================
 
+1.5.0
+=====
+- Kompatibilität mit Parallel-Entwicklung der DuA-SWE wiederhergestellt
+
 1.4.0
 =====
 - Abspaltung des Komponente von Funclib-BitCtrl

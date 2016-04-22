@@ -81,7 +81,7 @@ public class DatenFlussSteuerungFuerModul implements IDatenFlussSteuerungFuerMod
 	}
 
 	@Override
-	public Collection<DAVObjektAnmeldung> getDatenAnmeldungen(final Collection<SystemObject> filterObjekte,
+	public Collection<DAVObjektAnmeldung> getDatenAnmeldungen(final SystemObject[] filterObjekte,
 			final Collection<DAVObjektAnmeldung> standardAnmeldungen) {
 		final Collection<DAVObjektAnmeldung> alleAnmeldungen = new TreeSet<>();
 		final Collection<DAVObjektAnmeldung> stdAnmeldungen = new TreeSet<>();
@@ -91,7 +91,7 @@ public class DatenFlussSteuerungFuerModul implements IDatenFlussSteuerungFuerMod
 			if (pz.isPublizieren()) {
 				final Collection<SystemObject> pzAnzumeldendeObjekte = new HashSet<>();
 
-				if ((filterObjekte != null) && !filterObjekte.isEmpty()) {
+				if ((filterObjekte != null) && (filterObjekte.length > 0)) {
 					for (final SystemObject obj : pz.getObjekte()) {
 						for (final SystemObject filterObj : filterObjekte) {
 							if (obj.equals(filterObj)) {

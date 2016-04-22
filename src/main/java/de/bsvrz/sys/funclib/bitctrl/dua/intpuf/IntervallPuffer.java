@@ -49,7 +49,7 @@ public class IntervallPuffer<T extends IIntervallDatum<T>> {
 	/**
 	 * Speichert die Daten.
 	 */
-	private final SortedMap<Long, Intervall<T>> puffer = new TreeMap<>();
+	protected final SortedMap<Long, Intervall<T>> puffer = new TreeMap<>();
 
 	/**
 	 * Loescht alle Daten aus dem Puffer, die aelter als der uebergebene

@@ -75,7 +75,7 @@ public final class DUAUmfeldDatenMessStelle {
 	 *            Menge der zu initialisierenden Objekte (muss
 	 *            <code>!= null</code> sein)
 	 */
-	public static void initialisiere(final ClientDavInterface dav, final Collection<SystemObject> messStellenObjekte) {
+	public static void initialisiere(final ClientDavInterface dav, final SystemObject[]messStellenObjekte) {
 		if (messStellenObjekte == null) {
 			throw new NullPointerException("Menge der Umfelddaten-Messstellen ist <<null>>");
 		}

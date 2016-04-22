@@ -63,7 +63,7 @@ public interface IDatenFlussSteuerungFuerModul {
 	 *            Menge der Anmeldungen unter den Standard-Publikationsaspekten
 	 * @return eine ggf. leere Menge mit Datenanmeldungen
 	 */
-	Collection<DAVObjektAnmeldung> getDatenAnmeldungen(final Collection<SystemObject> filterObjekte,
+	Collection<DAVObjektAnmeldung> getDatenAnmeldungen(final SystemObject[] filterObjekte,
 			final Collection<DAVObjektAnmeldung> standardAnmeldungen);
 
 	/**
