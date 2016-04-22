@@ -206,4 +206,15 @@ public abstract class AbstraktVerwaltungsAdapter implements IVerwaltung {
 		return komArgumente;
 	}
 
+	protected void clearKomArguments() {
+		komArgumente.clear();
+	}
+
+	protected void addKomArgument(final String argument) {
+		komArgumente.add(argument);
+	}
+
+	protected void setSystemObjekte(final Collection<SystemObject> newObjects) {
+		objekte = newObjects.toArray(new SystemObject[newObjects.size()]);
+	}
 }
