@@ -136,6 +136,7 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	 * @param objekt
 	 *            das Systemobjekt des Umfelddatensensors
 	 * @throws UmfeldDatenSensorUnbekannteDatenartException
+	 *             der Sensor hat keinen der unterstützten Typen
 	 */
 	protected DUAUmfeldDatenSensor(final ClientDavInterface dav, final SystemObject objekt)
 			throws UmfeldDatenSensorUnbekannteDatenartException {
