@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -27,7 +27,7 @@
 package de.bsvrz.sys.funclib.bitctrl.dua.dfs.schnittstellen;
 
 /**
- * Interface das alle Klassen implementieren müssen, die Änderungen innerhalb
+ * Interface das alle Klassen implementieren mÃ¼ssen, die Ã„nderungen innerhalb
  * der Datenflusssteuerung empfangen wollen.
  *
  * @author BitCtrl Systems GmbH, Thierfelder

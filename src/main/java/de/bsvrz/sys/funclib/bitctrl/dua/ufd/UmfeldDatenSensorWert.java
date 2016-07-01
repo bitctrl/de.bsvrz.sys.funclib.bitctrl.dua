@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -39,7 +39,7 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 
 	/**
 	 * Dieses Flag bestimmt, ob Werte, die laut Anforderungen als fehlerhaft zu
-	 * setzen sind, auch tatsächlich so gesetzt werden. Wenn man dieses Flag auf
+	 * setzen sind, auch tatsÃ¤chlich so gesetzt werden. Wenn man dieses Flag auf
 	 * true setzt, so wird ein als implausibel gekennzeichneter Wert trotzdem
 	 * publiziert.
 	 */
@@ -54,7 +54,7 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 	 * Daten nicht ermittelbar, da bereits Basiswerte fehlerhaft. Wird gesetzt,
 	 * wenn Daten, die zur Berechnung dieses Werts notwendig sind, bereits als
 	 * fehlerhaft gekennzeichnet sind, oder wenn die Berechnung aus anderen
-	 * Gründen (z.B. Nenner = 0 in der Berechnungsformel) nicht möglich war.
+	 * GrÃ¼nden (z.B. Nenner = 0 in der Berechnungsformel) nicht mÃ¶glich war.
 	 */
 	private boolean fehlerhaftBzwNichtErmittelbar;
 
@@ -67,7 +67,7 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 	/**
 	 * Daten sind nicht ermittelbar (ist KEIN Fehler). Wird gesetzt, wenn der
 	 * entsprechende Wert nicht ermittelbar ist und kein Interpolation sinnvoll
-	 * möglich ist (z.B. ist die Geschwindigkeit nicht ermittelbar, wenn kein
+	 * mÃ¶glich ist (z.B. ist die Geschwindigkeit nicht ermittelbar, wenn kein
 	 * Fahrzeug erfasst wurde).
 	 **/
 	private boolean nichtErmittelbar;
@@ -103,7 +103,7 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 	}
 
 	/**
-	 * Erfragt den Offset für den Wertestatus dieses UF-Datums in Bezug auf die
+	 * Erfragt den Offset fÃ¼r den Wertestatus dieses UF-Datums in Bezug auf die
 	 * normalen Werte:<br>
 	 * . - <code>nicht ermittelbar = -1</code><br>
 	 * - <code>fehlerhaft = -2</code>, oder<br>
@@ -256,10 +256,10 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 	}
 
 	/**
-	 * Erfragt, ob dieser Wert wirkliche Daten enthält (im Gegensatz zu blos
+	 * Erfragt, ob dieser Wert wirkliche Daten enthÃ¤lt (im Gegensatz zu blos
 	 * Statuswerten. )
 	 *
-	 * @return ob dieser Wert wirkliche Daten enthält (im Gegensatz zu blos
+	 * @return ob dieser Wert wirkliche Daten enthÃ¤lt (im Gegensatz zu blos
 	 *         Statuswerten)
 	 */
 	public final boolean isOk() {
@@ -283,7 +283,7 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 
 	/*
 	 * FIXME equals und hashCode verletzt den API-Kontrakt und sollte hier
-	 * entfernt bzw. überdacht werden.
+	 * entfernt bzw. Ã¼berdacht werden.
 	 */
 	@Override
 	public boolean equals(final Object obj) {
@@ -307,7 +307,7 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 
 	/**
 	 * Dieses Flag bestimmt, ob Werte, die laut Anforderungen als fehlerhaft zu
-	 * setzen sind, auch tatsächlich so gesetzt werden. Wenn man dieses Flag auf
+	 * setzen sind, auch tatsÃ¤chlich so gesetzt werden. Wenn man dieses Flag auf
 	 * true setzt, so wird ein als implausibel gekennzeichneter Wert trotzdem
 	 * publiziert.
 	 *

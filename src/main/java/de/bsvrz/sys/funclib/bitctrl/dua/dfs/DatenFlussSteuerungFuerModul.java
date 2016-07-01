@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -43,10 +43,10 @@ import de.bsvrz.sys.funclib.bitctrl.dua.av.DAVObjektAnmeldung;
 import de.bsvrz.sys.funclib.bitctrl.dua.dfs.schnittstellen.IDatenFlussSteuerungFuerModul;
 
 /**
- * Diese Klasse stellt über die Schnittstelle
- * <code>IDatenFlussSteuerungFuerModul</code> alle Informationen über die
+ * Diese Klasse stellt Ã¼ber die Schnittstelle
+ * <code>IDatenFlussSteuerungFuerModul</code> alle Informationen Ã¼ber die
  * Datenflusssteuerung einer bestimmten SWE in Zusammenhang mit einem bestimmten
- * Modul-Typ zur Verfügung.
+ * Modul-Typ zur VerfÃ¼gung.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
@@ -64,7 +64,7 @@ public class DatenFlussSteuerungFuerModul implements IDatenFlussSteuerungFuerMod
 	private final Map<PublikationObjAtg, PublikationFuerDatum> publikationsMap = new TreeMap<>();
 
 	/**
-	 * Fügt diesem Objekt eine Publikationszuordung hinzu.
+	 * FÃ¼gt diesem Objekt eine Publikationszuordung hinzu.
 	 *
 	 * @param pz
 	 *            die neue Publikationszuordung
@@ -152,7 +152,7 @@ public class DatenFlussSteuerungFuerModul implements IDatenFlussSteuerungFuerMod
 
 	@Override
 	public String toString() {
-		String s = "\nDatenflusssteuerung für Modul:\n";
+		String s = "\nDatenflusssteuerung fÃ¼r Modul:\n";
 
 		int i = 0;
 		for (final PublikationsZuordung pz : publikationsZuordnungen) {
@@ -163,10 +163,10 @@ public class DatenFlussSteuerungFuerModul implements IDatenFlussSteuerungFuerMod
 	}
 
 	/**
-	 * Diese Klasse wird nur als Schlüssel-Objekt innerhalb der internen
-	 * Struktur <code>publikationsMap</code> benötigt. Sie speichert ein
+	 * Diese Klasse wird nur als SchlÃ¼ssel-Objekt innerhalb der internen
+	 * Struktur <code>publikationsMap</code> benÃ¶tigt. Sie speichert ein
 	 * (finales) Systemobjekt zusammen mit einer Attributgruppe. Die Klasse ist
-	 * so designed, dass sie effektiv als Schlüssel innerhalb von
+	 * so designed, dass sie effektiv als SchlÃ¼ssel innerhalb von
 	 * <code>TreeMap</code>-Objekten eingesetzt werden kann.
 	 */
 	protected class PublikationObjAtg implements Comparable<PublikationObjAtg> {
@@ -221,7 +221,7 @@ public class DatenFlussSteuerungFuerModul implements IDatenFlussSteuerungFuerMod
 
 		/**
 		 * Diese Methode muss implementiert werden, da nach der Exploration des
-		 * Baums über <code>compareTo(..)</code> (bspw. beim Aufruf von
+		 * Baums Ã¼ber <code>compareTo(..)</code> (bspw. beim Aufruf von
 		 * <code>contains()</code>) nochmals mit <code>equals(..)</code>
 		 * explizit auf Gleichheit getestet wird.
 		 */
@@ -240,9 +240,9 @@ public class DatenFlussSteuerungFuerModul implements IDatenFlussSteuerungFuerMod
 	}
 
 	/**
-	 * Diese Klasse wird nur als Wert-Objekt zu einem Schlüssel vom Typ
+	 * Diese Klasse wird nur als Wert-Objekt zu einem SchlÃ¼ssel vom Typ
 	 * <code>PublikationObjAtg</code> innerhalb der internen Struktur
-	 * <code>publikationsMap</code> benötigt. Sie speichert die Information, ob
+	 * <code>publikationsMap</code> benÃ¶tigt. Sie speichert die Information, ob
 	 * und unter welchem Aspekt publiziert werden soll.
 	 *
 	 * @author BitCtrl Systems GmbH, Thierfelder

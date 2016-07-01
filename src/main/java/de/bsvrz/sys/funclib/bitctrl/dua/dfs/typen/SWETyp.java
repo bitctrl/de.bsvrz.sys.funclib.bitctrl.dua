@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -32,8 +32,8 @@ import java.util.Map;
 import de.bsvrz.sys.funclib.bitctrl.daf.AbstractDavZustand;
 
 /**
- * Über diese Klasse werden alle im DAV-Enumerationstyp <code>att.sweTyp</code>
- * beschriebenen Werte zur Verfügung gestellt.
+ * Ãœber diese Klasse werden alle im DAV-Enumerationstyp <code>att.sweTyp</code>
+ * beschriebenen Werte zur VerfÃ¼gung gestellt.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
@@ -45,24 +45,24 @@ public final class SWETyp extends AbstractDavZustand {
 	private static Map<Integer, SWETyp> werteBereich = new HashMap<>();
 
 	/**
-	 * Wert <code>SWE_PL_Prüfung_formal</code>.
+	 * Wert <code>SWE_PL_PrÃ¼fung_formal</code>.
 	 */
-	public static final SWETyp PL_PRUEFUNG_FORMAL = new SWETyp("SWE_PL_Prüfung_formal", 1);
+	public static final SWETyp PL_PRUEFUNG_FORMAL = new SWETyp("SWE_PL_PrÃ¼fung_formal", 1);
 
 	/**
-	 * Wert <code>SWE_PL_Prüfung_logisch_LVE</code>.
+	 * Wert <code>SWE_PL_PrÃ¼fung_logisch_LVE</code>.
 	 */
-	public static final SWETyp PL_PRUEFUNG_LOGISCH_LVE = new SWETyp("SWE_PL_Prüfung_logisch_LVE", 2);
+	public static final SWETyp PL_PRUEFUNG_LOGISCH_LVE = new SWETyp("SWE_PL_PrÃ¼fung_logisch_LVE", 2);
 
 	/**
-	 * Wert <code>SWE_PL_Prüfung_logisch_UFD</code>.
+	 * Wert <code>SWE_PL_PrÃ¼fung_logisch_UFD</code>.
 	 */
-	public static final SWETyp SWE_PL_PRUEFUNG_LOGISCH_UFD = new SWETyp("SWE_PL_Prüfung_logisch_UFD", 3);
+	public static final SWETyp SWE_PL_PRUEFUNG_LOGISCH_UFD = new SWETyp("SWE_PL_PrÃ¼fung_logisch_UFD", 3);
 
 	/**
-	 * Wert <code>SWE_PL_Prüfung_logisch_WZG</code>.
+	 * Wert <code>SWE_PL_PrÃ¼fung_logisch_WZG</code>.
 	 */
-	public static final SWETyp SWE_PL_PRUEFUNG_LOGISCH_WZG = new SWETyp("SWE_PL_Prüfung_logisch_WZG", 4);
+	public static final SWETyp SWE_PL_PRUEFUNG_LOGISCH_WZG = new SWETyp("SWE_PL_PrÃ¼fung_logisch_WZG", 4);
 
 	/**
 	 * Wert <code>SWE_Messwertersetzung_LVE</code>.
@@ -90,14 +90,14 @@ public final class SWETyp extends AbstractDavZustand {
 	public static final SWETyp SWE_AGGREGATION_LVE = new SWETyp("SWE_Aggregation_LVE", 9);
 
 	/**
-	 * Wert <code>SWE_Ergänzung_BASt</code>.
+	 * Wert <code>SWE_ErgÃ¤nzung_BASt</code>.
 	 */
-	public static final SWETyp SWE_ERGAENZUNG_BAST = new SWETyp("SWE_Ergänzung_BASt", 10);
+	public static final SWETyp SWE_ERGAENZUNG_BAST = new SWETyp("SWE_ErgÃ¤nzung_BASt", 10);
 
 	/**
-	 * Wert <code>SWE_Güteberechnung</code>.
+	 * Wert <code>SWE_GÃ¼teberechnung</code>.
 	 */
-	public static final SWETyp SWE_GUETEBERECHNUNG = new SWETyp("SWE_Güteberechnung", 11);
+	public static final SWETyp SWE_GUETEBERECHNUNG = new SWETyp("SWE_GÃ¼teberechnung", 11);
 
 	/**
 	 * Wert <code>SWE_Messwertersetzung_UFD</code>.
@@ -105,14 +105,14 @@ public final class SWETyp extends AbstractDavZustand {
 	public static final SWETyp SWE_MESSWERTERSETZUNG_UFD = new SWETyp("SWE_Messwertersetzung_UFD", 12);
 
 	/**
-	 * Wert <code>SWE_PL_Prüfung_Langzeit_UFD</code>.
+	 * Wert <code>SWE_PL_PrÃ¼fung_Langzeit_UFD</code>.
 	 */
-	public static final SWETyp SWE_PL_PRUEFUNG_LANGZEIT_UFD = new SWETyp("SWE_PL_Prüfung_Langzeit_UFD", 13);
+	public static final SWETyp SWE_PL_PRUEFUNG_LANGZEIT_UFD = new SWETyp("SWE_PL_PrÃ¼fung_Langzeit_UFD", 13);
 
 	/**
-	 * Wert <code>SWE_DuA_Glättewarnung_und_Prognose</code>.
+	 * Wert <code>SWE_DuA_GlÃ¤ttewarnung_und_Prognose</code>.
 	 */
-	public static final SWETyp SWE_GLAETTEWARNUNG_UND_PROGNOSE = new SWETyp("SWE_DuA_Glättewarnung_und_Prognose", 14);
+	public static final SWETyp SWE_GLAETTEWARNUNG_UND_PROGNOSE = new SWETyp("SWE_DuA_GlÃ¤ttewarnung_und_Prognose", 14);
 
 	/**
 	 * Interner Konstruktor.
@@ -128,11 +128,11 @@ public final class SWETyp extends AbstractDavZustand {
 	}
 
 	/**
-	 * Erfragt den Wert dieses DAV-Enumerationstypen mit dem übergebenen Code.
+	 * Erfragt den Wert dieses DAV-Enumerationstypen mit dem Ã¼bergebenen Code.
 	 *
 	 * @param code
 	 *            der Code des Enumerations-Wertes
-	 * @return den Wert dieses DAV-Enumerationstypen mit dem übergebenen Code.
+	 * @return den Wert dieses DAV-Enumerationstypen mit dem Ã¼bergebenen Code.
 	 */
 	public static SWETyp getZustand(final int code) {
 		return SWETyp.werteBereich.get(code);

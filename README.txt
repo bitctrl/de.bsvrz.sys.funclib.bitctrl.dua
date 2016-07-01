@@ -4,27 +4,31 @@
 
 Version: ${version}
 
-‹bersicht
+√úbersicht
 =========
 
-Dieses Modul enth‰lt allgemeine Funktionen die von mehreren SWE des Segments DuA
-genutzt werden oder potentiell genutzt werden kˆnnen.
+Dieses Modul enth√§lt allgemeine Funktionen die von mehreren SWE des Segments DuA
+genutzt werden oder potentiell genutzt werden k√∂nnen.
 
 
 Versionsgeschichte
 ==================
 
+1.6.0
+=====
+- Umstellung auf Java 8 und UTF-8
+
 1.5.0
 =====
-- Kompatibilit‰t mit Parallel-Entwicklung der DuA-SWE wiederhergestellt
+- Kompatibilit√§t mit Parallel-Entwicklung der DuA-SWE wiederhergestellt
 
 1.4.0
 =====
 - Abspaltung des Komponente von Funclib-BitCtrl
-- ‹bernahme der ƒnderungen der Firma Kappich im Rahmen der DuA-‹berarbeitung
+- √úbernahme der √Ñnderungen der Firma Kappich im Rahmen der DuA-√úberarbeitung
 
 DuaKonstanten:
-- neue Konstante f¸r ATG "atg.messQuerschnittVirtuell"
+- neue Konstante f√ºr ATG "atg.messQuerschnittVirtuell"
 
 AbstraktVerwaltungsAdapter:
 - Betriebsmeldung beim Fehlschlagen der Initialisierung entfernt
@@ -32,10 +36,10 @@ AbstraktVerwaltungsAdapter:
 MessQuerschnittVirtuell:
 - Anteile des VMQ als eigene Klasse "MessQuerschnittAnteile" ausgelagert
 - Debug-Level im Konstruktor auf FINE gesetzt, wenn die ATG "virtuellStandard" nicht versorgt ist
-- Funktionsnamen f¸r die ermittlung der MessQuerschnittAnteile angepasst
+- Funktionsnamen f√ºr die ermittlung der MessQuerschnittAnteile angepasst
 
-AtgMessQuerschnittVirtuell erg‰nzt
-Schnittstelle MessQuerschnittAnteile erg‰nzt
+AtgMessQuerschnittVirtuell erg√§nzt
+Schnittstelle MessQuerschnittAnteile erg√§nzt
 
 AtgMessQuerschnittVirtuellVLage
 - erweitert die neue Schnittstelle MessQuerschnittAnteile
@@ -43,10 +47,10 @@ AtgMessQuerschnittVirtuellVLage
 - getMessQuerschnittGeschwindigkeit liefert gegebenenfalls null und nicht den erstbesten MQ
 
 DUAUmfeldDatenSensor
-- verwendet eine IndentityHashMap f¸r die Verwaltung der Instanzen
+- verwendet eine IndentityHashMap f√ºr die Verwaltung der Instanzen
 
 UmfeldDatenArt
-- hashCode-Funktion erg‰nzt
+- hashCode-Funktion erg√§nzt
 
 
 Bemerkungen
@@ -82,7 +86,7 @@ Kontakt
 =======
 
 BitCtrl Systems GmbH
-Weiﬂenfelser Straﬂe 67
+Wei√üenfelser Stra√üe 67
 04229 Leipzig
 Phone: +49 341-490670
 mailto: info@bitctrl.de

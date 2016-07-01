@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -62,7 +62,7 @@ public class DuaVerkehrsNetz {
 	 *            Verbindung zum Datenverteiler
 	 * @throws DUAInitialisierungsException
 	 *             wenn es Probleme geben sollte, die die Initialisierung des
-	 *             Netzes (im Sinne der DUA) nicht möglich machen
+	 *             Netzes (im Sinne der DUA) nicht mÃ¶glich machen
 	 */
 	public static synchronized void initialisiere(final ClientDavInterface dav) throws DUAInitialisierungsException {
 		if (DuaVerkehrsNetz.initialisiert) {
@@ -89,7 +89,7 @@ public class DuaVerkehrsNetz {
 	 *            Menge der zu betrachtenden Konfigurationsbereiche
 	 * @throws DUAInitialisierungsException
 	 *             wenn es Probleme geben sollte, die die Initialisierung des
-	 *             Netzes (im Sinne der DUA) nicht möglich machen
+	 *             Netzes (im Sinne der DUA) nicht mÃ¶glich machen
 	 */
 	public static synchronized void initialisiere(final ClientDavInterface dav, final ConfigurationArea[] kbs)
 			throws DUAInitialisierungsException {
@@ -107,8 +107,8 @@ public class DuaVerkehrsNetz {
 	}
 
 	/**
-	 * Ermittelt für alle Fahrstreifen die Nachbar- bzw. Ersatzfahrstreifen, so
-	 * diese nicht explizit versorgt sind und trägt sie an den entsprechenden
+	 * Ermittelt fÃ¼r alle Fahrstreifen die Nachbar- bzw. Ersatzfahrstreifen, so
+	 * diese nicht explizit versorgt sind und trÃ¤gt sie an den entsprechenden
 	 * Fahrtreifen ein
 	 */
 	private static void ermittleErsatzUndNachbarFS() {
@@ -125,7 +125,7 @@ public class DuaVerkehrsNetz {
 
 				if (fs.getNachbarFahrStreifen() == null) {
 					Debug.getLogger()
-					.warning("Für Fahrstreifen " + fs + " kann " + "kein Nachbarfahrstreifen ermittelt werden");
+					.warning("FÃ¼r Fahrstreifen " + fs + " kann " + "kein Nachbarfahrstreifen ermittelt werden");
 				}
 
 				if (fs.getErsatzFahrStreifen() == null) {
@@ -144,8 +144,8 @@ public class DuaVerkehrsNetz {
 
 						if (ersatzFahstreifen.size() > 0) {
 							if (ersatzFahstreifen.size() > 1) {
-								Debug.getLogger().warning("Für Fahrstreifen " + fs + " sind mehrere"
-										+ " Ersatzfahrstreifen ermittelbar." + " Wähle: " + ersatzFahstreifen.get(0));
+								Debug.getLogger().warning("FÃ¼r Fahrstreifen " + fs + " sind mehrere"
+										+ " Ersatzfahrstreifen ermittelbar." + " WÃ¤hle: " + ersatzFahstreifen.get(0));
 							}
 							fs.setErsatzFahrStreifen(ersatzFahstreifen.get(0).getSystemObject());
 						}
@@ -154,7 +154,7 @@ public class DuaVerkehrsNetz {
 
 				if (fs.getErsatzFahrStreifen() == null) {
 					Debug.getLogger()
-					.warning("Für Fahrstreifen " + fs + " kann " + "kein Ersatzfahrstreifen ermittelt werden");
+					.warning("FÃ¼r Fahrstreifen " + fs + " kann " + "kein Ersatzfahrstreifen ermittelt werden");
 				}
 			}
 		}

@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f¸r das Segment DuA
+ * Allgemeine Funktionen f√ºr das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weiﬂenfelser Straﬂe 67
+ * Wei√üenfelser Stra√üe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -40,8 +40,8 @@ import de.bsvrz.sys.funclib.debug.Debug;
 /**
  * Instanzen dieser Klasse rufen zu bestimmten Zeitpunkten all ihre Beobachter
  * auf und teilen diesen dann eine bestimmte Information des generischen Typs
- * <code>T</code> mit. Der Zeitpunkt sowie die Information kˆnnen dabei w‰hrend
- * der Laufzeit ver‰ndert werden
+ * <code>T</code> mit. Der Zeitpunkt sowie die Information k√∂nnen dabei w√§hrend
+ * der Laufzeit ver√§ndert werden
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  *
@@ -61,18 +61,18 @@ public class KontrollProzess<T> {
 	private Prozess prozess;
 
 	/**
-	 * n‰chster Zeitpunkt, zu dem dieser Prozess seine Beobachter informiert.
+	 * n√§chster Zeitpunkt, zu dem dieser Prozess seine Beobachter informiert.
 	 */
 	private long naechsterAufrufZeitpunkt = -1;
 
 	/**
-	 * ein Objekt mit einer bestimmten Information, das beim n‰chsten
+	 * ein Objekt mit einer bestimmten Information, das beim n√§chsten
 	 * Aufrufzeitpunkt an alle Beobachterobjekte weitergeleitet wird.
 	 */
 	private T aktuelleInformation;
 
 	/**
-	 * Menge von Beobachtern, die auf diesen Prozess hˆren.
+	 * Menge von Beobachtern, die auf diesen Prozess h√∂ren.
 	 */
 	private final Collection<IKontrollProzessListener<T>> listenerMenge = Collections
 			.synchronizedSet(new HashSet<IKontrollProzessListener<T>>());
@@ -86,20 +86,20 @@ public class KontrollProzess<T> {
 	}
 
 	/**
-	 * Setzt den n‰chsten Zeitpunkt, zu dem dieser Prozess seine Beobachter
+	 * Setzt den n√§chsten Zeitpunkt, zu dem dieser Prozess seine Beobachter
 	 * informiert<br>
-	 * <b>Achtung:</b> Wenn der n‰chste Aufrufzeitpunkt in der Vergangenheit
-	 * liegt, wird er sofort ausgef¸hrt.
+	 * <b>Achtung:</b> Wenn der n√§chste Aufrufzeitpunkt in der Vergangenheit
+	 * liegt, wird er sofort ausgef√ºhrt.
 	 *
 	 * @param zeitpunktInMillis
-	 *            n‰chster Zeitpunkt, zu dem dieser Prozess seine Beobachter
+	 *            n√§chster Zeitpunkt, zu dem dieser Prozess seine Beobachter
 	 *            informiert
 	 */
 	public final synchronized void setNaechstenAufrufZeitpunkt(final long zeitpunktInMillis) {
 		if (this.naechsterAufrufZeitpunkt != zeitpunktInMillis) {
 			final SimpleDateFormat dateFormat = new SimpleDateFormat(DUAKonstanten.ZEIT_FORMAT_GENAU_STR);
 			Debug.getLogger()
-			.info("Der eingeplante Kontrollzeitpunkt wird ver‰ndert" + "\nAlt: "
+			.info("Der eingeplante Kontrollzeitpunkt wird ver√§ndert" + "\nAlt: "
 					+ dateFormat.format(new Date(this.naechsterAufrufZeitpunkt)) + "\nNeu: "
 					+ dateFormat.format(new Date(zeitpunktInMillis)));
 			this.naechsterAufrufZeitpunkt = zeitpunktInMillis;
@@ -111,17 +111,17 @@ public class KontrollProzess<T> {
 	}
 
 	/**
-	 * Setzt den n‰chsten Zeitpunkt, zu dem dieser Prozess seine Beobachter
-	 * informiert und ¸bergibt eine Information, die zu diesem Zeitpunkt an alle
+	 * Setzt den n√§chsten Zeitpunkt, zu dem dieser Prozess seine Beobachter
+	 * informiert und √ºbergibt eine Information, die zu diesem Zeitpunkt an alle
 	 * Beobachter weitergereicht werden soll. Sollte dieser Zeitpunkt identisch
 	 * mit dem bislang eingeplanten Zeitpunkt sein, so werden nur die
 	 * Informationen angepasst
 	 *
 	 * @param zeitpunktInMillis
-	 *            n‰chster Zeitpunkt, zu dem dieser Prozess seine Beobachter
+	 *            n√§chster Zeitpunkt, zu dem dieser Prozess seine Beobachter
 	 *            informiert
 	 * @param information
-	 *            ein Objekt mit einer bestimmten Information, das beim n‰chsten
+	 *            ein Objekt mit einer bestimmten Information, das beim n√§chsten
 	 *            Aufrufzeitpunkt an alle Beobachterobjekte weitergeleitet wird
 	 */
 	public final synchronized void setNaechstenAufrufZeitpunkt(final long zeitpunktInMillis, final T information) {
@@ -130,10 +130,10 @@ public class KontrollProzess<T> {
 	}
 
 	/**
-	 * Erfragt den n‰chsten Zeitpunkt, zu dem dieser Prozess seine Beobachter
+	 * Erfragt den n√§chsten Zeitpunkt, zu dem dieser Prozess seine Beobachter
 	 * informiert.
 	 *
-	 * @return n‰chster Zeitpunkt, zu dem dieser Prozess seine Beobachter
+	 * @return n√§chster Zeitpunkt, zu dem dieser Prozess seine Beobachter
 	 *         informiert
 	 */
 	public final synchronized long getNaechstenAufrufZeitpunkt() {
@@ -141,11 +141,11 @@ public class KontrollProzess<T> {
 	}
 
 	/**
-	 * Setzt ein Objekt mit einer bestimmten Information, das beim n‰chsten
+	 * Setzt ein Objekt mit einer bestimmten Information, das beim n√§chsten
 	 * Aufrufzeitpunkt an alle Beobachterobjekte weitergeleitet wird.
 	 *
 	 * @param information
-	 *            ein Objekt mit einer bestimmten Information, das beim n‰chsten
+	 *            ein Objekt mit einer bestimmten Information, das beim n√§chsten
 	 *            Aufrufzeitpunkt an alle Beobachterobjekte weitergeleitet wird
 	 */
 	public final synchronized void setInformation(final T information) {
@@ -153,10 +153,10 @@ public class KontrollProzess<T> {
 	}
 
 	/**
-	 * Erfragt das Objekt mit einer bestimmten Information, das beim n‰chsten
+	 * Erfragt das Objekt mit einer bestimmten Information, das beim n√§chsten
 	 * Aufrufzeitpunkt an alle Beobachterobjekte weitergeleitet wird.
 	 *
-	 * @return das Objekt mit einer bestimmten Information, das beim n‰chsten
+	 * @return das Objekt mit einer bestimmten Information, das beim n√§chsten
 	 *         Aufrufzeitpunkt an alle Beobachterobjekte weitergeleitet wird
 	 */
 	public final synchronized T getInformation() {
@@ -164,7 +164,7 @@ public class KontrollProzess<T> {
 	}
 
 	/**
-	 * F¸gt diesem Element einen neuen Beobachter hinzu.
+	 * F√ºgt diesem Element einen neuen Beobachter hinzu.
 	 *
 	 * @param listener
 	 *            der neue Beobachter
@@ -178,10 +178,10 @@ public class KontrollProzess<T> {
 	}
 
 	/**
-	 * Lˆscht ein Beobachterobjekt.
+	 * L√∂scht ein Beobachterobjekt.
 	 *
 	 * @param listener
-	 *            das zu lˆschende Beobachterobjekt
+	 *            das zu l√∂schende Beobachterobjekt
 	 */
 	public final void removeListener(final IKontrollProzessListener<T> listener) {
 		if (listener != null) {

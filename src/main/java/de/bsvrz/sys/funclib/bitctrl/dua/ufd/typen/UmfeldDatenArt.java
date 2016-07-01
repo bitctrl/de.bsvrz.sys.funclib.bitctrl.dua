@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f¸r das Segment DuA
+ * Allgemeine Funktionen f√ºr das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weiﬂenfelser Straﬂe 67
+ * Wei√üenfelser Stra√üe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -41,7 +41,7 @@ import de.bsvrz.sys.funclib.bitctrl.dua.ufd.UmfeldDatenSensorUnbekannteDatenartE
 import de.bsvrz.sys.funclib.debug.Debug;
 
 /**
- * Umfelddatenart. Verbindet alle notwendigen Informationen (Name, Abk¸rzung)
+ * Umfelddatenart. Verbindet alle notwendigen Informationen (Name, Abk√ºrzung)
  * eines Umfelddaten-Systemobjekttyps mit dem Systemobjekttyp selbst. Diese
  * Klasse muss statisch instanziiert werden, bevor irgendeine Methode daraus das
  * erste Mal benutzt werden kann.<br>
@@ -56,11 +56,11 @@ public enum UmfeldDatenArt {
 	/** Umfelddatenart Fahrbahnfeuchte. */
 	fbf("typ.ufdsFahrBahnFeuchte", "FBF"),
 
-	/** Umfelddatenart Fahrbahngl‰tte. */
-	fbg("typ.ufdsFahrBahnGl‰tte", "FBG"),
+	/** Umfelddatenart Fahrbahngl√§tte. */
+	fbg("typ.ufdsFahrBahnGl√§tte", "FBG"),
 
-	/** Umfelddatenart Fahrbahnoberfl‰chentemperatur. */
-	fbt("typ.ufdsFahrBahnOberFl‰chenTemperatur", "FBT"),
+	/** Umfelddatenart Fahrbahnoberfl√§chentemperatur. */
+	fbt("typ.ufdsFahrBahnOberFl√§chenTemperatur", "FBT"),
 
 	/** Umfelddatenart Gefriertemperatur. */
 	gt("typ.ufdsGefrierTemperatur", "GT"),
@@ -74,8 +74,8 @@ public enum UmfeldDatenArt {
 	/** Umfelddatenart Niederaschalgsart. */
 	ns("typ.ufdsNiederschlagsArt", "NS"),
 
-	/** Umfelddatenart Niederschlagsintensit‰t. */
-	ni("typ.ufdsNiederschlagsIntensit‰t", "NI"),
+	/** Umfelddatenart Niederschlagsintensit√§t. */
+	ni("typ.ufdsNiederschlagsIntensit√§t", "NI"),
 
 	/** Umfelddatenart Niederschlagsmenge. */
 	nm("typ.ufdsNiederschlagsMenge", "NM"),
@@ -83,8 +83,8 @@ public enum UmfeldDatenArt {
 	/** Umfelddatenart Relative Luftfeuchte. */
 	rlf("typ.ufdsRelativeLuftFeuchte", "RLF"),
 
-	/** Umfelddatenart Schneehˆhe. */
-	sh("typ.ufdsSchneeHˆhe", "SH"),
+	/** Umfelddatenart Schneeh√∂he. */
+	sh("typ.ufdsSchneeH√∂he", "SH"),
 
 	/** Umfelddatenart Sichtweite. */
 	sw("typ.ufdsSichtWeite", "SW"),
@@ -107,8 +107,8 @@ public enum UmfeldDatenArt {
 	/** Umfelddatenart Windrichtung. */
 	wr("typ.ufdsWindRichtung", "WR"),
 
-	/** Umfelddatenart Fahrbahnoberfl‰chenzustand. */
-	fbz("typ.ufdsFahrBahnOberFl‰chenZustand", "FBZ"),
+	/** Umfelddatenart Fahrbahnoberfl√§chenzustand. */
+	fbz("typ.ufdsFahrBahnOberFl√§chenZustand", "FBZ"),
 
 	/** Umfelddatenart Luftdruck. */
 	ld("typ.ufdsLuftDruck", "LD"),
@@ -125,12 +125,12 @@ public enum UmfeldDatenArt {
 	/** Umfelddatenart Windgeschwindigkeit (Spitzenwert). */
 	wgs("typ.ufdsWindGeschwindigkeitSpitzenWert", "WGS"),
 
-	/** Umfelddatenart Zeitreserve Gl‰tte Vaisala. */
-	zg("typ.ufdsZeitreserveGl‰tteVaisala", "ZG");
+	/** Umfelddatenart Zeitreserve Gl√§tte Vaisala. */
+	zg("typ.ufdsZeitreserveGl√§tteVaisala", "ZG");
 
 	/**
 	 * Mapt den Systemobjekttyp eines Umfelddatensensors auf die Informationen
-	 * zu seinem Namen und seiner Abk¸rzung.
+	 * zu seinem Namen und seiner Abk√ºrzung.
 	 */
 	private static Map<SystemObjectType, UmfeldDatenArt> typAufArt = new LinkedHashMap<>();
 
@@ -150,7 +150,7 @@ public enum UmfeldDatenArt {
 	private final String name;
 
 	/**
-	 * die Abk¸rzung der Umfelddatenart.
+	 * die Abk√ºrzung der Umfelddatenart.
 	 */
 	private final String abkuerzung;
 
@@ -169,7 +169,7 @@ public enum UmfeldDatenArt {
 	 * @return die Umfelddatenart eines Systemobjekts.
 	 * @throws UmfeldDatenSensorUnbekannteDatenartException
 	 *             wenn die Datenart nicht bestimmt werden kann (d.h. der Typ
-	 *             ist in der Liste der unterst¸tzten Typen nicht enthalten,
+	 *             ist in der Liste der unterst√ºtzten Typen nicht enthalten,
 	 *             siehe initialisiere()).
 	 */
 	public static UmfeldDatenArt getUmfeldDatenArtVon(final SystemObject objekt)
@@ -236,7 +236,7 @@ public enum UmfeldDatenArt {
 	 * @param typPid
 	 *            die PID des Systemobjekttyps der Umfelddatenart
 	 * @param abkuerzung
-	 *            die Abk¸rzung der Umfelddatenart
+	 *            die Abk√ºrzung der Umfelddatenart
 	 */
 	UmfeldDatenArt(final String typPid, final String abkuerzung) {
 
@@ -277,9 +277,9 @@ public enum UmfeldDatenArt {
 	}
 
 	/**
-	 * Erfragt die Abk¸rzung der Umfelddatenart.
+	 * Erfragt die Abk√ºrzung der Umfelddatenart.
 	 *
-	 * @return die Abk¸rzung der Umfelddatenart
+	 * @return die Abk√ºrzung der Umfelddatenart
 	 */
 	public String getAbkuerzung() {
 		return abkuerzung;

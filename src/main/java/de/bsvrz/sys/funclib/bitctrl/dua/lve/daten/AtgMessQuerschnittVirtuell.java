@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f¸r das Segment DuA
+ * Allgemeine Funktionen f√ºr das Segment DuA
  * Copyright (C) 2007 BitCtrl Systems GmbH
  * Copyright 2016 by Kappich Systemberatung Aachen
  *
@@ -19,7 +19,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weiﬂenfelser Straﬂe 67
+ * Wei√üenfelser Stra√üe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de

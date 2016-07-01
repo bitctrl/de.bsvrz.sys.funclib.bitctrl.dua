@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -35,9 +35,9 @@ import de.bsvrz.dav.daf.main.config.SystemObject;
 import de.bsvrz.sys.funclib.bitctrl.dua.av.DAVObjektAnmeldung;
 
 /**
- * Dieses Interface stellt alle Informationen über die aktuelle
- * Datenflusssteuerung <b>für eine bestimmte SWE und einen bestimmten
- * Modul-Typ</b> zur Verfügung. Im Wesentlichen stellt es den Zugriff auf ein
+ * Dieses Interface stellt alle Informationen Ã¼ber die aktuelle
+ * Datenflusssteuerung <b>fÃ¼r eine bestimmte SWE und einen bestimmten
+ * Modul-Typ</b> zur VerfÃ¼gung. Im Wesentlichen stellt es den Zugriff auf ein
  * Objekt des Typs <code>DatenFlussSteuerung</code> sicher.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
@@ -45,19 +45,19 @@ import de.bsvrz.sys.funclib.bitctrl.dua.av.DAVObjektAnmeldung;
 public interface IDatenFlussSteuerungFuerModul {
 
 	/**
-	 * Erfragt die Menge aller Datenanmeldungen die in Bezug auf die übergebenen
-	 * Objekte durchgeführt werden müssen, um diese nach der Plausibilisierung
-	 * publizieren zu können.<br>
-	 * <b>Achtung:</b> Wenn eine Überschneidung von Anmeldungen für
+	 * Erfragt die Menge aller Datenanmeldungen die in Bezug auf die Ã¼bergebenen
+	 * Objekte durchgefÃ¼hrt werden mÃ¼ssen, um diese nach der Plausibilisierung
+	 * publizieren zu kÃ¶nnen.<br>
+	 * <b>Achtung:</b> Wenn eine Ãœberschneidung von Anmeldungen fÃ¼r
 	 * Standard-Publikationsaspekte mit Anmeldungen aus der Datenflusssteuerung
-	 * besteht, für die <b>nicht publizieren</b> gesetzt ist, so gilt hier auch
+	 * besteht, fÃ¼r die <b>nicht publizieren</b> gesetzt ist, so gilt hier auch
 	 * die Standardpublikation als ausgeschaltet.
 	 *
 	 * @param filterObjekte
 	 *            Liste mit (finalen) Objekten. Diese Liste gilt als Filter,
 	 *            durch den alle innerhalb dieser Publikationszuordnung
 	 *            definierten Datenanmeldungen geschickt werden, bevor diese
-	 *            Methode ein Ergebnis zurückgibt. <code>null</code> = kein
+	 *            Methode ein Ergebnis zurÃ¼ckgibt. <code>null</code> = kein
 	 *            Filter
 	 * @param standardAnmeldungen
 	 *            Menge der Anmeldungen unter den Standard-Publikationsaspekten
@@ -67,8 +67,8 @@ public interface IDatenFlussSteuerungFuerModul {
 			final Collection<DAVObjektAnmeldung> standardAnmeldungen);
 
 	/**
-	 * Erfragt eine publikationsfähige Modifikation des übergebenen
-	 * Original-Datums. Es wird ein Datum zurückgegeben, das nach der
+	 * Erfragt eine publikationsfÃ¤hige Modifikation des Ã¼bergebenen
+	 * Original-Datums. Es wird ein Datum zurÃ¼ckgegeben, das nach der
 	 * Plausibilisierung so publiziert werden muss.
 	 *
 	 * @param originalDatum
@@ -77,12 +77,12 @@ public interface IDatenFlussSteuerungFuerModul {
 	 * @param plausibilisiertesDatum
 	 *            dessen <code>Data</code>-Objekt nach der Plausibilisierung
 	 * @param standardAspekt
-	 *            der Standardaspekt der Publikation für dieses Datum oder
+	 *            der Standardaspekt der Publikation fÃ¼r dieses Datum oder
 	 *            <code>null</code>, wenn es keinen Standardaspekt gibt
 	 * @return ein <code>ResultData</code>-Objekt, das so publiziert werden kann
 	 *         oder <code>null</code>, wenn keine Publikation notwendig ist
 	 *         (dies ist z.B. auch der Fall, wenn innerhalb der
-	 *         Datenflusssteuerung der übergebene Standardaspekt explizit von
+	 *         Datenflusssteuerung der Ã¼bergebene Standardaspekt explizit von
 	 *         der Publikation ausgeschlossen wurde)
 	 */
 	ResultData getPublikationsDatum(final ResultData originalDatum, final Data plausibilisiertesDatum,

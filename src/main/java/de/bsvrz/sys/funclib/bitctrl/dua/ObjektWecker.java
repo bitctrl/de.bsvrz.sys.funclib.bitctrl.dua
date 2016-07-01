@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -39,9 +39,9 @@ import de.bsvrz.sys.funclib.bitctrl.dua.schnittstellen.IObjektWeckerListener;
 
 /**
  * Eine Instanz dieser Klasse kann eine Menge von Objekten zu bestimmten
- * Zeitpunkten über die Schnittstelle <code>IObjektWeckerListener</code>
+ * Zeitpunkten Ã¼ber die Schnittstelle <code>IObjektWeckerListener</code>
  * alarmieren.<br>
- * <b>Achtung</b>: Für jedes Objekt kann nur ein Weckzeitpunkt eingestellt
+ * <b>Achtung</b>: FÃ¼r jedes Objekt kann nur ein Weckzeitpunkt eingestellt
  * werden.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
@@ -79,11 +79,11 @@ public class ObjektWecker implements IKontrollProzessListener<Long> {
 	}
 
 	/**
-	 * Erfragt, ob der Wecker für das übergebene Objekt gestellt ist.
+	 * Erfragt, ob der Wecker fÃ¼r das Ã¼bergebene Objekt gestellt ist.
 	 *
 	 * @param zuWeckendesObjekt
 	 *            ein Objekt
-	 * @return ob der Wecker für das übergebene Objekt gestellt ist
+	 * @return ob der Wecker fÃ¼r das Ã¼bergebene Objekt gestellt ist
 	 */
 	public final boolean isWeckerGestelltFuer(final IObjektWeckerListener zuWeckendesObjekt) {
 		boolean weckerGestellt = false;
@@ -96,7 +96,7 @@ public class ObjektWecker implements IKontrollProzessListener<Long> {
 	}
 
 	/**
-	 * Stellt den Wecker für ein Objekt auf einen absoluten Weckzeitpunkt.
+	 * Stellt den Wecker fÃ¼r ein Objekt auf einen absoluten Weckzeitpunkt.
 	 *
 	 * @param zuWeckendesObjekt
 	 *            das zu weckende Objekt

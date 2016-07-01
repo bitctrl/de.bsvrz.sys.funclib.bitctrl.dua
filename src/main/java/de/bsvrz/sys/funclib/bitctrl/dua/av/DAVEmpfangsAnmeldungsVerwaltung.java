@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f¸r das Segment DuA
+ * Allgemeine Funktionen f√ºr das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weiﬂenfelser Straﬂe 67
+ * Wei√üenfelser Stra√üe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -36,7 +36,7 @@ import de.bsvrz.dav.daf.main.ReceiveOptions;
 import de.bsvrz.dav.daf.main.ReceiverRole;
 
 /**
- * Verwaltungsklasse f¸r Datenanmeldungen zum Empfangen von Daten. ‹ber die
+ * Verwaltungsklasse f√ºr Datenanmeldungen zum Empfangen von Daten. √úber die
  * Methode <code>modifiziereDatenAnmeldung(..)</code> lassen sich Daten anmelden
  * bzw. abmelden.
  *
@@ -45,7 +45,7 @@ import de.bsvrz.dav.daf.main.ReceiverRole;
 public class DAVEmpfangsAnmeldungsVerwaltung extends DAVAnmeldungsVerwaltung {
 
 	/**
-	 * Rolle des Empf‰ngers.
+	 * Rolle des Empf√§ngers.
 	 */
 	private final ReceiverRole rolle;
 
@@ -55,7 +55,7 @@ public class DAVEmpfangsAnmeldungsVerwaltung extends DAVAnmeldungsVerwaltung {
 	private final ReceiveOptions optionen;
 
 	/**
-	 * der Empf‰nger der Daten.
+	 * der Empf√§nger der Daten.
 	 */
 	private final ClientReceiverInterface empfaenger;
 
@@ -69,7 +69,7 @@ public class DAVEmpfangsAnmeldungsVerwaltung extends DAVAnmeldungsVerwaltung {
 	 * @param optionen
 	 *            Optionen
 	 * @param empfaenger
-	 *            die Empf‰nger-Klasse der Datenverteiler- Daten, f¸r die diese
+	 *            die Empf√§nger-Klasse der Datenverteiler- Daten, f√ºr die diese
 	 *            Anmeldungs-Verwaltung arbeiten soll
 	 */
 	public DAVEmpfangsAnmeldungsVerwaltung(final ClientDavInterface dav, final ReceiverRole rolle,

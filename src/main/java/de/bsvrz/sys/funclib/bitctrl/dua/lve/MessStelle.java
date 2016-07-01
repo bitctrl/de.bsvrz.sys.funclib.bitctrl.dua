@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -77,7 +77,7 @@ public class MessStelle extends AbstractSystemObjekt {
 	private final Collection<MessQuerschnittAllgemein> abfahrten = new HashSet<>();
 
 	/**
-	 * Referenz auf den MessQuerschnitt, der zu prüfen ist.
+	 * Referenz auf den MessQuerschnitt, der zu prÃ¼fen ist.
 	 */
 	private SystemObject pruefling;
 
@@ -127,14 +127,14 @@ public class MessStelle extends AbstractSystemObjekt {
 			Debug.getLogger()
 					.warning("\"atg.messStelle\" von Messstelle " + msObjekt + " konnten nicht ausgelesen werden");
 		} else {
-			if (eigenschaften.getReferenceValue("Prüfling") != null) {
-				pruefling = eigenschaften.getReferenceValue("Prüfling").getSystemObject();
+			if (eigenschaften.getReferenceValue("PrÃ¼fling") != null) {
+				pruefling = eigenschaften.getReferenceValue("PrÃ¼fling").getSystemObject();
 			}
 		}
 	}
 
 	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
+	 * Initialisiert diese Klasse, indem fÃ¼r alle Systemobjekte vom Typ
 	 * <code>typ.messStelle</code> statische Instanzen dieser Klasse angelegt
 	 * werden.
 	 *
@@ -162,7 +162,7 @@ public class MessStelle extends AbstractSystemObjekt {
 	}
 
 	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
+	 * Initialisiert diese Klasse, indem fÃ¼r alle Systemobjekte vom Typ
 	 * <code>typ.messStelle</code> statische Instanzen dieser Klasse angelegt
 	 * werden.
 	 *
@@ -193,12 +193,12 @@ public class MessStelle extends AbstractSystemObjekt {
 	}
 
 	/**
-	 * Erfragt eine mit dem übergebenen Systemobjekt assoziierte statische
+	 * Erfragt eine mit dem Ã¼bergebenen Systemobjekt assoziierte statische
 	 * Instanz dieser Klasse.
 	 *
 	 * @param msObjekt
 	 *            ein MessStellen-Systemobjekt
-	 * @return eine mit dem übergebenen Systemobjekt assoziierte statische
+	 * @return eine mit dem Ã¼bergebenen Systemobjekt assoziierte statische
 	 *         Instanz dieser Klasse oder <code>null</code>, wenn diese Instanz
 	 *         nicht ermittelt werden konnte
 	 */
@@ -236,9 +236,9 @@ public class MessStelle extends AbstractSystemObjekt {
 	}
 
 	/**
-	 * Erfragt Referenz auf den MessQuerschnitt, der zu prüfen ist.
+	 * Erfragt Referenz auf den MessQuerschnitt, der zu prÃ¼fen ist.
 	 *
-	 * @return Referenz auf den MessQuerschnitt, der zu prüfen ist
+	 * @return Referenz auf den MessQuerschnitt, der zu prÃ¼fen ist
 	 */
 	public final MessQuerschnittAllgemein getPruefling() {
 		return MessQuerschnittAllgemein.getInstanz(pruefling);

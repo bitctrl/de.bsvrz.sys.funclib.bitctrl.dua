@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -29,7 +29,7 @@ package de.bsvrz.sys.funclib.bitctrl.dua;
 /**
  * Ausnahme, die geworfen wird, wenn ein Modul innerhalb einer SWE nicht
  * initialisiert werden konnte. Also, wenn z.B. keine Anmeldung zum Empfangen
- * oder Versenden von Daten durchgeführt werden konnte.
+ * oder Versenden von Daten durchgefÃ¼hrt werden konnte.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
@@ -52,12 +52,12 @@ public final class DUAInitialisierungsException extends Exception {
 	}
 
 	/**
-	 * Standardkonstruktor für das Weiterreichen von Ausnahmen.
+	 * Standardkonstruktor fÃ¼r das Weiterreichen von Ausnahmen.
 	 *
 	 * @param meldung
 	 *            die Fehlermeldung
 	 * @param t
-	 *            die ursprüngliche Ausnahme
+	 *            die ursprÃ¼ngliche Ausnahme
 	 */
 	public DUAInitialisierungsException(final String meldung, final Throwable t) {
 		super(t);

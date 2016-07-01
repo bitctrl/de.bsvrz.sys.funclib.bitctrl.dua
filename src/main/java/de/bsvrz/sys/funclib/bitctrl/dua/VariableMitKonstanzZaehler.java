@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -30,7 +30,7 @@ package de.bsvrz.sys.funclib.bitctrl.dua;
  * Beinhaltet eine Variable und die Information wie lange diese Variable schon
  * konstant ist (d.h. wie oft sie mittels der Methode
  * <code>aktualisiere(..)</code> aktualisiert wurde und sich dabei nicht
- * geändert hat)
+ * geÃ¤ndert hat)
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  *
@@ -65,7 +65,7 @@ public class VariableMitKonstanzZaehler<T> {
 	}
 
 	/**
-	 * Aktualisiert dieses Objekt mit einem neuen Wert für die Variable.
+	 * Aktualisiert dieses Objekt mit einem neuen Wert fÃ¼r die Variable.
 	 *
 	 * @param neuerWert
 	 *            ein aktueller Wert
@@ -81,10 +81,10 @@ public class VariableMitKonstanzZaehler<T> {
 	}
 
 	/**
-	 * Aktualisiert dieses Objekt mit einem neuen Wert für die Variable und
-	 * übergibt ein Inkrement um das der interne Konstanzzähler der Variable
-	 * erhöht werden soll. (Etwa, wenn dieser Zähler zählen soll, wie lange eine
-	 * die Variable konstant ist, kann hier eine Zeit übergeben werden).
+	 * Aktualisiert dieses Objekt mit einem neuen Wert fÃ¼r die Variable und
+	 * Ã¼bergibt ein Inkrement um das der interne KonstanzzÃ¤hler der Variable
+	 * erhÃ¶ht werden soll. (Etwa, wenn dieser ZÃ¤hler zÃ¤hlen soll, wie lange eine
+	 * die Variable konstant ist, kann hier eine Zeit Ã¼bergeben werden).
 	 *
 	 * @param neuerWert
 	 *            ein aktueller Wert

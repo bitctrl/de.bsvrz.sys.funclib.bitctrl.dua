@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f¸r das Segment DuA
+ * Allgemeine Funktionen f√ºr das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weiﬂenfelser Straﬂe 67
+ * Wei√üenfelser Stra√üe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -35,7 +35,7 @@ import de.bsvrz.sys.funclib.commandLineArgs.ArgumentList;
 import de.bsvrz.sys.funclib.debug.Debug;
 
 /**
- * Stellt eine Datenverteiler-Verbindung zur Verf¸gung.
+ * Stellt eine Datenverteiler-Verbindung zur Verf√ºgung.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
@@ -109,7 +109,7 @@ public final class DAVTest {
 	}
 
 	/**
-	 * Wartet bis zu dem ¸bergebenen Zeitpunkt.
+	 * Wartet bis zu dem √ºbergebenen Zeitpunkt.
 	 *
 	 * @param zeitStempel
 	 *            ein Zeitstempel in ms
@@ -125,12 +125,12 @@ public final class DAVTest {
 	}
 
 	/**
-	 * Erfragt einen Array mit zuf‰lligen Zahlen von 0 bis <code>anzahl</code>.
+	 * Erfragt einen Array mit zuf√§lligen Zahlen von 0 bis <code>anzahl</code>.
 	 * Jede Zahl darf nur einmal im Array vorkommen.
 	 *
 	 * @param anzahl
 	 *            die Obergrenze
-	 * @return Array mit zuf‰lligen Zahlen von 0 bis <code>anzahl</code>
+	 * @return Array mit zuf√§lligen Zahlen von 0 bis <code>anzahl</code>
 	 */
 	public static int[] getZufaelligeZahlen(final int anzahl) {
 		int belegt = 0;

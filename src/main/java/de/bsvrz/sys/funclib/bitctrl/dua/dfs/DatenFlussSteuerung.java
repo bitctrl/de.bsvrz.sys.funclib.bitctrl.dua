@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -35,7 +35,7 @@ import de.bsvrz.sys.funclib.bitctrl.dua.dfs.typen.ModulTyp;
 import de.bsvrz.sys.funclib.bitctrl.dua.dfs.typen.SWETyp;
 
 /**
- * Diese Klasse repräsentiert die Attributgruppe
+ * Diese Klasse reprÃ¤sentiert die Attributgruppe
  * <code>atg.datenFlussSteuerung</code> des Typs
  * <code>typ.datenFlussSteuerung</code>.
  *
@@ -44,12 +44,12 @@ import de.bsvrz.sys.funclib.bitctrl.dua.dfs.typen.SWETyp;
 public class DatenFlussSteuerung implements IDatenFlussSteuerung {
 
 	/**
-	 * Liste aller Parametersätze innerhalb der Attributgruppe.
+	 * Liste aller ParametersÃ¤tze innerhalb der Attributgruppe.
 	 */
 	private final List<ParameterSatz> parameterSaetze = new ArrayList<>();
 
 	/**
-	 * Fügt diesem Objekt einen Parametersatz hinzu.
+	 * FÃ¼gt diesem Objekt einen Parametersatz hinzu.
 	 *
 	 * @param ps
 	 *            der neue Parametersatz
@@ -59,18 +59,18 @@ public class DatenFlussSteuerung implements IDatenFlussSteuerung {
 	}
 
 	/**
-	 * Erfragt den Parametersatz für eine bestimmte SWE<br>
+	 * Erfragt den Parametersatz fÃ¼r eine bestimmte SWE<br>
 	 * <b>Achtung: Es wird innerhalb dieser Klasse immer nur ein
 	 * ParameterSatz-Objekt pro SWE instanziiert werden, auch wenn mehrere
 	 * parametriert sind (die Informationen werden zusammengefasst). Sollten
-	 * widersprüchliche Informationen innerhalb der Parametersätze enthalten
-	 * sein, so werden alle Parametersätze, die diesen Widerspruch enthalten
+	 * widersprÃ¼chliche Informationen innerhalb der ParametersÃ¤tze enthalten
+	 * sein, so werden alle ParametersÃ¤tze, die diesen Widerspruch enthalten
 	 * ignoriert.</b>
 	 *
 	 * @param swe
 	 *            die SWE
-	 * @return der Parametersatz der Datenflusssteuerung für die übergebene SWE
-	 *         oder <code>null</code>, wenn für die SWE kein Parametersatz
+	 * @return der Parametersatz der Datenflusssteuerung fÃ¼r die Ã¼bergebene SWE
+	 *         oder <code>null</code>, wenn fÃ¼r die SWE kein Parametersatz
 	 *         vorliegt
 	 */
 	protected final ParameterSatz getParameterSatzFuerSWE(final SWETyp swe) {

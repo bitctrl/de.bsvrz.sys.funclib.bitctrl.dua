@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f¸r das Segment DuA
+ * Allgemeine Funktionen f√ºr das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weiﬂenfelser Straﬂe 67
+ * Wei√üenfelser Stra√üe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -43,21 +43,21 @@ public interface IBearbeitungsKnoten extends IDatenFlussSteuerungsListener {
 	/**
 	 * Setzt die Verbindung zum Verwaltungsmodul und initialisiert diesen
 	 * Bearbeitungsknoten. Nach dem Aufruf dieser Methode wird davon
-	 * ausgegangen, dass der Knoten voll funktionsf‰hig ist. Also zum Beispiel
-	 * alle Sendeanmeldungen durchgef¸hrt wurden.
+	 * ausgegangen, dass der Knoten voll funktionsf√§hig ist. Also zum Beispiel
+	 * alle Sendeanmeldungen durchgef√ºhrt wurden.
 	 *
 	 * @param verwaltung
 	 *            eine Verbindung zum Verwaltungsmodul
 	 * @throws DUAInitialisierungsException
-	 *             wird ausgelˆst, wenn dieser Knoten nicht vollst‰ndig
+	 *             wird ausgel√∂st, wenn dieser Knoten nicht vollst√§ndig
 	 *             initialisiert werden konnte (z.B. wenn als Parameter
-	 *             <code>null</code> ¸bergeben wurde).
+	 *             <code>null</code> √ºbergeben wurde).
 	 */
 	void initialisiere(IVerwaltung verwaltung) throws DUAInitialisierungsException;
 
 	/**
 	 * Teilt diesem Knoten mit, an welchen Knoten die Daten nach der
-	 * vollst‰ndigen Bearbeitung durch diesen Knoten weitergeleitet werden
+	 * vollst√§ndigen Bearbeitung durch diesen Knoten weitergeleitet werden
 	 * sollen.
 	 *
 	 * @param knoten
@@ -76,12 +76,12 @@ public interface IBearbeitungsKnoten extends IDatenFlussSteuerungsListener {
 	void setPublikation(boolean publizieren);
 
 	/**
-	 * Aktualisierungsmethode. ‹ber diese Methode sollten dem Objekt, das dieses
-	 * Interface implementiert alle zu bearbeitenden Daten zur Verf¸gung
+	 * Aktualisierungsmethode. √úber diese Methode sollten dem Objekt, das dieses
+	 * Interface implementiert alle zu bearbeitenden Daten zur Verf√ºgung
 	 * gestellt werden.
 	 *
 	 * @param resultate
-	 *            aktuelle Daten vom Vorg‰ngerknoten.
+	 *            aktuelle Daten vom Vorg√§ngerknoten.
 	 */
 	void aktualisiereDaten(ResultData[] resultate);
 

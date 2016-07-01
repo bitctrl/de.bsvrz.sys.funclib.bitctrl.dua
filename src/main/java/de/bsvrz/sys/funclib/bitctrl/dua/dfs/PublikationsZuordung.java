@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -44,7 +44,7 @@ import de.bsvrz.sys.funclib.bitctrl.dua.schnittstellen.IVerwaltung;
 
 /**
  * In dieser Klasse sind alle Informationen zusammengefasst, die das
- * Publikationsverhalten bezüglich <b>einer</b> bestimmten SWE, <b>einem</b>
+ * Publikationsverhalten bezÃ¼glich <b>einer</b> bestimmten SWE, <b>einem</b>
  * bestimmten Modul-Typ und <b>einem</b> Publikationsaspekt beschreiben
  * innerhalb der Datenflusssteuerung beschreiben.
  *
@@ -63,12 +63,12 @@ public class PublikationsZuordung {
 	private final Aspect aspekt;
 
 	/**
-	 * die (finalen) Objekte, für die ein Publikationsverhalten beschrieben ist.
+	 * die (finalen) Objekte, fÃ¼r die ein Publikationsverhalten beschrieben ist.
 	 */
 	private final Collection<SystemObject> objekte = new HashSet<>();
 
 	/**
-	 * die Attributgruppen, für die ein Publikationsverhalten vorgesehen ist.
+	 * die Attributgruppen, fÃ¼r die ein Publikationsverhalten vorgesehen ist.
 	 */
 	private final Collection<AttributeGroup> atgs = new HashSet<>();
 
@@ -86,9 +86,9 @@ public class PublikationsZuordung {
 
 	/**
 	 * Standardkonstruktor<br>
-	 * <b>Achtung:</b> Sollte die Menge der übergebenen Objekte bzw.
+	 * <b>Achtung:</b> Sollte die Menge der Ã¼bergebenen Objekte bzw.
 	 * Attributgruppen leer sein, so werden <b>alle</b> Objekte bzw.
-	 * Attributgruppen in den übergebenen Konfigurationskereichen (bzw. im
+	 * Attributgruppen in den Ã¼bergebenen Konfigurationskereichen (bzw. im
 	 * Standardkonfigurationsbereich) angenommen.
 	 *
 	 * @param data
@@ -153,7 +153,7 @@ public class PublikationsZuordung {
 	}
 
 	/**
-	 * Erfragt den Modul-Typ, für den diese Piblikationszuordnung gilt.
+	 * Erfragt den Modul-Typ, fÃ¼r den diese Piblikationszuordnung gilt.
 	 *
 	 * @return der Modul-Typs
 	 */
@@ -192,10 +192,10 @@ public class PublikationsZuordung {
 	 * Fragt, ob eine bestimmte Publikationszuordnung mit dieser hier kompatibel
 	 * ist. Ob sie sich also widersprechen. Ein Widerspruch liegt vor, wenn:<br>
 	 * 1. der Modul-Typ identisch ist UND<br>
-	 * 2. für <b>beide</b> Objekte die Publikation eingeschalten ist UND<br>
+	 * 2. fÃ¼r <b>beide</b> Objekte die Publikation eingeschalten ist UND<br>
 	 * 3. der Publikationsaspekt der beiden Objekte <code>this</code> und
 	 * <code>vergleichsObj</code> nicht identisch ist UND<br>
-	 * 4. eine Objekt-Überschneidung innerhalb der Member-SystemObjekte von
+	 * 4. eine Objekt-Ãœberschneidung innerhalb der Member-SystemObjekte von
 	 * <code>this</code> und <code>vergleichsObj</code> besteht UND<br>
 	 * 5. die Schnittmenge der Member-Attributgruppen nicht leer ist.<br>
 	 *
@@ -216,14 +216,14 @@ public class PublikationsZuordung {
 					if (thisAnmeldung.getObjekt().equals(thatAnmeldung.getObjekt())
 							&& thisAnmeldung.getDatenBeschreibung().getAttributeGroup()
 									.equals(thatAnmeldung.getDatenBeschreibung().getAttributeGroup())) {
-						return "Die beiden Objektanmeldungen sind für" + " die Datenflusssteuerung widersprüchlich:\n"
+						return "Die beiden Objektanmeldungen sind fÃ¼r" + " die Datenflusssteuerung widersprÃ¼chlich:\n"
 								+ thisAnmeldung + "\n" + thatAnmeldung;
 					}
 				}
 			}
 		}
 
-		return null; // keine Widersprüche
+		return null; // keine WidersprÃ¼che
 	}
 
 	@Override

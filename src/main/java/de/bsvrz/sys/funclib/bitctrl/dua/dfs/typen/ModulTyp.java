@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -32,8 +32,8 @@ import java.util.Map;
 import de.bsvrz.sys.funclib.bitctrl.daf.AbstractDavZustand;
 
 /**
- * Über diese Klasse werden alle im DAV-Enumerationstyp
- * <code>att.modulTyp</code> beschriebenen Werte zur Verfügung gestellt.
+ * Ãœber diese Klasse werden alle im DAV-Enumerationstyp
+ * <code>att.modulTyp</code> beschriebenen Werte zur VerfÃ¼gung gestellt.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
@@ -45,34 +45,34 @@ public final class ModulTyp extends AbstractDavZustand {
 	private static Map<Integer, ModulTyp> werteBereich = new HashMap<>();
 
 	/**
-	 * Wert <code>PlPrüfungFormal</code>.
+	 * Wert <code>PlPrÃ¼fungFormal</code>.
 	 */
-	public static final ModulTyp PL_PRUEFUNG_FORMAL = new ModulTyp("PlPrüfungFormal", 1);
+	public static final ModulTyp PL_PRUEFUNG_FORMAL = new ModulTyp("PlPrÃ¼fungFormal", 1);
 
 	/**
-	 * Wert <code>PlPrüfungLogischUFD</code>.
+	 * Wert <code>PlPrÃ¼fungLogischUFD</code>.
 	 */
-	public static final ModulTyp PL_PRUEFUNG_LOGISCH_UFD = new ModulTyp("PlPrüfungLogischUFD", 2);
+	public static final ModulTyp PL_PRUEFUNG_LOGISCH_UFD = new ModulTyp("PlPrÃ¼fungLogischUFD", 2);
 
 	/**
-	 * Wert <code>PlPrüfungLogischWZG</code>.
+	 * Wert <code>PlPrÃ¼fungLogischWZG</code>.
 	 */
-	public static final ModulTyp PL_PRUEFUNG_LOGISCH_WZG = new ModulTyp("PlPrüfungLogischWZG", 3);
+	public static final ModulTyp PL_PRUEFUNG_LOGISCH_WZG = new ModulTyp("PlPrÃ¼fungLogischWZG", 3);
 
 	/**
-	 * Wert <code>PlPrüfungMesswertErsetzungLVE</code>.
+	 * Wert <code>PlPrÃ¼fungMesswertErsetzungLVE</code>.
 	 */
-	public static final ModulTyp MESSWERTERSETZUNG_LVE = new ModulTyp("PlPrüfungMesswertErsetzungLVE", 4);
+	public static final ModulTyp MESSWERTERSETZUNG_LVE = new ModulTyp("PlPrÃ¼fungMesswertErsetzungLVE", 4);
 
 	/**
-	 * Wert <code>PlPrüfungMesswertErsetzungUFD</code>.
+	 * Wert <code>PlPrÃ¼fungMesswertErsetzungUFD</code>.
 	 */
-	public static final ModulTyp MESSWERTERSETZUNG_UFD = new ModulTyp("PlPrüfungMesswertErsetzungUFD", 5);
+	public static final ModulTyp MESSWERTERSETZUNG_UFD = new ModulTyp("PlPrÃ¼fungMesswertErsetzungUFD", 5);
 
 	/**
-	 * Wert <code>PlPrüfungLangZeitUFD</code>.
+	 * Wert <code>PlPrÃ¼fungLangZeitUFD</code>.
 	 */
-	public static final ModulTyp PL_PRUEFUNG_LANGZEIT_UFD = new ModulTyp("PlPrüfungLangZeitUFD", 6);
+	public static final ModulTyp PL_PRUEFUNG_LANGZEIT_UFD = new ModulTyp("PlPrÃ¼fungLangZeitUFD", 6);
 
 	/**
 	 * Interner Konstruktor.
@@ -88,11 +88,11 @@ public final class ModulTyp extends AbstractDavZustand {
 	}
 
 	/**
-	 * Erfragt den Wert dieses DAV-Enumerationstypen mit dem übergebenen Code.
+	 * Erfragt den Wert dieses DAV-Enumerationstypen mit dem Ã¼bergebenen Code.
 	 *
 	 * @param code
 	 *            der Code des Enumerations-Wertes
-	 * @return den Wert dieses DAV-Enumerationstypen mit dem übergebenen Code.
+	 * @return den Wert dieses DAV-Enumerationstypen mit dem Ã¼bergebenen Code.
 	 */
 	public static ModulTyp getZustand(final int code) {
 		return ModulTyp.werteBereich.get(code);

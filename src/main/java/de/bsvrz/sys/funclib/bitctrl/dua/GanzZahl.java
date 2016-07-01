@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -64,7 +64,7 @@ public class GanzZahl implements Comparable<GanzZahl> {
 
 	/**
 	 * Erfragt eine Instanz einer normalen Messwertzahl (unskaliert und mit den
-	 * drei Zuständen <code>fehlerhaft</code>, <code>nicht ermittelbar</code>
+	 * drei ZustÃ¤nden <code>fehlerhaft</code>, <code>nicht ermittelbar</code>
 	 * und <code>nicht ermittelbar/fehlerhaft</code>).
 	 *
 	 * @return eine Instanz einer normalen Messwertzahl
@@ -90,7 +90,7 @@ public class GanzZahl implements Comparable<GanzZahl> {
 	}
 
 	/**
-	 * Standardkonstruktor für Skalierung 1.0 und keine Zustaende.
+	 * Standardkonstruktor fÃ¼r Skalierung 1.0 und keine Zustaende.
 	 */
 	public GanzZahl() {
 		//
@@ -252,7 +252,7 @@ public class GanzZahl implements Comparable<GanzZahl> {
 	}
 
 	/* FIXME equals und hashCode verletzt den API-Kontrakt und sollte
-	 * hier entfernt bzw. überdacht werden. */
+	 * hier entfernt bzw. Ã¼berdacht werden. */
 	@Override
 	public boolean equals(final Object obj) {
 		boolean gleich = false;

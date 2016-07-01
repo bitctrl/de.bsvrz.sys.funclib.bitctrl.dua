@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -59,9 +59,9 @@ public interface IVerwaltung extends StandardApplication, ClientReceiverInterfac
 	// * gesetzt werden, um einen Bezug zu einer vorherigen Meldung
 	// herzustellen.
 	// * @param typ Typ der Betriebsmeldung (Diese Klasse stellt die beiden
-	// Zustände
-	// * "System" und "Fach" für Meldungen, die sich auf systemtechnische oder
-	// * fachliche Zustände beziehen, bereit)
+	// ZustÃ¤nde
+	// * "System" und "Fach" fÃ¼r Meldungen, die sich auf systemtechnische oder
+	// * fachliche ZustÃ¤nde beziehen, bereit)
 	// * @param nachrichtenTypErweiterung Erweiterung
 	// * @param klasse Klasse der Betriebsmeldung
 	// * @param status Gibt den Zustand einer Meldung an
@@ -72,9 +72,9 @@ public interface IVerwaltung extends StandardApplication, ClientReceiverInterfac
 	// final MessageState status, final String nachricht);
 
 	/**
-	 * Über diese Methode soll ein Modul Verwaltung anderen Modulen die Menge
-	 * aller zu bearbeitenden Objekte zur Verfügung stellen. Sollte an dieser
-	 * Stelle <code>null</code> übergeben werden, so sollten vom fragenden Modul
+	 * Ãœber diese Methode soll ein Modul Verwaltung anderen Modulen die Menge
+	 * aller zu bearbeitenden Objekte zur VerfÃ¼gung stellen. Sollte an dieser
+	 * Stelle <code>null</code> Ã¼bergeben werden, so sollten vom fragenden Modul
 	 * alle inhaltlich passenden Systemobjekte des
 	 * Standardkonfigurationsbereichs zur Bearbeitung angenommen werden.
 	 *
@@ -83,18 +83,18 @@ public interface IVerwaltung extends StandardApplication, ClientReceiverInterfac
 	SystemObject[] getSystemObjekte();
 
 	/**
-	 * Erfragt die dem Verwaltungsmodul übergebenen Konfigurationsbereiche.
+	 * Erfragt die dem Verwaltungsmodul Ã¼bergebenen Konfigurationsbereiche.
 	 *
 	 * @return alle Konfigurationsbereiche, die diesem Verwaltungsmodul
-	 *         übergeben wurden.
+	 *         Ã¼bergeben wurden.
 	 */
 	Collection<ConfigurationArea> getKonfigurationsBereiche();
 
 	/**
-	 * Erfragt die SWE, für die die dieses Interface implementierende Klasse die
+	 * Erfragt die SWE, fÃ¼r die die dieses Interface implementierende Klasse die
 	 * Verwaltung darstellt.
 	 *
-	 * @return die SWE, für die die dieses Interface implementierende Klasse die
+	 * @return die SWE, fÃ¼r die die dieses Interface implementierende Klasse die
 	 *         Verwaltung darstellt
 	 */
 	SWETyp getSWETyp();

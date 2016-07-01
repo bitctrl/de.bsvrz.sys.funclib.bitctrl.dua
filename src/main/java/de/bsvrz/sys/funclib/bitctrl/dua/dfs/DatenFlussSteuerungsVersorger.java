@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -45,7 +45,7 @@ import de.bsvrz.sys.funclib.debug.Debug;
 
 /**
  * Diese Klasse liest die Parameter der Datenflusssteuerung aus und meldet
- * Änderungen formatiert an andere Module des Typs
+ * Ã„nderungen formatiert an andere Module des Typs
  * <code>IDatenFlussSteuerungsListener</code> weiter.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
@@ -64,7 +64,7 @@ public class DatenFlussSteuerungsVersorger implements ClientReceiverInterface {
 
 	/**
 	 * Erfragt die statische Instanz dieser Klasse. Diese liest die Parameter
-	 * der Datenflusssteuerung aus und meldet Änderungen formatiert an
+	 * der Datenflusssteuerung aus und meldet Ã„nderungen formatiert an
 	 * angemeldete Module des Typs <code>IDatenFlussSteuerungsListener</code>
 	 * weiter.
 	 *
@@ -72,9 +72,9 @@ public class DatenFlussSteuerungsVersorger implements ClientReceiverInterface {
 	 *            Verbindung zum Verwaltungsmodul
 	 * @return die statische Instanz dieser Klasse
 	 * @throws DUAInitialisierungsException
-	 *             wird geworfen, wenn die übergebene Verbindung fehlerhaft ist
-	 *             (nicht die geforderten Informationen bereit hält), bzw. keine
-	 *             Datenanmeldungen durchgeführt werden konnten
+	 *             wird geworfen, wenn die Ã¼bergebene Verbindung fehlerhaft ist
+	 *             (nicht die geforderten Informationen bereit hÃ¤lt), bzw. keine
+	 *             Datenanmeldungen durchgefÃ¼hrt werden konnten
 	 */
 	public static DatenFlussSteuerungsVersorger getInstanz(final IVerwaltung verwaltung)
 			throws DUAInitialisierungsException {
@@ -84,8 +84,8 @@ public class DatenFlussSteuerungsVersorger implements ClientReceiverInterface {
 			// Konfigurationsbereichen
 			//
 			// /**
-			// * Ermittlung des Objektes, das die Datenflusssteuerung für das
-			// * übergebene Verwaltungsmodul beschreibt
+			// * Ermittlung des Objektes, das die Datenflusssteuerung fÃ¼r das
+			// * Ã¼bergebene Verwaltungsmodul beschreibt
 			// */
 			// final SystemObjectType typDFS = (SystemObjectType) verwaltung
 			// .getVerbindung().getDataModel()
@@ -127,7 +127,7 @@ public class DatenFlussSteuerungsVersorger implements ClientReceiverInterface {
 	}
 
 	/**
-	 * Funktion nur für Testzwecke: Entfernt die globale Instanz der Klasse, um
+	 * Funktion nur fÃ¼r Testzwecke: Entfernt die globale Instanz der Klasse, um
 	 * eine Neuinitialisierng zu erzwingen.
 	 */
 	public static void reset() {
@@ -155,12 +155,12 @@ public class DatenFlussSteuerungsVersorger implements ClientReceiverInterface {
 	 * @param verwaltung
 	 *            Verbindung zum Verwaltungsmodul
 	 * @param dfsObjekt
-	 *            das des Objektes, das die Datenflusssteuerung für das
-	 *            übergebene Verwaltungsmodul beschreibt
+	 *            das des Objektes, das die Datenflusssteuerung fÃ¼r das
+	 *            Ã¼bergebene Verwaltungsmodul beschreibt
 	 * @throws DUAInitialisierungsException
-	 *             wird geworfen, wenn die übergebene Verbindung fehlerhaft ist
-	 *             (nicht die geforderten Informationen bereit hält), bzw. keine
-	 *             Datenanmeldungen durchgeführt werden konnten
+	 *             wird geworfen, wenn die Ã¼bergebene Verbindung fehlerhaft ist
+	 *             (nicht die geforderten Informationen bereit hÃ¤lt), bzw. keine
+	 *             Datenanmeldungen durchgefÃ¼hrt werden konnten
 	 */
 	protected DatenFlussSteuerungsVersorger(final IVerwaltung verwaltung, final SystemObject dfsObjekt)
 			throws DUAInitialisierungsException {
@@ -186,7 +186,7 @@ public class DatenFlussSteuerungsVersorger implements ClientReceiverInterface {
 	}
 
 	/**
-	 * Fügt diesem Element einen neuen Beobachter hinzu. Jedes neue
+	 * FÃ¼gt diesem Element einen neuen Beobachter hinzu. Jedes neue
 	 * Beobachterobjekt wird sofort nach der Anmeldung mit den aktuellen Daten
 	 * versorgt.
 	 *
@@ -203,10 +203,10 @@ public class DatenFlussSteuerungsVersorger implements ClientReceiverInterface {
 	}
 
 	/**
-	 * Löscht ein Beobachterobjekt.
+	 * LÃ¶scht ein Beobachterobjekt.
 	 *
 	 * @param listener
-	 *            das zu löschende Beobachterobjekt
+	 *            das zu lÃ¶schende Beobachterobjekt
 	 */
 	public final void removeListener(final IDatenFlussSteuerungsListener listener) {
 		if (listener != null) {
@@ -242,7 +242,7 @@ public class DatenFlussSteuerungsVersorger implements ClientReceiverInterface {
 						dfParameterSatz.setSwe(swe);
 
 						/**
-						 * Iteriere über alle Publikationszuordnungen innerhalb
+						 * Iteriere Ã¼ber alle Publikationszuordnungen innerhalb
 						 * dieses Parametersatzes
 						 */
 						for (int j = 0; j < satz.getArray(DFSKonstanten.ATT_PUB_ZUORDNUNG).getLength(); j++) {

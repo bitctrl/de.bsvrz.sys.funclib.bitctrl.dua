@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -51,7 +51,7 @@ import de.bsvrz.sys.funclib.bitctrl.dua.schnittstellen.IVerwaltung;
 import de.bsvrz.sys.funclib.debug.Debug;
 
 /**
- * Abstrakte Ausfallüberwachung für zyklisch gesendete Daten.
+ * Abstrakte AusfallÃ¼berwachung fÃ¼r zyklisch gesendete Daten.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
@@ -61,7 +61,7 @@ implements IKontrollProzessListener<Long> {
 	private static final Debug LOGGER = Debug.getLogger();
 
 	/**
-	 * Mapt alle betrachteten Systemobjekte auf den aktuell für sie erlaubten
+	 * Mapt alle betrachteten Systemobjekte auf den aktuell fÃ¼r sie erlaubten
 	 * maximalen Zeitverzug.
 	 */
 	private final Map<SystemObject, Long> objektWertErfassungVerzug = Collections
@@ -69,7 +69,7 @@ implements IKontrollProzessListener<Long> {
 
 	/**
 	 * Eine Map mit allen aktuellen Kontrollzeitpunkten und den zu diesen
-	 * Kontrollzeitpunkten zu überprüfenden Systemobjekten.
+	 * Kontrollzeitpunkten zu Ã¼berprÃ¼fenden Systemobjekten.
 	 */
 	private final SortedMap<Long, Collection<ObjektResultat>> kontrollZeitpunkte = Collections
 			.synchronizedSortedMap(new TreeMap<Long, Collection<ObjektResultat>>());
@@ -85,21 +85,21 @@ implements IKontrollProzessListener<Long> {
 	private final Map<SystemObject, Long> letzteEmpfangeneDatenZeitProObj = new HashMap<>();
 
 	/**
-	 * Erfragt die Intervalllänge T eines Datums.
+	 * Erfragt die IntervalllÃ¤nge T eines Datums.
 	 *
 	 * @param resultat
 	 *            ein Datum
-	 * @return die im übergebenen Datum enthaltene Intervalllänge T
+	 * @return die im Ã¼bergebenen Datum enthaltene IntervalllÃ¤nge T
 	 */
 	protected abstract long getTVon(final ResultData resultat);
 
 	/**
-	 * Erfragt das ausgefallene Datum, dass sich aus dem übergebenen Datum
+	 * Erfragt das ausgefallene Datum, dass sich aus dem Ã¼bergebenen Datum
 	 * ergibt.
 	 *
 	 * @param originalResultat
 	 *            ein Datum
-	 * @return das ausgefallene Datum, dass sich aus dem übergebenen Datum
+	 * @return das ausgefallene Datum, dass sich aus dem Ã¼bergebenen Datum
 	 *         ergibt
 	 */
 	protected abstract ResultData getAusfallDatumVon(final ResultData originalResultat);
@@ -137,7 +137,7 @@ implements IKontrollProzessListener<Long> {
 						/**
 						 * Hier werden die Daten herausgefiltert, die von der
 						 * Ausfallkontrolle quasi zu unrecht generiert wurden,
-						 * da das Datum nur minimal zu spät kam.
+						 * da das Datum nur minimal zu spÃ¤t kam.
 						 */
 						if (letzteEmpfangeneDatenZeitProObj.get(resultat.getObject()) < resultat.getDataTime()) {
 
@@ -195,11 +195,11 @@ implements IKontrollProzessListener<Long> {
 	}
 
 	/**
-	 * Erfragt den maximalen Zeitverzug für ein Systemobjekt.
+	 * Erfragt den maximalen Zeitverzug fÃ¼r ein Systemobjekt.
 	 *
 	 * @param obj
 	 *            ein Systemobjekt
-	 * @return der maximale Zeitverzug für das Systemobjekt oder -1, wenn dieser
+	 * @return der maximale Zeitverzug fÃ¼r das Systemobjekt oder -1, wenn dieser
 	 *         nicht ermittelt werden konnte
 	 */
 	protected long getMaxZeitVerzug(final SystemObject obj) {
@@ -219,7 +219,7 @@ implements IKontrollProzessListener<Long> {
 
 	/**
 	 * Bereinigt die Liste der Kontrollzeitpunkte anhand des gerade
-	 * eingetroffenen Datums. Dabei wird zunächst der momentan noch erwartete
+	 * eingetroffenen Datums. Dabei wird zunÃ¤chst der momentan noch erwartete
 	 * Kontrollzeitpunkt dieses Datums berechnet und dieser dann aus der Liste
 	 * der Kontrollzeitpunkte entfernt
 	 *
@@ -229,7 +229,7 @@ implements IKontrollProzessListener<Long> {
 	private synchronized void bereinigeKontrollZeitpunkte(final ResultData resultat) {
 
 		/**
-		 * Berechne den wahrscheinlichsten Zeitpunkt, für den hier noch auf ein
+		 * Berechne den wahrscheinlichsten Zeitpunkt, fÃ¼r den hier noch auf ein
 		 * Datum dieses Objektes gewartet wird
 		 */
 		final Long letzterErwarteterZeitpunkt = resultat.getDataTime() + getTVon(resultat)
@@ -240,8 +240,8 @@ implements IKontrollProzessListener<Long> {
 		final ObjektResultat datum = new ObjektResultat(resultat);
 
 		/**
-		 * Gibt es einen Kontrollzeitpunkt, für den das Objekt, des empfangenen
-		 * Datums eingeplant sein müsste
+		 * Gibt es einen Kontrollzeitpunkt, fÃ¼r den das Objekt, des empfangenen
+		 * Datums eingeplant sein mÃ¼sste
 		 */
 		if (kontrollObjekte != null) {
 			if (kontrollObjekte.remove(datum)) {
@@ -268,7 +268,7 @@ implements IKontrollProzessListener<Long> {
 					kontrollZeitpunkte.remove(gefundenInKontrollZeitpunkt);
 				}
 			} else {
-				AbstraktAusfallUeberwachung.LOGGER.info("Datum " + datum + " konnte nicht aus" + " Kontrollwarteschlange gelöscht werden");
+				AbstraktAusfallUeberwachung.LOGGER.info("Datum " + datum + " konnte nicht aus" + " Kontrollwarteschlange gelÃ¶scht werden");
 			}
 		}
 	}
@@ -299,11 +299,11 @@ implements IKontrollProzessListener<Long> {
 
 	/**
 	 * Erfragt den Zeitpunkt, zu dem von dem Objekt, das mit diesem Datensatz
-	 * assoziiert ist, ein neuer Datensatz (spätestens) erwartet wird.
+	 * assoziiert ist, ein neuer Datensatz (spÃ¤testens) erwartet wird.
 	 *
 	 * @param empfangenesResultat
 	 *            ein empfangener Datensatz
-	 * @return der späteste Zeitpunkt des nächsten Datensatzes oder -1, wenn
+	 * @return der spÃ¤teste Zeitpunkt des nÃ¤chsten Datensatzes oder -1, wenn
 	 *         dieser nicht sinnvoll bestimmt werden konnte (wenn z.B. keine
 	 *         Parameter vorliegen)
 	 */

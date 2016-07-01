@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -48,7 +48,7 @@ public class CSVImporter {
 	private final File csvDatei;
 
 	/**
-	 * der Reader für die CSV-Datei.
+	 * der Reader fÃ¼r die CSV-Datei.
 	 */
 	private BufferedReader leser;
 
@@ -63,7 +63,7 @@ public class CSVImporter {
 	 * @param csvDatei
 	 *            CSV-Datei
 	 * @throws Exception
-	 *             wenn die Datei nicht geöffnet werden kann
+	 *             wenn die Datei nicht geÃ¶ffnet werden kann
 	 */
 	public CSVImporter(final File csvDatei) throws Exception {
 		this.csvDatei = csvDatei;
@@ -76,7 +76,7 @@ public class CSVImporter {
 	 * @param csvDateiName
 	 *            Name der CSV-Datei (mit oder ohne Suffix)
 	 * @throws Exception
-	 *             wenn die Datei nicht geöffnet werden kann
+	 *             wenn die Datei nicht geÃ¶ffnet werden kann
 	 */
 	public CSVImporter(final String csvDateiName) throws Exception {
 		String name = csvDateiName;
@@ -88,7 +88,7 @@ public class CSVImporter {
 	}
 
 	/**
-	 * Gibt alle Spalten einer Zeile der Tabelle als String-Array zurück.
+	 * Gibt alle Spalten einer Zeile der Tabelle als String-Array zurÃ¼ck.
 	 *
 	 * @return ein String-Array mit den Spalten einer Zeile oder
 	 *         <code>null</code>, wenn das Dateiende erreicht ist

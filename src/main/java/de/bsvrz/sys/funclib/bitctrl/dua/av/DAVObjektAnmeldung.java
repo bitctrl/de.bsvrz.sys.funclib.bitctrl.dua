@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -32,7 +32,7 @@ import de.bsvrz.dav.daf.main.config.SystemObject;
 import de.bsvrz.sys.funclib.bitctrl.dua.DUAUtensilien;
 
 /**
- * Repräsentiert die Anmeldung eines <b>finalen</b> Systemobjekts (ein finales
+ * ReprÃ¤sentiert die Anmeldung eines <b>finalen</b> Systemobjekts (ein finales
  * Systemobjekt ist entweder ein Konfigurationsobjekt oder ein Dynamisches
  * Objekt) unter einer bestimmten Datenbeschreibung.<br>
  * <b>Achtung:</b>
@@ -42,10 +42,10 @@ import de.bsvrz.sys.funclib.bitctrl.dua.DUAUtensilien;
  * Konstruktor).</li>
  * <li>Weiterhin ist diese Klasse so entworfen, dass beim Einspeisen ihrer
  * Elemente in <code>TreeSet</code>- oder <code>TreeMap</code>-Strukturen keine
- * Datenverteiler-spezifischen Widersprüche innerhalb dieser Strukturen
- * auftreten können. D.h. insbesondere, dass alle Elemente einer solchen
+ * Datenverteiler-spezifischen WidersprÃ¼che innerhalb dieser Strukturen
+ * auftreten kÃ¶nnen. D.h. insbesondere, dass alle Elemente einer solchen
  * Struktur konfliktfrei zum Senden oder Empfangen von Daten angemeldet werden
- * können.<br>
+ * kÃ¶nnen.<br>
  * Mit konfliktfrei im Sinne des Datenverteilers ist gemeint, dass in einer
  * solchen Struktur keine Objekt- Attributgruppe-Aspekt-Kombinationen doppelt
  * auftreten.</li>
@@ -78,7 +78,7 @@ public class DAVObjektAnmeldung implements Comparable<DAVObjektAnmeldung> {
 	 *             wenn entweder das Systemobjekt, die Datenbeschreibung, deren
 	 *             Attributgruppe oder deren Aspekt <code>null</code> ist, wenn
 	 *             die Objekt- Attributgruppen-Aspekt-Kombination an sich
-	 *             ungültig bzw. inkompatibel ist, oder wenn das übergebene
+	 *             ungÃ¼ltig bzw. inkompatibel ist, oder wenn das Ã¼bergebene
 	 *             Systemobjekt kein Konfigurationsobjekt oder Dynamisches
 	 *             Objekt ist.
 	 */
@@ -94,7 +94,7 @@ public class DAVObjektAnmeldung implements Comparable<DAVObjektAnmeldung> {
 
 	/**
 	 * Macht aus einem <code>ResultData</code>-Objekt ein
-	 * <code>DAVObjektAnmeldung</code>-Objekt (über den Aufruf des
+	 * <code>DAVObjektAnmeldung</code>-Objekt (Ã¼ber den Aufruf des
 	 * Standardkontruktors).
 	 *
 	 * @param resultat
@@ -145,7 +145,7 @@ public class DAVObjektAnmeldung implements Comparable<DAVObjektAnmeldung> {
 
 	/**
 	 * Diese Methode muss implementiert werden, da nach der Exploration des
-	 * Baums über <code>compareTo(..)</code> (bspw. beim Aufruf von
+	 * Baums Ã¼ber <code>compareTo(..)</code> (bspw. beim Aufruf von
 	 * <code>contains()</code>) nochmals mit <code>equals(..)</code> explizit
 	 * auf Gleichheit getestet wird.
 	 */

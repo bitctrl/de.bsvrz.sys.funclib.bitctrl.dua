@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -45,7 +45,7 @@ import de.bsvrz.sys.funclib.bitctrl.dua.ufd.typen.UmfeldDatenArt;
 /**
  * Korrespondiert mit einem Objekt vom Typ <code>typ.umfeldDatenSensor</code>
  * und stellt alle Konfigurationsdaten, sowie die Parameter der
- * Messwertersetzung zur Verfügung.
+ * Messwertersetzung zur VerfÃ¼gung.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
@@ -62,13 +62,13 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	private final SystemObject objekt;
 
 	/**
-	 * Maximaler Zeitbereich, über den eine Messwertersetzung für diesen Sensor
-	 * durchgeführt wird.
+	 * Maximaler Zeitbereich, Ã¼ber den eine Messwertersetzung fÃ¼r diesen Sensor
+	 * durchgefÃ¼hrt wird.
 	 */
 	private long maxZeitMessWertErsetzung = -1;
 
 	/**
-	 * Maximaler Zeitbereich, über den eine Messwertfortschreibung bei
+	 * Maximaler Zeitbereich, Ã¼ber den eine Messwertfortschreibung bei
 	 * implausiblen Werten stattfindet.
 	 */
 	private long maxZeitMessWertFortschreibung = -1;
@@ -84,13 +84,13 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	private SystemObject nachfolger;
 
 	/**
-	 * Ersatzsensor dieses Umfelddatensensors für die Messwertersetzung.
+	 * Ersatzsensor dieses Umfelddatensensors fÃ¼r die Messwertersetzung.
 	 */
 	private SystemObject ersatzSensor;
 
 	/**
-	 * Zeigt an, ob dieser Sensor der Hauptsensor für diesen Sensortyp an der
-	 * Umfelddatenmessstelle, oder ein(er von mehreren) Nebensensoren für diesen
+	 * Zeigt an, ob dieser Sensor der Hauptsensor fÃ¼r diesen Sensortyp an der
+	 * Umfelddatenmessstelle, oder ein(er von mehreren) Nebensensoren fÃ¼r diesen
 	 * Sensortyp an der Umfelddatenmessstelle ist.
 	 */
 	private boolean hauptSensor;
@@ -136,7 +136,7 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	 * @param objekt
 	 *            das Systemobjekt des Umfelddatensensors
 	 * @throws UmfeldDatenSensorUnbekannteDatenartException
-	 *             der Sensor hat keinen der unterstützten Typen
+	 *             der Sensor hat keinen der unterstÃ¼tzten Typen
 	 */
 	protected DUAUmfeldDatenSensor(final ClientDavInterface dav, final SystemObject objekt)
 			throws UmfeldDatenSensorUnbekannteDatenartException {
@@ -156,8 +156,8 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 				.getConfigurationData(dav.getDataModel().getAttributeGroup("atg.umfeldDatenSensor"));
 
 		if (konfigDaten != null) {
-			if (konfigDaten.getReferenceValue("Vorgänger") != null) {
-				vorgaenger = konfigDaten.getReferenceValue("Vorgänger").getSystemObject();
+			if (konfigDaten.getReferenceValue("VorgÃ¤nger") != null) {
+				vorgaenger = konfigDaten.getReferenceValue("VorgÃ¤nger").getSystemObject();
 			}
 			if (konfigDaten.getReferenceValue("Nachfolger") != null) {
 				nachfolger = konfigDaten.getReferenceValue("Nachfolger").getSystemObject();
@@ -205,10 +205,10 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	}
 
 	/**
-	 * Erfragt den Ersatzsensor dieses Umfelddatensensors für die
+	 * Erfragt den Ersatzsensor dieses Umfelddatensensors fÃ¼r die
 	 * Messwertersetzung.
 	 *
-	 * @return der Ersatzsensor dieses Umfelddatensensors für die
+	 * @return der Ersatzsensor dieses Umfelddatensensors fÃ¼r die
 	 *         Messwertersetzung oder <code>null</code>, wenn dieser nicht
 	 *         konfiguriert ist
 	 */
@@ -217,8 +217,8 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	}
 
 	/**
-	 * Erfragt, ob dieser Sensor der Hauptsensor für diesen Sensortyp an der
-	 * Umfelddatenmessstelle, oder ein(er von mehreren) Nebensensoren für diesen
+	 * Erfragt, ob dieser Sensor der Hauptsensor fÃ¼r diesen Sensortyp an der
+	 * Umfelddatenmessstelle, oder ein(er von mehreren) Nebensensoren fÃ¼r diesen
 	 * Sensortyp an der Umfelddatenmessstelle ist.
 	 *
 	 * @return ob dieser Sensor der Hauptsensor ist
@@ -244,21 +244,21 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	}
 
 	/**
-	 * Erfragt den maximalen Zeitbereich, über den eine Messwertersetzung für
-	 * diesen Sensor durchgeführt wird.
+	 * Erfragt den maximalen Zeitbereich, Ã¼ber den eine Messwertersetzung fÃ¼r
+	 * diesen Sensor durchgefÃ¼hrt wird.
 	 *
-	 * @return maximaler Zeitbereich, über den eine Messwertersetzung für diesen
-	 *         Sensor durchgeführt wird
+	 * @return maximaler Zeitbereich, Ã¼ber den eine Messwertersetzung fÃ¼r diesen
+	 *         Sensor durchgefÃ¼hrt wird
 	 */
 	public final long getMaxZeitMessWertErsetzung() {
 		return maxZeitMessWertErsetzung;
 	}
 
 	/**
-	 * Erfragt den maximalen Zeitbereich, über den eine Messwertfortschreibung
+	 * Erfragt den maximalen Zeitbereich, Ã¼ber den eine Messwertfortschreibung
 	 * bei implausiblen Werten stattfindet.
 	 *
-	 * @return maximaler Zeitbereich, über den eine Messwertfortschreibung bei
+	 * @return maximaler Zeitbereich, Ã¼ber den eine Messwertfortschreibung bei
 	 *         implausiblen Werten stattfindet
 	 */
 	public final long getMaxZeitMessWertFortschreibung() {
@@ -300,9 +300,9 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	}
 
 	/**
-	 * entfernt die gespeicherten Instanzen für Testzwecke.
+	 * entfernt die gespeicherten Instanzen fÃ¼r Testzwecke.
 	 *
-	 * TODO prüfen, wozu das gut ist!
+	 * TODO prÃ¼fen, wozu das gut ist!
 	 */
 	protected static void resetCache() {
 		DUAUmfeldDatenSensor.instanzen.clear();

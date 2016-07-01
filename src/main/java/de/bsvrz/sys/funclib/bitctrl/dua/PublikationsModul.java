@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -47,9 +47,9 @@ import de.bsvrz.sys.funclib.bitctrl.dua.schnittstellen.IVerwaltung;
  * Dieses Modul funktioniert wie ein normaler Bearbeitungsknoten mit folgenden
  * Unterschieden:.<br>
  * 1.) Es werden keine Daten plausibilisiert<br>
- * 2.) Die Publikation ist standardmäßig angeschaltet und kann nicht
+ * 2.) Die Publikation ist standardmÃ¤ÃŸig angeschaltet und kann nicht
  * ausgeschaltet werden<br>
- * 3.) Für das selbe Systemobjekt darf nicht zweimal hintereinander die Kennung
+ * 3.) FÃ¼r das selbe Systemobjekt darf nicht zweimal hintereinander die Kennung
  * <code>keine Daten</code> versendet werden
  *
  * @author BitCtrl Systems GmbH, Thierfelder
@@ -57,12 +57,12 @@ import de.bsvrz.sys.funclib.bitctrl.dua.schnittstellen.IVerwaltung;
 public class PublikationsModul extends AbstraktBearbeitungsKnotenAdapter {
 
 	/**
-	 * der Typ des Moduls, für den dieser Bearbeitungsknoten publizieren soll.
+	 * der Typ des Moduls, fÃ¼r den dieser Bearbeitungsknoten publizieren soll.
 	 */
 	private final ModulTyp modulTyp;
 
 	/**
-	 * Parameter zur Datenflusssteuerung für diese SWE und dieses Modul.
+	 * Parameter zur Datenflusssteuerung fÃ¼r diese SWE und dieses Modul.
 	 */
 	private IDatenFlussSteuerungFuerModul iDfsMod = DFSKonstanten.STANDARD;
 
@@ -75,13 +75,13 @@ public class PublikationsModul extends AbstraktBearbeitungsKnotenAdapter {
 	 * Standardkonstruktor.
 	 *
 	 * @param stdAspekte
-	 *            Informationen zu den Standardpublikationsaspekten für dieses
+	 *            Informationen zu den Standardpublikationsaspekten fÃ¼r dieses
 	 *            Modul
 	 * @param modulTyp
-	 *            der Typ des Moduls, für den dieser Bearbeitungsknoten
+	 *            der Typ des Moduls, fÃ¼r den dieser Bearbeitungsknoten
 	 *            publizieren soll oder <code>null</code>, wenn die Publikation
 	 *            hier nicht dynamisch sein soll (sich also nicht an der
-	 *            Datenflusssteuerung für dieses Modul orientieren soll)
+	 *            Datenflusssteuerung fÃ¼r dieses Modul orientieren soll)
 	 */
 	public PublikationsModul(final IStandardAspekte stdAspekte, final ModulTyp modulTyp) {
 		setStandardAspekte(stdAspekte);

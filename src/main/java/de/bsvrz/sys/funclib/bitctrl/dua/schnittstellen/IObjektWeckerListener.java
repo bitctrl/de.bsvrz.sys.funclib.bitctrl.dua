@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f¸r das Segment DuA
+ * Allgemeine Funktionen f√ºr das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weiﬂenfelser Straﬂe 67
+ * Wei√üenfelser Stra√üe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -28,7 +28,7 @@ package de.bsvrz.sys.funclib.bitctrl.dua.schnittstellen;
 
 /**
  * Schnittstelle zu einem Objekt, das von einer Instanz der Klasse
- * <code>ObjektWecker</code> alarmiert werden kˆnnen soll.
+ * <code>ObjektWecker</code> alarmiert werden k√∂nnen soll.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */

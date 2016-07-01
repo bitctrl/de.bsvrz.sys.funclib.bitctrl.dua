@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -67,8 +67,8 @@ public class MessStellenGruppe extends AbstractSystemObjekt {
 	private MessStelle[] messStellen = new MessStelle[0];
 
 	/**
-	 * Legt fest, ob die Ermittlung systematischer Detektorfehler für diese
-	 * MessStellenGruppe durchgeführt werden soll.
+	 * Legt fest, ob die Ermittlung systematischer Detektorfehler fÃ¼r diese
+	 * MessStellenGruppe durchgefÃ¼hrt werden soll.
 	 */
 	private boolean systematischeDetektorfehler;
 
@@ -128,7 +128,7 @@ public class MessStellenGruppe extends AbstractSystemObjekt {
 	}
 
 	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
+	 * Initialisiert diese Klasse, indem fÃ¼r alle Systemobjekte vom Typ
 	 * <code>typ.messStelleGruppe</code> statische Instanzen dieser Klasse
 	 * angelegt werden.
 	 *
@@ -156,7 +156,7 @@ public class MessStellenGruppe extends AbstractSystemObjekt {
 	}
 
 	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
+	 * Initialisiert diese Klasse, indem fÃ¼r alle Systemobjekte vom Typ
 	 * <code>typ.messStelleGruppe</code> statische Instanzen dieser Klasse
 	 * angelegt werden.
 	 *
@@ -188,12 +188,12 @@ public class MessStellenGruppe extends AbstractSystemObjekt {
 	}
 
 	/**
-	 * Erfragt eine mit dem übergebenen Systemobjekt assoziierte statische
+	 * Erfragt eine mit dem Ã¼bergebenen Systemobjekt assoziierte statische
 	 * Instanz dieser Klasse.
 	 *
 	 * @param msgObjekt
 	 *            ein MessStellenGruppe-Systemobjekt
-	 * @return eine mit dem übergebenen Systemobjekt assoziierte statische
+	 * @return eine mit dem Ã¼bergebenen Systemobjekt assoziierte statische
 	 *         Instanz dieser Klasse oder <code>null</code>, wenn diese Instanz
 	 *         nicht ermittelt werden konnte
 	 */
@@ -221,11 +221,11 @@ public class MessStellenGruppe extends AbstractSystemObjekt {
 	}
 
 	/**
-	 * Erfragt, ob die Ermittlung systematischer Detektorfehler für diese
-	 * MessStellenGruppe durchgeführt werden soll.
+	 * Erfragt, ob die Ermittlung systematischer Detektorfehler fÃ¼r diese
+	 * MessStellenGruppe durchgefÃ¼hrt werden soll.
 	 *
-	 * @return die Ermittlung systematischer Detektorfehler für diese
-	 *         MessStellenGruppe durchgeführt werden soll
+	 * @return die Ermittlung systematischer Detektorfehler fÃ¼r diese
+	 *         MessStellenGruppe durchgefÃ¼hrt werden soll
 	 */
 	public final boolean isSystematischeDetektorfehler() {
 		return systematischeDetektorfehler;

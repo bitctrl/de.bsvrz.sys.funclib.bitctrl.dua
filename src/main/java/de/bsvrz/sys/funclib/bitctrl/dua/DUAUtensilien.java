@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -91,7 +91,7 @@ public final class DUAUtensilien {
 	}
 
 	/**
-	 * Schablone für eine ganze positive Zahl.
+	 * Schablone fÃ¼r eine ganze positive Zahl.
 	 */
 	private static final String NATUERLICHE_ZAHL = "\\d+";
 
@@ -108,8 +108,8 @@ public final class DUAUtensilien {
 	 * @param ersetzung
 	 *            die Zeichenkette, durch die der letzte Teil des Attributpfades
 	 *            ersetzt werden soll
-	 * @return einen veränderten Attributpfad oder <code>null</code>, wenn die
-	 *         Ersetzung nicht durchgeführt werden konnte
+	 * @return einen verÃ¤nderten Attributpfad oder <code>null</code>, wenn die
+	 *         Ersetzung nicht durchgefÃ¼hrt werden konnte
 	 */
 	public static String ersetzeLetztesElemInAttPfad(final String attPfad, final String ersetzung) {
 		String ergebnis = null;
@@ -128,11 +128,11 @@ public final class DUAUtensilien {
 
 	/**
 	 * Erfragt die Menge von <code>DAVObjektAnmeldung</code>-Objekten, die alle
-	 * Anmeldungen unter der übergebenen Datenbeschreibung für das übergebene
-	 * Objekt enthält.<br>
-	 * <b>Achtung:</b> Das Objekt wird in seine finalen Instanzen aufgelöst.
-	 * Sollte für das Objekt <code>null</code> übergeben worden sein, so wird
-	 * 'Alle Objekte' angenommen. Gleiches gilt für die Elemente der
+	 * Anmeldungen unter der Ã¼bergebenen Datenbeschreibung fÃ¼r das Ã¼bergebene
+	 * Objekt enthÃ¤lt.<br>
+	 * <b>Achtung:</b> Das Objekt wird in seine finalen Instanzen aufgelÃ¶st.
+	 * Sollte fÃ¼r das Objekt <code>null</code> Ã¼bergeben worden sein, so wird
+	 * 'Alle Objekte' angenommen. Gleiches gilt fÃ¼r die Elemente der
 	 * Datenbeschreibung.
 	 *
 	 * @param obj
@@ -183,11 +183,11 @@ public final class DUAUtensilien {
 	 * Liest eine Argument aus der ArgumentListe der Kommandozeile aus.
 	 *
 	 * @param schluessel
-	 *            der Schlüssel
+	 *            der SchlÃ¼ssel
 	 * @param argumentListe
 	 *            alle Argumente der Kommandozeile
-	 * @return das Wert des DAV-Arguments mit dem übergebenen Schlüssel oder
-	 *         <code>null</code>, wenn der Schlüssel nicht gefunden wurde
+	 * @return das Wert des DAV-Arguments mit dem Ã¼bergebenen SchlÃ¼ssel oder
+	 *         <code>null</code>, wenn der SchlÃ¼ssel nicht gefunden wurde
 	 */
 	public static String getArgument(final String schluessel, final List<String> argumentListe) {
 		String ergebnis = null;
@@ -208,7 +208,7 @@ public final class DUAUtensilien {
 	}
 
 	/**
-	 * Extrahiert aus einem übergebenen Datum ein darin enthaltenes Datum.
+	 * Extrahiert aus einem Ã¼bergebenen Datum ein darin enthaltenes Datum.
 	 *
 	 * @param attributPfad
 	 *            gibt den kompletten Pfad zu einem Attribut innerhalb einer
@@ -223,7 +223,7 @@ public final class DUAUtensilien {
 	 *            das Datum, aus dem ein eingebettetes Datum extrahiert werden
 	 *            soll.
 	 * @return das extrahierte Datum oder <code>null</code> wenn keine
-	 *         Extraktion möglich war
+	 *         Extraktion mÃ¶glich war
 	 */
 	public static Data getAttributDatum(final String attributPfad, final Data datum) {
 		Data ergebnis = null;
@@ -251,10 +251,10 @@ public final class DUAUtensilien {
 					}
 				}
 			} else {
-				DUAUtensilien.LOGGER.warning("Übergebener Attributpfad ist " + DUAKonstanten.NULL);
+				DUAUtensilien.LOGGER.warning("Ãœbergebener Attributpfad ist " + DUAKonstanten.NULL);
 			}
 		} else {
-			DUAUtensilien.LOGGER.warning("Übergebenes Datum ist " + DUAKonstanten.NULL);
+			DUAUtensilien.LOGGER.warning("Ãœbergebenes Datum ist " + DUAKonstanten.NULL);
 		}
 
 		return ergebnis;
@@ -262,10 +262,10 @@ public final class DUAUtensilien {
 
 	/**
 	 * Erfragt die Menge aller Konfigurationsobjekte bzw. Dynamischen Objekte
-	 * (finale Objekte), die unter Umständen im Parameter <code>obj</code>
+	 * (finale Objekte), die unter UmstÃ¤nden im Parameter <code>obj</code>
 	 * 'versteckt' sind. Sollte als Objekte <code>
-	 * null</code> übergeben worden sein, so werden alle (finalen) Objekte
-	 * zurückgegeben.
+	 * null</code> Ã¼bergeben worden sein, so werden alle (finalen) Objekte
+	 * zurÃ¼ckgegeben.
 	 *
 	 * @param obj
 	 *            ein Systemobjekt (finales Objekt oder Typ)
@@ -304,8 +304,8 @@ public final class DUAUtensilien {
 				|| obj.getClass().equals(DafConfigurationAuthority.class)) {
 			finaleObjekte.add(obj);
 		} else {
-			DUAUtensilien.LOGGER.fine("Das übergebene Objekt ist weder ein Typ," + " ein Konfigurationsobjekt, ein dynamisches Objekt"
-					+ " noch eine Konfigurationsautorität: " + obj);
+			DUAUtensilien.LOGGER.fine("Das Ã¼bergebene Objekt ist weder ein Typ," + " ein Konfigurationsobjekt, ein dynamisches Objekt"
+					+ " noch eine KonfigurationsautoritÃ¤t: " + obj);
 		}
 
 		return finaleObjekte;
@@ -313,11 +313,11 @@ public final class DUAUtensilien {
 
 	/**
 	 * Erfragt die Menge aller Konfigurationsobjekte bzw. Dynamischen Objekte
-	 * (finale Objekte), die unter Umständen im Argument <code>obj</code>
-	 * 'versteckt' sind <b>und außerdem innerhalb der übergebenen
+	 * (finale Objekte), die unter UmstÃ¤nden im Argument <code>obj</code>
+	 * 'versteckt' sind <b>und auÃŸerdem innerhalb der Ã¼bergebenen
 	 * Konfigurationsbereiche liegen</b>. Sollte als Objekte <code>
-	 * null</code> übergeben worden sein, so werden alle (finalen) Objekte
-	 * zurückgegeben.
+	 * null</code> Ã¼bergeben worden sein, so werden alle (finalen) Objekte
+	 * zurÃ¼ckgegeben.
 	 *
 	 * @param obj
 	 *            ein Systemobjekt (finales Objekt oder Typ)
@@ -326,7 +326,7 @@ public final class DUAUtensilien {
 	 * @param kBereichsFilter
 	 *            eine Menge von Konfigurationsbereichen
 	 * @return eine Menge von finalen Systemobjekten, die innerhalb der
-	 *         übergebenen Konfigurationsbereiche (bzw. im
+	 *         Ã¼bergebenen Konfigurationsbereiche (bzw. im
 	 *         Standardkonfigurationsbereich) definiert sind.
 	 */
 	public static Collection<SystemObject> getBasisInstanzen(final SystemObject obj, final ClientDavInterface dav,
@@ -338,7 +338,7 @@ public final class DUAUtensilien {
 			benutzteBereiche = kBereichsFilter;
 		} else {
 			/**
-			 * Es wurden keine Konfigurationsbereiche übergeben:
+			 * Es wurden keine Konfigurationsbereiche Ã¼bergeben:
 			 * Standardkonfigurationsbereich wird verwendet
 			 */
 			benutzteBereiche.add(dav.getDataModel().getConfigurationAuthority().getConfigurationArea());
@@ -378,15 +378,15 @@ public final class DUAUtensilien {
 				finaleObjekte.add(obj);
 			}
 		} else {
-			DUAUtensilien.LOGGER.fine("Das übergebene Objekt ist weder ein Typ," + " ein Konfigurationsobjekt, ein dynamisches Objekt"
-					+ " noch eine Konfigurationsautorität: " + obj);
+			DUAUtensilien.LOGGER.fine("Das Ã¼bergebene Objekt ist weder ein Typ," + " ein Konfigurationsobjekt, ein dynamisches Objekt"
+					+ " noch eine KonfigurationsautoritÃ¤t: " + obj);
 		}
 
 		return finaleObjekte;
 	}
 
 	/**
-	 * Gibt die Anhahl der Stunden zurück, die dieser Tag hat.
+	 * Gibt die Anhahl der Stunden zurÃ¼ck, die dieser Tag hat.
 	 *
 	 * @param zeitStempel
 	 *            ein Zeitpunkt, der innerhalb des entsprechenden Tages liegt
@@ -416,7 +416,7 @@ public final class DUAUtensilien {
 
 	/**
 	 * Erfragt die textliche Entsprechung eines Messwertes, dessen Wertebereich
-	 * bei 0 (inklusive) beginnt und der die Zustände <code>fehlerhaft</code>,
+	 * bei 0 (inklusive) beginnt und der die ZustÃ¤nde <code>fehlerhaft</code>,
 	 * <code>nicht ermittelbar</code> oder
 	 * <code>nicht ermittelbar/fehlerhaft</code> besitzen kann.
 	 *
@@ -441,16 +441,16 @@ public final class DUAUtensilien {
 	}
 
 	/**
-	 * Erfragt, ob die übergebene Systemobjekt-Attributgruppen-Aspekt-
-	 * Kombination gültig bzw. kompatibel (bzw. so anmeldbar) ist.
+	 * Erfragt, ob die Ã¼bergebene Systemobjekt-Attributgruppen-Aspekt-
+	 * Kombination gÃ¼ltig bzw. kompatibel (bzw. so anmeldbar) ist.
 	 *
 	 * @param obj
 	 *            das (finale) Systemobjekt
 	 * @param datenBeschreibung
 	 *            die Datenbeschreibung
-	 * @return <code>null</code>, wenn die übergebene Systemobjekt-
-	 *         Attributgruppen-Aspekt-Kombination gültig ist, entweder. Oder
-	 *         eine die Inkombatibilität beschreibende Fehlermeldung sonst.
+	 * @return <code>null</code>, wenn die Ã¼bergebene Systemobjekt-
+	 *         Attributgruppen-Aspekt-Kombination gÃ¼ltig ist, entweder. Oder
+	 *         eine die InkombatibilitÃ¤t beschreibende Fehlermeldung sonst.
 	 */
 	public static String isKombinationOk(final SystemObject obj, final DataDescription datenBeschreibung) {
 		String result = null;
@@ -464,32 +464,32 @@ public final class DUAUtensilien {
 		} else if (datenBeschreibung.getAspect() == null) {
 			result = "Aspekt ist " + DUAKonstanten.NULL;
 		} else if (!obj.getType().getAttributeGroups().contains(datenBeschreibung.getAttributeGroup())) {
-			result = "Attributgruppe " + datenBeschreibung.getAttributeGroup() + " ist für Objekt " + obj
+			result = "Attributgruppe " + datenBeschreibung.getAttributeGroup() + " ist fÃ¼r Objekt " + obj
 					+ " nicht definiert";
 		} else if (!datenBeschreibung.getAttributeGroup().getAspects().contains(datenBeschreibung.getAspect())) {
-			result = "Aspekt " + datenBeschreibung.getAspect() + " ist für Attributgruppe "
+			result = "Aspekt " + datenBeschreibung.getAspect() + " ist fÃ¼r Attributgruppe "
 					+ datenBeschreibung.getAttributeGroup() + " nicht definiert";
 		} else
 			if (!(obj.getClass().equals(DafConfigurationObject.class) || obj.getClass().equals(DafDynamicObject.class)
 					|| obj.getClass().equals(DafConfigurationAuthority.class))) {
 				result = "Es handelt sich weder um ein Konfigurationsobjekt, "
-						+ "ein dynamisches Objekt noch eine Konfigurationsautorität: " + obj;
+						+ "ein dynamisches Objekt noch eine KonfigurationsautoritÃ¤t: " + obj;
 			}
 
 		return result;
 	}
 
 	/**
-	 * Ermittelt, ob der übergebene Wert im Wertebereich des übergebenen
-	 * Attributs liegt (für skalierte Ganzzahlen).
+	 * Ermittelt, ob der Ã¼bergebene Wert im Wertebereich des Ã¼bergebenen
+	 * Attributs liegt (fÃ¼r skalierte Ganzzahlen).
 	 *
 	 * @param attribut
 	 *            das skalierte Ganzzahl-Attribut
 	 * @param wertSkaliert
 	 *            der skalierte Wert
-	 * @return <code>false</code>, wenn das übergebene Attribut ein skaliertes
+	 * @return <code>false</code>, wenn das Ã¼bergebene Attribut ein skaliertes
 	 *         Ganzzahl-Attribut ist <b>und</b> einen Wertebereich besitzt
-	 *         <b>und</b> dieser durch den übergebenen Wert verletzt ist, sonst
+	 *         <b>und</b> dieser durch den Ã¼bergebenen Wert verletzt ist, sonst
 	 *         <code>true</code>
 	 */
 	public static boolean isWertInWerteBereich(final Data attribut, final double wertSkaliert) {
@@ -509,7 +509,7 @@ public final class DUAUtensilien {
 				}
 			}
 		} else {
-			throw new NullPointerException("Übergebenes Attribut ist <<null>>");
+			throw new NullPointerException("Ãœbergebenes Attribut ist <<null>>");
 		}
 
 		return ergebnis;
@@ -552,7 +552,7 @@ public final class DUAUtensilien {
 				}
 			}
 		} else {
-			throw new NullPointerException("Übergebenes Attribut ist <<null>>");
+			throw new NullPointerException("Ãœbergebenes Attribut ist <<null>>");
 		}
 
 		return ergebnis;
@@ -819,7 +819,7 @@ public final class DUAUtensilien {
 	 * @param dav
 	 *            Verbindung zum Datenverteiler.
 	 * @param konverter
-	 *            der Konverter zum Bestimmen der ID für die Betriebsmeldung
+	 *            der Konverter zum Bestimmen der ID fÃ¼r die Betriebsmeldung
 	 * @param grade
 	 *            die Art der Meldung (<code>FATAL</code>, <code>ERROR</code>,
 	 *            <code>WARNING</code>, <code>INFORMATION</code>).
@@ -842,8 +842,8 @@ public final class DUAUtensilien {
 	}
 
 	/**
-	 * Extrahiert aus einer Zeichenkette alle über Kommata getrennten
-	 * Konfigurationsbereiche und gibt deren Systemobjekte zurück.
+	 * Extrahiert aus einer Zeichenkette alle Ã¼ber Kommata getrennten
+	 * Konfigurationsbereiche und gibt deren Systemobjekte zurÃ¼ck.
 	 *
 	 * @param dav
 	 *            Verbindung zum Datenverteiler

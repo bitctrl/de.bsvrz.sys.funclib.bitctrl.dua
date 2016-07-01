@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f¸r das Segment DuA
+ * Allgemeine Funktionen f√ºr das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  * Copyright 2016 by Kappich Systemberatung Aachen
  *
@@ -19,7 +19,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weiﬂenfelser Straﬂe 67
+ * Wei√üenfelser Stra√üe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -99,9 +99,9 @@ public final class DUAKonstanten {
 	public static final String TYP_FAHRSTREIFEN_LZ = "typ.fahrStreifenLangZeit";
 
 	/**
-	 * DAV-Typ-PID <code>typ.straﬂenabschnitt</code>.
+	 * DAV-Typ-PID <code>typ.stra√üenabschnitt</code>.
 	 */
-	public static final String TYP_STRASSEN_ABSCHNITT = "typ.straﬂenAbschnitt";
+	public static final String TYP_STRASSEN_ABSCHNITT = "typ.stra√üenAbschnitt";
 
 	/**
 	 * DAV-Atg-PID <code>atg.verkehrsDatenKurzZeitIntervall</code>.
@@ -114,9 +114,9 @@ public final class DUAKonstanten {
 	public static final String ATG_LZD = "atg.verkehrsDatenLangZeitIntervall";
 
 	/**
-	 * DAV-Atg-PID <code>"atg.stˆrfallZustand"</code>.
+	 * DAV-Atg-PID <code>"atg.st√∂rfallZustand"</code>.
 	 */
-	public static final String ATG_STOERFALL_ZUSTAND = "atg.stˆrfallZustand";
+	public static final String ATG_STOERFALL_ZUSTAND = "atg.st√∂rfallZustand";
 
 	/**
 	 * DAV-Asp-PID <code>asp.externeErfassung</code>.
@@ -124,14 +124,14 @@ public final class DUAKonstanten {
 	public static final String ASP_EXTERNE_ERFASSUNG = "asp.externeErfassung";
 
 	/**
-	 * DAV-Asp-PID <code>asp.plausibilit‰tsPr¸fungFormal</code>.
+	 * DAV-Asp-PID <code>asp.plausibilit√§tsPr√ºfungFormal</code>.
 	 */
-	public static final String ASP_PL_PRUEFUNG_FORMAL = "asp.plausibilit‰tsPr¸fungFormal";
+	public static final String ASP_PL_PRUEFUNG_FORMAL = "asp.plausibilit√§tsPr√ºfungFormal";
 
 	/**
-	 * DAV-Asp-PID <code>asp.plausibilit‰tsPr¸fungLogisch</code>.
+	 * DAV-Asp-PID <code>asp.plausibilit√§tsPr√ºfungLogisch</code>.
 	 */
-	public static final String ASP_PL_PRUEFUNG_LOGISCH = "asp.plausibilit‰tsPr¸fungLogisch";
+	public static final String ASP_PL_PRUEFUNG_LOGISCH = "asp.plausibilit√§tsPr√ºfungLogisch";
 
 	/**
 	 * DAV-Asp-PID <code>asp.messWertErsetzung</code>.
@@ -194,14 +194,14 @@ public final class DUAKonstanten {
 	public static final String ATG_KURZZEIT_TRENT_MQ = "atg.verkehrsDatenKurzZeitTrendExtraPolationMq";
 
 	/**
-	 * DAV-Atg-PID <code>atg.verkehrsDatenKurzZeitGegl‰ttetFs</code>.
+	 * DAV-Atg-PID <code>atg.verkehrsDatenKurzZeitGegl√§ttetFs</code>.
 	 */
-	public static final String ATG_KURZZEIT_GEGLAETTET_FS = "atg.verkehrsDatenKurzZeitGegl‰ttetFs";
+	public static final String ATG_KURZZEIT_GEGLAETTET_FS = "atg.verkehrsDatenKurzZeitGegl√§ttetFs";
 
 	/**
-	 * DAV-Atg-PID <code>atg.verkehrsDatenKurzZeitGegl‰ttetMq</code>.
+	 * DAV-Atg-PID <code>atg.verkehrsDatenKurzZeitGegl√§ttetMq</code>.
 	 */
-	public static final String ATG_KURZZEIT_GEGLAETTET_MQ = "atg.verkehrsDatenKurzZeitGegl‰ttetMq";
+	public static final String ATG_KURZZEIT_GEGLAETTET_MQ = "atg.verkehrsDatenKurzZeitGegl√§ttetMq";
 
 	/**
 	 * DAV-Atg-PID <code>atg.verkehrsDatenKurzZeitFs</code>.
@@ -236,7 +236,7 @@ public final class DUAKonstanten {
 	/**
 	 * Daten sind nicht ermittelbar (ist KEIN Fehler). Wird gesetzt, wenn der
 	 * entsprechende Wert nicht ermittelbar ist und kein Interpolation sinnvoll
-	 * mˆglich ist (z.B. ist die Geschwindigkeit nicht ermittelbar, wenn kein
+	 * m√∂glich ist (z.B. ist die Geschwindigkeit nicht ermittelbar, wenn kein
 	 * Fahrzeug erfasst wurde).
 	 */
 	public static final int NICHT_ERMITTELBAR = -1;
@@ -251,7 +251,7 @@ public final class DUAKonstanten {
 	 * Daten nicht ermittelbar, da bereits Basiswerte fehlerhaft. Wird gesetzt,
 	 * wenn Daten, die zur Berechnung dieses Werts notwendig sind, bereits als
 	 * fehlerhaft gekennzeichnet sind, oder wenn die Berechnung aus anderen
-	 * Gr¸nden (z.B. Nenner = 0 in der Berechnungsformel) nicht mˆglich war.
+	 * Gr√ºnden (z.B. Nenner = 0 in der Berechnungsformel) nicht m√∂glich war.
 	 */
 	public static final int NICHT_ERMITTELBAR_BZW_FEHLERHAFT = -3;
 
@@ -312,7 +312,7 @@ public final class DUAKonstanten {
 			"tNetto", "sKfz", "vgKfz" };
 
 	/**
-	 * Aspekt <code>asp.tlsAntwort</code> f¸r Antworten von TLS-Daten eines
+	 * Aspekt <code>asp.tlsAntwort</code> f√ºr Antworten von TLS-Daten eines
 	 * DE-Blocks nach Abruf, nach Pufferabfrage oder spontan.
 	 */
 	public static final String ASP_TLS_ANTWORT = "asp.tlsAntwort";

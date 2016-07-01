@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -32,8 +32,8 @@ import java.util.Map;
 import de.bsvrz.sys.funclib.bitctrl.daf.AbstractDavZustand;
 
 /**
- * Über diese Klasse werden alle im DAV-Enumerationstyp
- * <code>att.fahrStreifenLage</code> beschriebenen Werte zur Verfügung gestellt.
+ * Ãœber diese Klasse werden alle im DAV-Enumerationstyp
+ * <code>att.fahrStreifenLage</code> beschriebenen Werte zur VerfÃ¼gung gestellt.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  **/
@@ -50,34 +50,34 @@ public final class FahrStreifenLage extends AbstractDavZustand {
 	public static final FahrStreifenLage HFS = new FahrStreifenLage("HFS", 0);
 
 	/**
-	 * Wert <code>1ÜFS</code>.
+	 * Wert <code>1ÃœFS</code>.
 	 */
-	public static final FahrStreifenLage UFS1 = new FahrStreifenLage("1ÜFS", 1);
+	public static final FahrStreifenLage UFS1 = new FahrStreifenLage("1ÃœFS", 1);
 
 	/**
-	 * Wert <code>2ÜFS</code>.
+	 * Wert <code>2ÃœFS</code>.
 	 */
-	public static final FahrStreifenLage UFS2 = new FahrStreifenLage("2ÜFS", 2);
+	public static final FahrStreifenLage UFS2 = new FahrStreifenLage("2ÃœFS", 2);
 
 	/**
-	 * Wert <code>3ÜFS</code>.
+	 * Wert <code>3ÃœFS</code>.
 	 */
-	public static final FahrStreifenLage UFS3 = new FahrStreifenLage("3ÜFS", 3);
+	public static final FahrStreifenLage UFS3 = new FahrStreifenLage("3ÃœFS", 3);
 
 	/**
-	 * Wert <code>4ÜFS</code>.
+	 * Wert <code>4ÃœFS</code>.
 	 */
-	public static final FahrStreifenLage UFS4 = new FahrStreifenLage("4ÜFS", 4);
+	public static final FahrStreifenLage UFS4 = new FahrStreifenLage("4ÃœFS", 4);
 
 	/**
-	 * Wert <code>5ÜFS</code>.
+	 * Wert <code>5ÃœFS</code>.
 	 */
-	public static final FahrStreifenLage UFS5 = new FahrStreifenLage("5ÜFS", 5);
+	public static final FahrStreifenLage UFS5 = new FahrStreifenLage("5ÃœFS", 5);
 
 	/**
-	 * Wert <code>6ÜFS</code>.
+	 * Wert <code>6ÃœFS</code>.
 	 */
-	public static final FahrStreifenLage UFS6 = new FahrStreifenLage("6ÜFS", 6);
+	public static final FahrStreifenLage UFS6 = new FahrStreifenLage("6ÃœFS", 6);
 
 	/**
 	 * Interner Konstruktor.
@@ -147,11 +147,11 @@ public final class FahrStreifenLage extends AbstractDavZustand {
 	}
 
 	/**
-	 * Erfragt den Wert dieses DAV-Enumerationstypen mit dem übergebenen Code.
+	 * Erfragt den Wert dieses DAV-Enumerationstypen mit dem Ã¼bergebenen Code.
 	 *
 	 * @param code
 	 *            der Code des Enumerations-Wertes
-	 * @return den Wert dieses DAV-Enumerationstypen mit dem übergebenen Code
+	 * @return den Wert dieses DAV-Enumerationstypen mit dem Ã¼bergebenen Code
 	 */
 	public static FahrStreifenLage getZustand(final int code) {
 		return FahrStreifenLage.werteBereich.get(code);

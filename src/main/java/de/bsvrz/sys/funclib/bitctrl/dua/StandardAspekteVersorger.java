@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -46,10 +46,10 @@ import de.bsvrz.sys.funclib.bitctrl.dua.schnittstellen.IVerwaltung;
 import de.bsvrz.sys.funclib.debug.Debug;
 
 /**
- * Ableitungen dieser Klasse stellen die Standard-Publikationsinformationen für
- * <b>einen</b> Modul-Typ und <b>eine</b> SWE innerhalb der DUA zur Verfügung.
+ * Ableitungen dieser Klasse stellen die Standard-Publikationsinformationen fÃ¼r
+ * <b>einen</b> Modul-Typ und <b>eine</b> SWE innerhalb der DUA zur VerfÃ¼gung.
  * <br>
- * Diese Informationen können im Konstruktor dieser Klasse für je eine
+ * Diese Informationen kÃ¶nnen im Konstruktor dieser Klasse fÃ¼r je eine
  * SWE-Modultyp-Kombination als Instanz der Klasse
  * <code>StandardAspekteAdapter</code> angelegt werden.
  *
@@ -61,10 +61,10 @@ public abstract class StandardAspekteVersorger {
 	protected final IVerwaltung verwaltung;
 
 	/**
-	 * Die Informationen über die Standardaspekte für die Publikation einer
+	 * Die Informationen Ã¼ber die Standardaspekte fÃ¼r die Publikation einer
 	 * bestimmten SWE-Modultyp-Kombinationen (hier mit leerem Objekt
-	 * initialisiert, das zurückgegeben wird, wenn die Standardaspekte nicht zur
-	 * Verfügung stehen).
+	 * initialisiert, das zurÃ¼ckgegeben wird, wenn die Standardaspekte nicht zur
+	 * VerfÃ¼gung stehen).
 	 */
 	protected IStandardAspekte standardAspekte = new IStandardAspekte() {
 
@@ -99,7 +99,7 @@ public abstract class StandardAspekteVersorger {
 	}
 
 	/**
-	 * Initialisiert die Standard-Publikationsinformationen für einen kompletten
+	 * Initialisiert die Standard-Publikationsinformationen fÃ¼r einen kompletten
 	 * Modul-Typ und eine SWE.
 	 *
 	 * @throws DUAInitialisierungsException
@@ -119,10 +119,10 @@ public abstract class StandardAspekteVersorger {
 	}
 
 	/**
-	 * In diesen Objekten werden alle Informationen über das standardmäßige
+	 * In diesen Objekten werden alle Informationen Ã¼ber das standardmÃ¤ÃŸige
 	 * Publikationsverhalten von SWE-Modul-Typ- Kombinationen festgehalten.
 	 * Diese Objekte werden innerhalb von <code>StandardAspekteVersorger</code>
-	 * statisch erstellt und können über die statische Methode
+	 * statisch erstellt und kÃ¶nnen Ã¼ber die statische Methode
 	 * <code>getStandardPubInfos(..)</code> ausgelesen werden.
 	 *
 	 * @author BitCtrl Systems GmbH, Thierfelder
@@ -281,10 +281,10 @@ public abstract class StandardAspekteVersorger {
 		 * @param aspEingang
 		 *            Aspekt des Originaldatums
 		 * @param aspAusgang
-		 *            Standardpublikationsaspekt für die <code>SystemObjectType-
+		 *            Standardpublikationsaspekt fÃ¼r die <code>SystemObjectType-
 		 *            AttributeGroup-Aspect</code>-Kombination
 		 * @throws DUAInitialisierungsException
-		 *             falls eines der übergebenen DAV-Elemente nicht ausgelesen
+		 *             falls eines der Ã¼bergebenen DAV-Elemente nicht ausgelesen
 		 *             werden konnte
 		 */
 		public StandardPublikationsZuordnung(final String typ, final String atg, final String aspEingang,

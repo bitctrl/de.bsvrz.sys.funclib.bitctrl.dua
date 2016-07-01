@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f�r das Segment DuA
+ * Allgemeine Funktionen fï¿½r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Wei�enfelser Stra�e 67
+ * Weiï¿½enfelser Straï¿½e 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -79,7 +79,7 @@ public abstract class AbstraktOnlineUfdSensor<G> implements ClientReceiverInterf
 	 *            der Aspekt, aus dem die aktuellen Daten entnommen werden
 	 *            sollen
 	 * @throws UmfeldDatenSensorUnbekannteDatenartException
-	 *             der Sensor hat keinen der unterstützten Typen
+	 *             der Sensor hat keinen der unterstÃ¼tzten Typen
 	 */
 	protected void initialisiere(final ClientDavInterface dav, final SystemObject objekt1, final Aspect aspekt)
 			throws UmfeldDatenSensorUnbekannteDatenartException {

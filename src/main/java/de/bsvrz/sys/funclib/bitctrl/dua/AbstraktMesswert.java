@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -29,7 +29,7 @@ package de.bsvrz.sys.funclib.bitctrl.dua;
 import de.bsvrz.dav.daf.main.Data;
 
 /**
- * Messwert <b>für ein Attribut</b> mit Plausibilisierungsinformationen.
+ * Messwert <b>fÃ¼r ein Attribut</b> mit Plausibilisierungsinformationen.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
@@ -98,8 +98,8 @@ public abstract class AbstraktMesswert extends MesswertMarkierung implements Com
 		setInterpoliert(datum.getItem(attName).getItem("Status").getItem("MessWertErsetzung")
 				.getUnscaledValue("Interpoliert").intValue() == DUAKonstanten.JA);
 
-		guete.setWert(datum.getItem(attName).getItem("Güte").getUnscaledValue("Index").longValue());
-		verfahren = datum.getItem(attName).getItem("Güte").getUnscaledValue("Verfahren").intValue();
+		guete.setWert(datum.getItem(attName).getItem("GÃ¼te").getUnscaledValue("Index").longValue());
+		verfahren = datum.getItem(attName).getItem("GÃ¼te").getUnscaledValue("Verfahren").intValue();
 	}
 
 	/**
@@ -218,10 +218,10 @@ public abstract class AbstraktMesswert extends MesswertMarkierung implements Com
 	}
 
 	/**
-	 * Kopiert den Inhalt dieses Objektes in das übergebene Datum.
+	 * Kopiert den Inhalt dieses Objektes in das Ã¼bergebene Datum.
 	 *
 	 * @param datum
-	 *            ein veränderbares Datum
+	 *            ein verÃ¤nderbares Datum
 	 */
 	public final void kopiereInhaltNach(final Data datum) {
 		if (isSkaliert()) {
@@ -252,15 +252,15 @@ public abstract class AbstraktMesswert extends MesswertMarkierung implements Com
 		datum.getItem(attName).getItem("Status").getItem("MessWertErsetzung").getUnscaledValue("Interpoliert")
 		.set(isInterpoliert() ? DUAKonstanten.JA : DUAKonstanten.NEIN);
 
-		datum.getItem(attName).getItem("Güte").getUnscaledValue("Index").set(guete.getWert());
-		datum.getItem(attName).getItem("Güte").getUnscaledValue("Verfahren").set(verfahren);
+		datum.getItem(attName).getItem("GÃ¼te").getUnscaledValue("Index").set(guete.getWert());
+		datum.getItem(attName).getItem("GÃ¼te").getUnscaledValue("Verfahren").set(verfahren);
 	}
 
 	/**
-	 * Kopiert den Inhalt dieses Objektes in das übergebene Datum.
+	 * Kopiert den Inhalt dieses Objektes in das Ã¼bergebene Datum.
 	 *
 	 * @param datum
-	 *            ein veränderbares Datum
+	 *            ein verÃ¤nderbares Datum
 	 */
 	public final void kopiereInhaltNachModifiziereIndex(final Data datum) {
 		if (isSkaliert()) {
@@ -292,15 +292,15 @@ public abstract class AbstraktMesswert extends MesswertMarkierung implements Com
 		.set(isInterpoliert() ? DUAKonstanten.JA : DUAKonstanten.NEIN);
 
 		if (datum.getItem(attName).getUnscaledValue("Wert").longValue() < 0) {
-			datum.getItem(attName).getItem("Güte").getUnscaledValue("Index").set(0);
+			datum.getItem(attName).getItem("GÃ¼te").getUnscaledValue("Index").set(0);
 		} else {
-			datum.getItem(attName).getItem("Güte").getUnscaledValue("Index").set(guete.getWert());
+			datum.getItem(attName).getItem("GÃ¼te").getUnscaledValue("Index").set(guete.getWert());
 		}
-		datum.getItem(attName).getItem("Güte").getUnscaledValue("Verfahren").set(verfahren);
+		datum.getItem(attName).getItem("GÃ¼te").getUnscaledValue("Verfahren").set(verfahren);
 	}
 
 	/* FIXME equals und hashCode verletzt den API-Kontrakt und sollte
-	 * hier entfernt bzw. überdacht werden. */
+	 * hier entfernt bzw. Ã¼berdacht werden. */
 	@Override
 	public boolean equals(final Object obj) {
 		boolean gleich = false;

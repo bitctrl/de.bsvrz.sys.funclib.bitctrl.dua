@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -30,8 +30,8 @@ import de.bsvrz.sys.funclib.bitctrl.dua.dfs.typen.ModulTyp;
 import de.bsvrz.sys.funclib.bitctrl.dua.dfs.typen.SWETyp;
 
 /**
- * Dieses Interface stellt alle Informationen über die aktuelle
- * Datenflusssteuerung zur Verfügung. Im Wesentlichen stellt es den Zugriff auf
+ * Dieses Interface stellt alle Informationen Ã¼ber die aktuelle
+ * Datenflusssteuerung zur VerfÃ¼gung. Im Wesentlichen stellt es den Zugriff auf
  * ein Objekt des Typs <code>typ.datenflussSteuerung</code> sicher.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
@@ -40,16 +40,16 @@ public interface IDatenFlussSteuerung {
 
 	/**
 	 * Erfragt eine Schnittstelle zu allen Informationen der Datenflusssteuerung
-	 * der übergebenen SWE und des übergebenen Modul-Typs.
+	 * der Ã¼bergebenen SWE und des Ã¼bergebenen Modul-Typs.
 	 *
 	 * @param swe
 	 *            die SWE
 	 * @param modulTyp
 	 *            der Modul-Typ
 	 * @return eine Schnittstelle zu allen Informationen der Datenflusssteuerung
-	 *         der übergebenen SWE und des übergebenen Modul-Typs. Wenn keine
+	 *         der Ã¼bergebenen SWE und des Ã¼bergebenen Modul-Typs. Wenn keine
 	 *         Informationen zur SWE/Modul-Typ- Kombination vorhanden sind, wird
-	 *         ein leeres Objekt zurückgegeben.
+	 *         ein leeres Objekt zurÃ¼ckgegeben.
 	 */
 	IDatenFlussSteuerungFuerModul getDFSFuerModul(final SWETyp swe, final ModulTyp modulTyp);
 

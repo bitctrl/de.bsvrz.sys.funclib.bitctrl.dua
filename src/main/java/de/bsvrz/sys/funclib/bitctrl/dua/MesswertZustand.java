@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -46,7 +46,7 @@ public final class MesswertZustand extends AbstractDavZustand {
 	/**
 	 * Daten sind nicht ermittelbar (ist KEIN Fehler). Wird gesetzt, wenn der
 	 * entsprechende Wert nicht ermittelbar ist und kein Interpolation sinnvoll
-	 * möglich ist (z.B. ist die Geschwindigkeit nicht ermittelbar, wenn kein
+	 * mÃ¶glich ist (z.B. ist die Geschwindigkeit nicht ermittelbar, wenn kein
 	 * Fahrzeug erfasst wurde).
 	 */
 	public static final MesswertZustand NICHT_ERMITTELBAR = new MesswertZustand("nicht ermittelbar", -1);
@@ -61,7 +61,7 @@ public final class MesswertZustand extends AbstractDavZustand {
 	 * Daten nicht ermittelbar, da bereits Basiswerte fehlerhaft. Wird gesetzt,
 	 * wenn Daten, die zur Berechnung dieses Werts notwendig sind, bereits als
 	 * fehlerhaft gekennzeichnet sind, oder wenn die Berechnung aus anderen
-	 * Gründen (z.B. Nenner = 0 in der Berechnungsformel) nicht möglich war.
+	 * GrÃ¼nden (z.B. Nenner = 0 in der Berechnungsformel) nicht mÃ¶glich war.
 	 */
 	public static final MesswertZustand FEHLERHAFT_BZW_NICHT_ERMITTELBAR = new MesswertZustand(
 			"nicht ermittelbar/fehlerhaft", -3);
@@ -80,11 +80,11 @@ public final class MesswertZustand extends AbstractDavZustand {
 	}
 
 	/**
-	 * Erfragt den Wert dieses DAV-Enumerationstypen mit dem übergebenen Code.
+	 * Erfragt den Wert dieses DAV-Enumerationstypen mit dem Ã¼bergebenen Code.
 	 *
 	 * @param code
 	 *            der Code des Enumerations-Wertes
-	 * @return den Wert dieses DAV-Enumerationstypen mit dem übergebenen Code.
+	 * @return den Wert dieses DAV-Enumerationstypen mit dem Ã¼bergebenen Code.
 	 */
 	public static MesswertZustand getZustand(final int code) {
 		return MesswertZustand.werteBereich.get(code);

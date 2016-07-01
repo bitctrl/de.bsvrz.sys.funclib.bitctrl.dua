@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright 2016 by Kappich Systemberatung Aachen
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -22,7 +22,7 @@ package de.bsvrz.sys.funclib.bitctrl.dua.lve.daten;
 import de.bsvrz.dav.daf.main.config.SystemObject;
 
 /**
- * Interface für allgemeine Bestandteile eines virtuellen Messquerschnitts
+ * Interface fÃ¼r allgemeine Bestandteile eines virtuellen Messquerschnitts
  * (Verfahren VLage und Allgemein).
  *
  * @author Kappich Systemberatung
@@ -40,7 +40,7 @@ public interface MessQuerschnittAnteile {
 
 	/**
 	 * Erfragt den Messquerschnitt von dem die Geschwindigkeit uebernommen
-	 * werden soll. Ist dieser nicht explizit versorgt wird null zurückgegeben
+	 * werden soll. Ist dieser nicht explizit versorgt wird null zurÃ¼ckgegeben
 	 *
 	 * @return der Messquerschnitt von dem die Geschwindigkeit uebernommen
 	 *         werden soll.

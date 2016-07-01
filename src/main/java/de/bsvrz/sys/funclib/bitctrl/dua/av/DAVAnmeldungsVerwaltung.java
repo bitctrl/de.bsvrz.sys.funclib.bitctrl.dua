@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -38,7 +38,7 @@ import de.bsvrz.dav.daf.main.ClientSenderInterface;
 import de.bsvrz.sys.funclib.debug.Debug;
 
 /**
- * Abstrakte Verwaltungsklasse für Datenanmeldungen.
+ * Abstrakte Verwaltungsklasse fÃ¼r Datenanmeldungen.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
@@ -72,10 +72,10 @@ public abstract class DAVAnmeldungsVerwaltung {
 
 	/**
 	 * Modifiziert die hier verwalteten Objektanmeldungen dergestalt, dass nur
-	 * die innerhalb der übergebenen Liste beschriebenen Anmeldungen bestehen
+	 * die innerhalb der Ã¼bergebenen Liste beschriebenen Anmeldungen bestehen
 	 * bleiben.<br>
-	 * D.h. insbesondere, dass eine übergebene leere Liste alle bereits
-	 * durchgeführten Anmeldungen wieder rückgängig macht.
+	 * D.h. insbesondere, dass eine Ã¼bergebene leere Liste alle bereits
+	 * durchgefÃ¼hrten Anmeldungen wieder rÃ¼ckgÃ¤ngig macht.
 	 *
 	 * @param neueObjektAnmeldungen
 	 *            die neue Liste mit Objektanmeldungen
@@ -160,20 +160,20 @@ public abstract class DAVAnmeldungsVerwaltung {
 
 
 	/**
-	 * Führt alle übergebenen Daten<b>ab</b>meldungen durch.
+	 * FÃ¼hrt alle Ã¼bergebenen Daten<b>ab</b>meldungen durch.
 	 *
 	 * @param abmeldungen
-	 *            durchzuführende Daten<b>ab</b>meldungen
+	 *            durchzufÃ¼hrende Daten<b>ab</b>meldungen
 	 * @return eine Liste aller <b>ab</b>gemeldeten Einzel-Anmeldungen als
 	 *         Zeichenkette
 	 */
 	protected abstract String abmelden(final Collection<DAVObjektAnmeldung> abmeldungen);
 
 	/**
-	 * Führt alle übergebenen Daten<b>an</b>meldungen durch.
+	 * FÃ¼hrt alle Ã¼bergebenen Daten<b>an</b>meldungen durch.
 	 *
 	 * @param anmeldungen
-	 *            durchzuführende Daten<b>an</b>meldungen
+	 *            durchzufÃ¼hrende Daten<b>an</b>meldungen
 	 * @return eine Liste aller neu <b>an</b>gemeldeten Einzel-Anmeldungen als
 	 *         Zeichenkette
 	 */
@@ -187,7 +187,7 @@ public abstract class DAVAnmeldungsVerwaltung {
 	protected abstract String getInfo();
 
 	/**
-	 * Der Zustand einer Datenbeschreibung bwzüglich der Sendesteuerung und der
+	 * Der Zustand einer Datenbeschreibung bwzÃ¼glich der Sendesteuerung und der
 	 * aktuell veroeffentlichten Daten.
 	 *
 	 * @author BitCtrl Systems GmbH, Thierfelder

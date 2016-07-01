@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -228,7 +228,7 @@ public class MesswertMarkierung implements Cloneable {
 	}
 
 	/**
-	 * setzt den Änderungszustand.
+	 * setzt den Ã„nderungszustand.
 	 * @param veraendert der Zustand
 	 */
 	public void setVeraendert(final boolean veraendert) {
@@ -236,7 +236,7 @@ public class MesswertMarkierung implements Cloneable {
 	}
 
 	/* FIXME equals und hashCode verletzt den API-Kontrakt und sollte
-	 * hier entfernt bzw. überdacht werden. */
+	 * hier entfernt bzw. Ã¼berdacht werden. */
 	@Override
 	public boolean equals(final Object obj) {
 		boolean gleich = false;

@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -32,9 +32,9 @@ import java.util.Map;
 import de.bsvrz.sys.funclib.bitctrl.daf.AbstractDavZustand;
 
 /**
- * Über diese Klasse werden alle im DAV-Enumerationstyp
- * <code>att.ufdsFahrBahnOberFlächenZustand</code> beschriebenen Werte zur
- * Verfügung gestellt.
+ * Ãœber diese Klasse werden alle im DAV-Enumerationstyp
+ * <code>att.ufdsFahrBahnOberFlÃ¤chenZustand</code> beschriebenen Werte zur
+ * VerfÃ¼gung gestellt.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  **/
@@ -114,11 +114,11 @@ public final class UfdsFahrBahnOberFlaechenZustand extends AbstractDavZustand {
 	}
 
 	/**
-	 * Erfragt den Wert dieses DAV-Enumerationstypen mit dem übergebenen Code.
+	 * Erfragt den Wert dieses DAV-Enumerationstypen mit dem Ã¼bergebenen Code.
 	 *
 	 * @param code
 	 *            der Code des Enumerations-Wertes
-	 * @return den Wert dieses DAV-Enumerationstypen mit dem übergebenen Code.
+	 * @return den Wert dieses DAV-Enumerationstypen mit dem Ã¼bergebenen Code.
 	 */
 	public static UfdsFahrBahnOberFlaechenZustand getZustand(final int code) {
 		return UfdsFahrBahnOberFlaechenZustand.werteBereich.get(code);

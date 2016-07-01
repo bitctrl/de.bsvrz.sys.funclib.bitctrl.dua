@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -35,14 +35,14 @@ import de.bsvrz.sys.funclib.bitctrl.dua.schnittstellen.IStandardAspekte;
 import de.bsvrz.sys.funclib.bitctrl.dua.schnittstellen.IVerwaltung;
 
 /**
- * Adapterklasse für einen Bearbeitungsknoten.
+ * Adapterklasse fÃ¼r einen Bearbeitungsknoten.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
 public abstract class AbstraktBearbeitungsKnotenAdapter implements IBearbeitungsKnoten {
 
 	/**
-	 * nächster Bearbeitungsknoten.
+	 * nÃ¤chster Bearbeitungsknoten.
 	 */
 	protected IBearbeitungsKnoten knoten;
 
@@ -57,7 +57,7 @@ public abstract class AbstraktBearbeitungsKnotenAdapter implements IBearbeitungs
 	protected IVerwaltung verwaltung;
 
 	/**
-	 * Schnittstelle zu den Informationen über die Standardpublikationsaspekte.
+	 * Schnittstelle zu den Informationen Ã¼ber die Standardpublikationsaspekte.
 	 */
 	protected IStandardAspekte standardAspekte;
 
@@ -103,7 +103,7 @@ public abstract class AbstraktBearbeitungsKnotenAdapter implements IBearbeitungs
 	}
 
 	/**
-	 * liefert den über den Adapter bereitgestellten Knoten.
+	 * liefert den Ã¼ber den Adapter bereitgestellten Knoten.
 	 *
 	 * @return den Knoten
 	 */

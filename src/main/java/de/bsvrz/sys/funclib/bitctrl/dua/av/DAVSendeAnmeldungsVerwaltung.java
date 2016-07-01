@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f¸r das Segment DuA
+ * Allgemeine Funktionen f√ºr das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weiﬂenfelser Straﬂe 67
+ * Wei√üenfelser Stra√üe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -42,7 +42,7 @@ import de.bsvrz.dav.daf.main.config.SystemObject;
 import de.bsvrz.sys.funclib.debug.Debug;
 
 /**
- * Verwaltungsklasse f¸r Datenanmeldungen zum Senden von Daten. ‹ber die Methode
+ * Verwaltungsklasse f√ºr Datenanmeldungen zum Senden von Daten. √úber die Methode
  * <code>modifiziereDatenAnmeldung(..)</code> lassen sich Daten anmelden bzw.
  * abmelden.
  *
@@ -70,7 +70,7 @@ public class DAVSendeAnmeldungsVerwaltung extends DAVAnmeldungsVerwaltung implem
 
 	/**
 	 * Sendet ein Datum in den Datenverteiler unter der Vorraussetzung, dass die
-	 * Sendesteuerung f¸r dieses Datum einen Empf‰nger bzw. eine Senke
+	 * Sendesteuerung f√ºr dieses Datum einen Empf√§nger bzw. eine Senke
 	 * festgestellt hat
 	 *
 	 * @param resultat

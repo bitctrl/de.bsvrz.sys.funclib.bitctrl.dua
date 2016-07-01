@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -54,7 +54,7 @@ public abstract class MessQuerschnittAllgemein extends AbstractSystemObjekt {
 	private static Collection<MessQuerschnittAllgemein> mqaMenge;
 
 	/**
-	 * Systemobjekt des Ersatzmessquerschnitts für die Messwertersetzung.
+	 * Systemobjekt des Ersatzmessquerschnitts fÃ¼r die Messwertersetzung.
 	 */
 	private SystemObject ersatzQuerschnittObj;
 
@@ -75,7 +75,7 @@ public abstract class MessQuerschnittAllgemein extends AbstractSystemObjekt {
 		super(mqaObjekt);
 
 		if (mqaObjekt == null) {
-			throw new NullPointerException("Übergebenes allgemeines Messquerschnittobjekt ist <<null>>");
+			throw new NullPointerException("Ãœbergebenes allgemeines Messquerschnittobjekt ist <<null>>");
 		}
 
 		final AttributeGroup atgEigenschaften = dav.getDataModel().getAttributeGroup(DUAKonstanten.ATG_MQ_ALLGEMEIN);
@@ -108,12 +108,12 @@ public abstract class MessQuerschnittAllgemein extends AbstractSystemObjekt {
 	}
 
 	/**
-	 * Erfragt eine mit dem übergebenen Systemobjekt assoziierte statische
+	 * Erfragt eine mit dem Ã¼bergebenen Systemobjekt assoziierte statische
 	 * Instanz dieser Klasse.
 	 *
 	 * @param mqaObjekt
 	 *            ein MessQuerschnittAllgemein-Systemobjekt
-	 * @return eine mit dem übergebenen Systemobjekt assoziierte statische
+	 * @return eine mit dem Ã¼bergebenen Systemobjekt assoziierte statische
 	 *         Instanz dieser Klasse oder <code>null</code>, wenn diese Instanz
 	 *         nicht ermittelt werden konnte
 	 */

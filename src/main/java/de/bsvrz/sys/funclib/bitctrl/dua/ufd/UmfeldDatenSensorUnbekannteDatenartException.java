@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f¸r das Segment DuA
+ * Allgemeine Funktionen f√ºr das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weiﬂenfelser Straﬂe 67
+ * Wei√üenfelser Stra√üe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -49,12 +49,12 @@ public class UmfeldDatenSensorUnbekannteDatenartException extends Exception {
 	}
 
 	/**
-	 * Standardkonstruktor f¸r das Weiterreichen von Ausnahmen.
+	 * Standardkonstruktor f√ºr das Weiterreichen von Ausnahmen.
 	 *
 	 * @param meldung
 	 *            die Fehlermeldung
 	 * @param t
-	 *            die urspr¸ngliche Ausnahme
+	 *            die urspr√ºngliche Ausnahme
 	 */
 	public UmfeldDatenSensorUnbekannteDatenartException(final String meldung, final Throwable t) {
 		super(t);

@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen f¸r das Segment DuA
+ * Allgemeine Funktionen f√ºr das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weiﬂenfelser Straﬂe 67
+ * Wei√üenfelser Stra√üe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -33,12 +33,12 @@ import de.bsvrz.sys.funclib.bitctrl.dua.dfs.typen.SWETyp;
 import de.bsvrz.sys.funclib.debug.Debug;
 
 /**
- * Diese Klasse enth‰lt alle Parameter, die innerhalb eines Datensatzes
+ * Diese Klasse enth√§lt alle Parameter, die innerhalb eines Datensatzes
  * <code>ParameterSatz</code> der Attributgruppe
  * <code>atg.datenflussSteuerung</code> vorkommen. Pro SWE wird nur ein
  * Parametersatz vorgehalten. Sollten also innerhalb dieser Attributgruppe
- * mehrere Parameters‰tze f¸r die gleiche SWE vorkommen, so werden diese
- * (sp‰ter) gemischt.
+ * mehrere Parameters√§tze f√ºr die gleiche SWE vorkommen, so werden diese
+ * (sp√§ter) gemischt.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
@@ -55,7 +55,7 @@ public class ParameterSatz {
 	private final List<PublikationsZuordung> pubZuordnungen = new ArrayList<>();
 
 	/**
-	 * Erfragt die SWE, f¸r die Publikationsparameter in dieser Klasse stehen.
+	 * Erfragt die SWE, f√ºr die Publikationsparameter in dieser Klasse stehen.
 	 *
 	 * @return die SWE
 	 */
@@ -64,7 +64,7 @@ public class ParameterSatz {
 	}
 
 	/**
-	 * Setzt die SWE, f¸r die Publikationsparameter in dieser Klasse stehen.
+	 * Setzt die SWE, f√ºr die Publikationsparameter in dieser Klasse stehen.
 	 *
 	 * @param swe
 	 *            die SWE
@@ -85,10 +85,10 @@ public class ParameterSatz {
 	}
 
 	/**
-	 * F¸gt der Liste aller Publikationszuordnungen eine neue
+	 * F√ºgt der Liste aller Publikationszuordnungen eine neue
 	 * Publikationszuordnung hinzu. Bevor dies geschieht, werden alle schon
 	 * vorhandenen Publikationszuordnungen auf Konsistenz mit der neuen
-	 * Publikationszuordnung getestet. F‰llt dieser Test negativ aus, so wird
+	 * Publikationszuordnung getestet. F√§llt dieser Test negativ aus, so wird
 	 * die neue Publikationszuordnung ignoriert und eine den Fehler
 	 * dokumentierende Warnung ausgegeben.
 	 *

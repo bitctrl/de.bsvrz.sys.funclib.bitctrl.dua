@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -34,8 +34,8 @@ import com.bitctrl.Constants;
 import de.bsvrz.sys.funclib.debug.Debug;
 
 /**
- * Allgemeine Klasse für die Beschreibung von Objekten, die <b>nur</b> Daten
- * halten, auf welche über Getter-Methoden (<b>ohne Argumente</b>) zugegriffen
+ * Allgemeine Klasse fÃ¼r die Beschreibung von Objekten, die <b>nur</b> Daten
+ * halten, auf welche Ã¼ber Getter-Methoden (<b>ohne Argumente</b>) zugegriffen
  * werden kann. (z.B. Attributgruppeninhalte)
  *
  * @author BitCtrl Systems GmbH, Thierfelder
@@ -43,12 +43,12 @@ import de.bsvrz.sys.funclib.debug.Debug;
 public class AllgemeinerDatenContainer {
 
 	/**
-	 * Vergleicht dieses Objekt mit dem übergebenen Objekt. Die beiden Objekte
+	 * Vergleicht dieses Objekt mit dem Ã¼bergebenen Objekt. Die beiden Objekte
 	 * sind dann gleich, wenn sie vom selben Typ sind und wenn alle
-	 * Getter-Methoden die gleichen Werte zurückliefern.
+	 * Getter-Methoden die gleichen Werte zurÃ¼ckliefern.
 	 *
 	 * FIXME equals und hashCode verletzt den API-Kontrakt und sollte
-	 * hier entfernt bzw. überdacht werden.
+	 * hier entfernt bzw. Ã¼berdacht werden.
 	 *
 	 * @param that
 	 *            ein anderes Objekt
@@ -88,8 +88,8 @@ public class AllgemeinerDatenContainer {
 	}
 
 	/**
-	 * Erfragt eine Zeichenkette, welche die aktuellen Werte aller über
-	 * Getter-Methoden zugänglichen Member-Variable enthält.
+	 * Erfragt eine Zeichenkette, welche die aktuellen Werte aller Ã¼ber
+	 * Getter-Methoden zugÃ¤nglichen Member-Variable enthÃ¤lt.
 	 *
 	 * @return eine Inhaltsangabe dieses Objektes
 	 */

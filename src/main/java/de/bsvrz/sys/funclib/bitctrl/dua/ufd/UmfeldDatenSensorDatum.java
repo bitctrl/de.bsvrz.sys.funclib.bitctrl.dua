@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -120,9 +120,9 @@ public class UmfeldDatenSensorDatum {
 	}
 
 	/**
-	 * Erfragt, ob dieses Datum verändert wurde.
+	 * Erfragt, ob dieses Datum verÃ¤ndert wurde.
 	 *
-	 * @return ob dieses Datum verändert wurde
+	 * @return ob dieses Datum verÃ¤ndert wurde
 	 */
 	public final boolean isVeraendert() {
 		return copy;
@@ -157,7 +157,7 @@ public class UmfeldDatenSensorDatum {
 	public final GanzZahl getGueteIndex() {
 		final GanzZahl gueteIndex = GanzZahl.getGueteIndex();
 
-		gueteIndex.setWert(datum.getItem(datenArt.getName()).getItem("Güte").getUnscaledValue("Index").longValue());
+		gueteIndex.setWert(datum.getItem(datenArt.getName()).getItem("GÃ¼te").getUnscaledValue("Index").longValue());
 
 		return gueteIndex;
 	}
@@ -168,7 +168,7 @@ public class UmfeldDatenSensorDatum {
 	 * @return das Gueteverfahren
 	 */
 	public final int getGueteVerfahren() {
-		final int gueteVerfahren = datum.getItem(datenArt.getName()).getItem("Güte").getUnscaledValue("Verfahren")
+		final int gueteVerfahren = datum.getItem(datenArt.getName()).getItem("GÃ¼te").getUnscaledValue("Verfahren")
 				.intValue();
 
 		return gueteVerfahren;
@@ -225,7 +225,7 @@ public class UmfeldDatenSensorDatum {
 	public final void setGueteIndex(final long guete) {
 		erstelleKopie();
 
-		datum.getItem(datenArt.getName()).getItem("Güte").getUnscaledValue("Index").set(guete);
+		datum.getItem(datenArt.getName()).getItem("GÃ¼te").getUnscaledValue("Index").set(guete);
 	}
 
 	/**
@@ -237,7 +237,7 @@ public class UmfeldDatenSensorDatum {
 	public final void setGueteVerfahren(final int gueteVerfahren) {
 		erstelleKopie();
 
-		datum.getItem(datenArt.getName()).getItem("Güte").getUnscaledValue("Verfahren").set(gueteVerfahren);
+		datum.getItem(datenArt.getName()).getItem("GÃ¼te").getUnscaledValue("Verfahren").set(gueteVerfahren);
 	}
 
 	/**

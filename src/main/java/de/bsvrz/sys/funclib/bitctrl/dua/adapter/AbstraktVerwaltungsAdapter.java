@@ -19,7 +19,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -47,7 +47,7 @@ import de.bsvrz.sys.funclib.commandLineArgs.ArgumentList;
 import de.bsvrz.sys.funclib.debug.Debug;
 
 /**
- * Adapterklasse für Verwaltungsmodule.
+ * Adapterklasse fÃ¼r Verwaltungsmodule.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
  */
@@ -113,7 +113,7 @@ public abstract class AbstraktVerwaltungsAdapter implements IVerwaltung {
 				dfsHilfe = DatenFlussSteuerungsVersorger.getInstanz(this);
 			} else {
 				throw new DUAInitialisierungsException("Es wurden keine" + //$NON-NLS-1$
-						" Kommandozeilenargumente übergeben"); //$NON-NLS-1$
+						" Kommandozeilenargumente Ã¼bergeben"); //$NON-NLS-1$
 			}
 
 			/**
@@ -194,7 +194,7 @@ public abstract class AbstraktVerwaltungsAdapter implements IVerwaltung {
 	/**
 	 * Diese Methode wird zur Initialisierung aufgerufen, <b>nachdem</b> sowohl
 	 * die Argumente der Kommandozeile, als auch die Datenverteilerverbindung
-	 * übergeben wurden (also nach dem Aufruf der Methoden
+	 * Ã¼bergeben wurden (also nach dem Aufruf der Methoden
 	 * <code>parseArguments(..)</code> und <code>initialize(..)</code>).
 	 *
 	 * @throws DUAInitialisierungsException

@@ -1,5 +1,5 @@
 /*
- * Allgemeine Funktionen für das Segment DuA
+ * Allgemeine Funktionen fÃ¼r das Segment DuA
  * Copyright (C) 2007-2015 BitCtrl Systems GmbH
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -18,7 +18,7 @@
  *
  * Contact Information:
  * BitCtrl Systems GmbH
- * Weißenfelser Straße 67
+ * WeiÃŸenfelser StraÃŸe 67
  * 04229 Leipzig
  * Phone: +49 341-490670
  * mailto: info@bitctrl.de
@@ -76,7 +76,7 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 		super(MessQuerschnitt.sDav, mqObjekt);
 
 		if (mqObjekt == null) {
-			throw new NullPointerException("Übergebenes Messquerschnitt-Systemobjekt ist <<null>>");
+			throw new NullPointerException("Ãœbergebenes Messquerschnitt-Systemobjekt ist <<null>>");
 		}
 
 		final ConfigurationObject konfigObjekt = (ConfigurationObject) mqObjekt;
@@ -95,7 +95,7 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 	}
 
 	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
+	 * Initialisiert diese Klasse, indem fÃ¼r alle Systemobjekte vom Typ
 	 * <code>typ.messQuerschnitt</code> statische Instanzen dieser Klasse
 	 * angelegt werden.
 	 *
@@ -121,7 +121,7 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 	}
 
 	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
+	 * Initialisiert diese Klasse, indem fÃ¼r alle Systemobjekte vom Typ
 	 * <code>typ.messQuerschnitt</code> statische Instanzen dieser Klasse
 	 * angelegt werden.
 	 *
@@ -161,12 +161,12 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 	}
 
 	/**
-	 * Erfragt eine mit dem übergebenen Systemobjekt assoziierte statische
+	 * Erfragt eine mit dem Ã¼bergebenen Systemobjekt assoziierte statische
 	 * Instanz dieser Klasse.
 	 *
 	 * @param mqObjekt
 	 *            ein Messquerschnitt-Systemobjekt
-	 * @return eine mit dem übergebenen Systemobjekt assoziierte statische
+	 * @return eine mit dem Ã¼bergebenen Systemobjekt assoziierte statische
 	 *         Instanz dieser Klasse oder <code>null</code>, wenn diese Instanz
 	 *         nicht ermittelt werden konnte
 	 */
@@ -189,13 +189,13 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 	}
 
 	/**
-	 * Erfragt den Nachbarfahrstreifen des übergebenen Fahrstreifens<br>
+	 * Erfragt den Nachbarfahrstreifen des Ã¼bergebenen Fahrstreifens<br>
 	 * Der Nachbarfahrstreifen ist immer der in Fahrtrichtung linke Fahrstreifen
 	 * bzw. der rechte, wenn es links keinen Fahrstreifen gibt.
 	 *
 	 * @param fs
 	 *            ein Fahrstreifen
-	 * @return der Nachbarfahrstreifen des übergebenen Fahrstreifens oder
+	 * @return der Nachbarfahrstreifen des Ã¼bergebenen Fahrstreifens oder
 	 *         <code>null</code> wenn dieser Fahrstreifen keinen
 	 *         Nachbarfahrstreifen hat
 	 */
