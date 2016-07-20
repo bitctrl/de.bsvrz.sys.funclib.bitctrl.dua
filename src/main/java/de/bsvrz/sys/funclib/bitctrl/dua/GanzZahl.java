@@ -26,6 +26,8 @@
 
 package de.bsvrz.sys.funclib.bitctrl.dua;
 
+import java.nio.channels.UnsupportedAddressTypeException;
+
 import com.bitctrl.Constants;
 
 import de.bsvrz.sys.funclib.bitctrl.daf.AbstractDavZustand;
@@ -265,6 +267,11 @@ public class GanzZahl implements Comparable<GanzZahl> {
 		return gleich;
 	}
 
+	@Override
+	public int hashCode() {
+		throw new UnsupportedOperationException();
+	}
+	
 	@Override
 	public int compareTo(final GanzZahl that) {
 		if (that == null) {

@@ -52,7 +52,8 @@ public final class DUAUmfeldDatenMessStelle {
 	/**
 	 * statische Instanzen dieser Klasse.
 	 */
-	private static Map<SystemObject, DUAUmfeldDatenMessStelle> instanzen;
+	private static final Map<SystemObject, DUAUmfeldDatenMessStelle> instanzen = new HashMap<>();
+	private static boolean initialized;
 
 	/**
 	 * das Systemobjekt.
@@ -79,11 +80,12 @@ public final class DUAUmfeldDatenMessStelle {
 		if (messStellenObjekte == null) {
 			throw new NullPointerException("Menge der Umfelddaten-Messstellen ist <<null>>");
 		}
-		if (DUAUmfeldDatenMessStelle.instanzen != null) {
+		if (initialized) {
 			Debug.getLogger().error("UFD-Modell darf nur einmal initialisiert werden");
+			return;
 		}
 
-		DUAUmfeldDatenMessStelle.instanzen = new HashMap<>();
+		initialized = true;
 		for (final SystemObject mStObj : messStellenObjekte) {
 			DUAUmfeldDatenMessStelle.instanzen.put(mStObj, new DUAUmfeldDatenMessStelle(dav, mStObj));
 		}
@@ -98,7 +100,7 @@ public final class DUAUmfeldDatenMessStelle {
 	 * @return die statischen Instanzen dieser Klasse (ggf. leere Liste)
 	 */
 	public static Collection<DUAUmfeldDatenMessStelle> getInstanzen() {
-		if (DUAUmfeldDatenMessStelle.instanzen == null) {
+		if (!initialized) {
 			throw new RuntimeException("DUAUmfeldDatenMessStelle wurde noch nicht initialisiert");
 		}
 

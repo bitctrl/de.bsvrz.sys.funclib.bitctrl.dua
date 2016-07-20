@@ -196,10 +196,10 @@ public class DatenFlussSteuerungFuerModul implements IDatenFlussSteuerungFuerMod
 
 		@Override
 		public int compareTo(final PublikationObjAtg that) {
-			int result = Long.valueOf(obj.getId()).compareTo(that.obj.getId());
+			int result = Long.compare(obj.getId(), that.obj.getId());
 
 			if (result == 0) {
-				result = Long.valueOf(atg.getId()).compareTo(that.atg.getId());
+				result = Long.compare(atg.getId(), that.atg.getId());
 			}
 
 			return result;

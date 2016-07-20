@@ -28,8 +28,11 @@ package de.bsvrz.sys.funclib.bitctrl.dua.test;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 import com.bitctrl.Constants;
 
@@ -67,7 +70,7 @@ public class CSVImporter {
 	 */
 	public CSVImporter(final File csvDatei) throws Exception {
 		this.csvDatei = csvDatei;
-		leser = new BufferedReader(new FileReader(csvDatei));
+		leser = new BufferedReader(new InputStreamReader(new FileInputStream(csvDatei), Charset.defaultCharset()));
 	}
 
 	/**
@@ -84,7 +87,7 @@ public class CSVImporter {
 			name += ".csv";
 		}
 		csvDatei = new File(name);
-		leser = new BufferedReader(new FileReader(csvDatei));
+		leser = new BufferedReader(new InputStreamReader(new FileInputStream(csvDatei), Charset.defaultCharset()));
 	}
 
 	/**
@@ -140,7 +143,7 @@ public class CSVImporter {
 	public final void reset() {
 		try {
 			leser.close();
-			leser = new BufferedReader(new FileReader(csvDatei));
+			leser = new BufferedReader(new InputStreamReader(new FileInputStream(csvDatei), Charset.defaultCharset()));
 		} catch (final IOException ex) {
 			Debug.getLogger().error(Constants.EMPTY_STRING, ex);
 		}
