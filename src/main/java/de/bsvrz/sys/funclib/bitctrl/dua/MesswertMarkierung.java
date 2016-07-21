@@ -253,6 +253,11 @@ public class MesswertMarkierung implements Cloneable {
 	}
 
 	@Override
+	public int hashCode() {
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override
 	public String toString() {
 		return (nichtErfasst ? "nErf " : Constants.EMPTY_STRING) + (formalMax ? "fMax " : Constants.EMPTY_STRING)
 				+ (formalMin ? "fMin " : Constants.EMPTY_STRING) + (logischMax ? "lMax " : Constants.EMPTY_STRING)

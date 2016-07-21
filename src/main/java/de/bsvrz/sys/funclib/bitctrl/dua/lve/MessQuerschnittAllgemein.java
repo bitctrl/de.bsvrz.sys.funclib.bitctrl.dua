@@ -51,7 +51,8 @@ public abstract class MessQuerschnittAllgemein extends AbstractSystemObjekt {
 	/**
 	 * Menge aller allgemeinen Messquerschnitte.
 	 */
-	private static Collection<MessQuerschnittAllgemein> mqaMenge;
+	private static final Collection<MessQuerschnittAllgemein> mqaMenge = new HashSet<>();
+	private static boolean initialized;
 
 	/**
 	 * Systemobjekt des Ersatzmessquerschnitts für die Messwertersetzung.
@@ -98,10 +99,10 @@ public abstract class MessQuerschnittAllgemein extends AbstractSystemObjekt {
 	 * @return alle statischen Instanzen dieser Klasse
 	 */
 	public static Collection<MessQuerschnittAllgemein> getAlleInstanzen() {
-		if (MessQuerschnittAllgemein.mqaMenge == null) {
-			MessQuerschnittAllgemein.mqaMenge = new HashSet<>();
+		if (!initialized) {
 			MessQuerschnittAllgemein.mqaMenge.addAll(MessQuerschnitt.getInstanzen());
 			MessQuerschnittAllgemein.mqaMenge.addAll(MessQuerschnittVirtuell.getInstanzen());
+			initialized = true;
 		}
 
 		return MessQuerschnittAllgemein.mqaMenge;

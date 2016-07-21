@@ -129,15 +129,13 @@ public class DAVObjektAnmeldung implements Comparable<DAVObjektAnmeldung> {
 
 	@Override
 	public int compareTo(final DAVObjektAnmeldung that) {
-		int result = Long.valueOf(getObjekt().getId()).compareTo(that.getObjekt().getId());
+		int result = Long.compare(getObjekt().getId(), that.getObjekt().getId());
 
 		if (result == 0) {
-			result = Long.valueOf(getDatenBeschreibung().getAttributeGroup().getId())
-					.compareTo(that.getDatenBeschreibung().getAttributeGroup().getId());
+			result = Long.compare(getDatenBeschreibung().getAttributeGroup().getId(), that.getDatenBeschreibung().getAttributeGroup().getId());
 		}
 		if (result == 0) {
-			result = Long.valueOf(getDatenBeschreibung().getAspect().getId())
-					.compareTo(that.getDatenBeschreibung().getAspect().getId());
+			result = Long.compare(getDatenBeschreibung().getAspect().getId(), that.getDatenBeschreibung().getAspect().getId());
 		}
 
 		return result;
