@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/bitctrl/de.bsvrz.sys.funclib.bitctrl.dua.svg?branch=support/1.5.0)](https://travis-ci.org/bitctrl/de.bsvrz.sys.funclib.bitctrl.dua)
+[![Build Status](https://api.bintray.com/packages/bitctrl/maven/de.bsvrz.sys.funclib.bitctrl.dua/images/download.svg)](https://bintray.com/bitctrl/maven/de.bsvrz.sys.funclib.bitctrl.dua)
+
 ********************************************************************************
 *                        Allgemeine DuA-Funktionen                             *
 ********************************************************************************
@@ -13,10 +16,6 @@ genutzt werden oder potentiell genutzt werden können.
 
 Versionsgeschichte
 ==================
-
-1.6.0
-=====
-- Umstellung auf Java 8 und UTF-8
 
 1.5.0
 =====
