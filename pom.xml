@@ -5,7 +5,7 @@
 
 	<groupId>de.bsvrz.sys</groupId>
 	<artifactId>de.bsvrz.sys.funclib.bitctrl.dua</artifactId>
-	<version>1.6.0</version>
+	<version>1.6.1</version>
 
 	<name>Datenverteilerfunktionsbibliothek BitCtrl</name>
 
@@ -24,7 +24,7 @@
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<kernsoftware.version>3.8.0</kernsoftware.version>
 		<distributionspaket.status>FREI</distributionspaket.status>
-		<distributionspaket.standDatum>2016-07-20</distributionspaket.standDatum>
+		<distributionspaket.standDatum>${maven.build.timestamp}</distributionspaket.standDatum>
 		<distributionspaket.lizenz>LGPLv3.0</distributionspaket.lizenz>
 	</properties>
 
@@ -100,6 +100,9 @@
 		</profile>
 		<profile>
 			<id>bintray</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<repositories>
 				<repository>
 					<snapshots>
@@ -175,7 +178,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

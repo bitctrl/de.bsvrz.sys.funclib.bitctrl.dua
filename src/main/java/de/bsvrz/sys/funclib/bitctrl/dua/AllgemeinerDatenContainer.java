@@ -39,16 +39,27 @@ import de.bsvrz.sys.funclib.debug.Debug;
  * werden kann. (z.B. Attributgruppeninhalte)
  *
  * @author BitCtrl Systems GmbH, Thierfelder
+ *
+ * @deprecated die Klasse sollte nicht mehr verwendet werden, weil der
+ *             API-Kontrakt für die Implementierung von equals und hashCode
+ *             verletzt wird und auch nicht sinnvoll implementiert werden kann.
+ *             Für die hashCode-Methode wird hier die hashCode-Methode der
+ *             Superklasse aufgerufen und eine entsprechende Fehlermeldung
+ *             ausgegeben. Die Verwendung der Klasse in Set und Maps als Key
+ *             führt aber zu undefiniertem Verhalten.
  */
+@Deprecated
 public class AllgemeinerDatenContainer {
+
+	private static final Debug LOGGER = Debug.getLogger();
 
 	/**
 	 * Vergleicht dieses Objekt mit dem übergebenen Objekt. Die beiden Objekte
 	 * sind dann gleich, wenn sie vom selben Typ sind und wenn alle
 	 * Getter-Methoden die gleichen Werte zurückliefern.
 	 *
-	 * FIXME equals und hashCode verletzt den API-Kontrakt und sollte
-	 * hier entfernt bzw. überdacht werden.
+	 * FIXME equals und hashCode verletzt den API-Kontrakt und sollte hier
+	 * entfernt bzw. überdacht werden.
 	 *
 	 * @param that
 	 *            ein anderes Objekt
@@ -70,11 +81,11 @@ public class AllgemeinerDatenContainer {
 								return false;
 							}
 						} catch (final IllegalAccessException e) {
-							Debug.getLogger().error(Constants.EMPTY_STRING, e);
+							LOGGER.error(Constants.EMPTY_STRING, e);
 							e.printStackTrace();
 							return false;
 						} catch (final InvocationTargetException e) {
-							Debug.getLogger().error(Constants.EMPTY_STRING, e);
+							LOGGER.error(Constants.EMPTY_STRING, e);
 							e.printStackTrace();
 							return false;
 						}
@@ -89,9 +100,10 @@ public class AllgemeinerDatenContainer {
 
 	@Override
 	public int hashCode() {
-		throw new UnsupportedOperationException();
+		LOGGER.error("Das Objekt wird ohne korrekte HashCode-Equals-Implementierung verwendet");
+		return super.hashCode();
 	}
-	
+
 	/**
 	 * Erfragt eine Zeichenkette, welche die aktuellen Werte aller über
 	 * Getter-Methoden zugänglichen Member-Variable enthält.
