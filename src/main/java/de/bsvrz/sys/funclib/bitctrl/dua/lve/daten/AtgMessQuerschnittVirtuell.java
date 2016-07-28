@@ -43,9 +43,6 @@ import de.bsvrz.sys.funclib.debug.Debug;
  * <code>atg.messQuerschnittVirtuell</code>.
  *
  * @author BitCtrl Systems GmbH, Thierfelder
- *
- * @version $Id: AtgMessQuerschnittVirtuell.java 20781 2009-12-14 08:27:26Z
- *          tfelder $
  */
 public class AtgMessQuerschnittVirtuell implements MessQuerschnittAnteile {
 
