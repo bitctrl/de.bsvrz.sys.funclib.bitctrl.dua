@@ -17,6 +17,21 @@ genutzt werden oder potentiell genutzt werden können.
 Versionsgeschichte
 ==================
 
+1.6.1
+=====
+
+de.bsvrz.sys.funclib.bitctrl.dua.AllgemeinerDatenContainer:
+
+	die Klasse sollte nicht mehr verwendet werden, weil der
+	API-Kontrakt für die Implementierung von equals und hashCode
+	verletzt wird und auch nicht sinnvoll implementiert werden kann.
+	Für die hashCode-Methode wird hier die hashCode-Methode der
+	Superklasse aufgerufen und eine entsprechende Fehlermeldung
+	ausgegeben. Die Verwendung der Klasse in Set und Maps als Key
+	führt aber zu undefiniertem Verhalten.
+
+- Obsolete SVN-Tags aus Kommentaren entfernt
+
 1.6.0
 =====
 - Umstellung auf Java 8 und UTF-8
