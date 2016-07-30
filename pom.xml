@@ -5,7 +5,7 @@
 
 	<groupId>de.bsvrz.sys</groupId>
 	<artifactId>de.bsvrz.sys.funclib.bitctrl.dua</artifactId>
-	<version>1.6.1</version>
+	<version>1.6.1-SNAPSHOT</version>
 
 	<name>Datenverteilerfunktionsbibliothek BitCtrl</name>
 
