@@ -253,25 +253,6 @@ public class GanzZahl implements Comparable<GanzZahl> {
 		return s;
 	}
 
-	/* FIXME equals und hashCode verletzt den API-Kontrakt und sollte
-	 * hier entfernt bzw. überdacht werden. */
-	@Override
-	public boolean equals(final Object obj) {
-		boolean gleich = false;
-
-		if ((obj != null) && (obj instanceof GanzZahl)) {
-			final GanzZahl that = (GanzZahl) obj;
-			gleich = getWert() == that.getWert();
-		}
-
-		return gleich;
-	}
-
-	@Override
-	public int hashCode() {
-		throw new UnsupportedOperationException();
-	}
-	
 	@Override
 	public int compareTo(final GanzZahl that) {
 		if (that == null) {

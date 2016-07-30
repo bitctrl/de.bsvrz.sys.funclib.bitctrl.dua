@@ -29,6 +29,12 @@ de.bsvrz.sys.funclib.bitctrl.dua.AllgemeinerDatenContainer:
 	Superklasse aufgerufen und eine entsprechende Fehlermeldung
 	ausgegeben. Die Verwendung der Klasse in Set und Maps als Key
 	führt aber zu undefiniertem Verhalten.
+	
+de.bsvrz.sys.funclib.bitctrl.dua.GanzZahl:
+de.bsvrz.sys.funclib.bitctrl.dua.ufd.UmfeldDatenSensorWert:
+de.bsvrz.sys.funclib.bitctrl.dua.MesswertMarkierung:
+- equals ist implementiert, aber nicht "hashCode". Die equals-Methode wurde entfernt, das sie
+  nicht verwendet wird 
 
 - Obsolete SVN-Tags aus Kommentaren entfernt
 
