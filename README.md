@@ -17,8 +17,8 @@ genutzt werden oder potentiell genutzt werden können.
 Versionsgeschichte
 ==================
 
-1.7.0-SNAPSHOT
-==============
+1.7.0
+=====
 
 Zusätzliche Datenarten "ZeitreserveEisglätte" und "ZeitreserveReifglätte" ergänzt
 
