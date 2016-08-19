@@ -54,85 +54,85 @@ import de.bsvrz.sys.funclib.debug.Debug;
 public enum UmfeldDatenArt {
 
 	/** Umfelddatenart Fahrbahnfeuchte. */
-	fbf("typ.ufdsFahrBahnFeuchte", "FBF"),
+	fbf("typ.ufdsFahrBahnFeuchte", "FBF", 0),
 
 	/** Umfelddatenart Fahrbahnglätte. */
-	fbg("typ.ufdsFahrBahnGlätte", "FBG"),
+	fbg("typ.ufdsFahrBahnGlätte", "FBG", 0),
 
 	/** Umfelddatenart Fahrbahnoberflächentemperatur. */
-	fbt("typ.ufdsFahrBahnOberFlächenTemperatur", "FBT"),
+	fbt("typ.ufdsFahrBahnOberFlächenTemperatur", "FBT", -1000),
 
 	/** Umfelddatenart Gefriertemperatur. */
-	gt("typ.ufdsGefrierTemperatur", "GT"),
+	gt("typ.ufdsGefrierTemperatur", "GT", -1000),
 
 	/** Umfelddatenart Helligkeit. */
-	hk("typ.ufdsHelligkeit", "HK"),
+	hk("typ.ufdsHelligkeit", "HK", 0),
 
 	/** Umfelddatenart Lufttemperatur. */
-	lt("typ.ufdsLuftTemperatur", "LT"),
+	lt("typ.ufdsLuftTemperatur", "LT", -1000),
 
 	/** Umfelddatenart Niederaschalgsart. */
-	ns("typ.ufdsNiederschlagsArt", "NS"),
+	ns("typ.ufdsNiederschlagsArt", "NS", 0),
 
 	/** Umfelddatenart Niederschlagsintensität. */
-	ni("typ.ufdsNiederschlagsIntensität", "NI"),
+	ni("typ.ufdsNiederschlagsIntensität", "NI", 0),
 
 	/** Umfelddatenart Niederschlagsmenge. */
-	nm("typ.ufdsNiederschlagsMenge", "NM"),
+	nm("typ.ufdsNiederschlagsMenge", "NM", 0),
 
 	/** Umfelddatenart Relative Luftfeuchte. */
-	rlf("typ.ufdsRelativeLuftFeuchte", "RLF"),
+	rlf("typ.ufdsRelativeLuftFeuchte", "RLF", 0),
 
 	/** Umfelddatenart Schneehöhe. */
-	sh("typ.ufdsSchneeHöhe", "SH"),
+	sh("typ.ufdsSchneeHöhe", "SH", 0),
 
 	/** Umfelddatenart Sichtweite. */
-	sw("typ.ufdsSichtWeite", "SW"),
+	sw("typ.ufdsSichtWeite", "SW", 0),
 
 	/** Umfelddatenart Taupunkttemperatur. */
-	tpt("typ.ufdsTaupunktTemperatur", "TPT"),
+	tpt("typ.ufdsTaupunktTemperatur", "TPT", -1000),
 
 	/** Umfelddatenart Temperatur in Tiefe 1. */
-	tt1("typ.ufdsTemperaturInTiefe1", "TT1"),
+	tt1("typ.ufdsTemperaturInTiefe1", "TT1", -1000),
 
 	/** Umfelddatenart Temperatur in Tiefe 2. */
-	tt2("typ.ufdsTemperaturInTiefe2", "TT2"),
+	tt2("typ.ufdsTemperaturInTiefe2", "TT2", -1000),
 
 	/** Umfelddatenart Temoeratur in Tiefe 3. */
-	tt3("typ.ufdsTemperaturInTiefe3", "TT3"),
+	tt3("typ.ufdsTemperaturInTiefe3", "TT3", -1000),
 
 	/** Umfelddatenart Wasserfilmdicke. */
-	wfd("typ.ufdsWasserFilmDicke", "WFD"),
+	wfd("typ.ufdsWasserFilmDicke", "WFD", 0),
 
 	/** Umfelddatenart Windrichtung. */
-	wr("typ.ufdsWindRichtung", "WR"),
+	wr("typ.ufdsWindRichtung", "WR", 0),
 
 	/** Umfelddatenart Fahrbahnoberflächenzustand. */
-	fbz("typ.ufdsFahrBahnOberFlächenZustand", "FBZ"),
+	fbz("typ.ufdsFahrBahnOberFlächenZustand", "FBZ", 0),
 
 	/** Umfelddatenart Luftdruck. */
-	ld("typ.ufdsLuftDruck", "LD"),
+	ld("typ.ufdsLuftDruck", "LD", 0),
 
 	/** Umfelddatenart Restsalz. */
-	rs("typ.ufdsRestSalz", "RS"),
+	rs("typ.ufdsRestSalz", "RS", 0),
 
 	/** Umfelddatenart Taustoffmenge. */
-	tsq("typ.ufdsTaustoffmenge", "TSQ"),
+	tsq("typ.ufdsTaustoffmenge", "TSQ", 0),
 
 	/** Umfelddatenart Windgeschwindigkeit (Mittelwert). */
-	wgm("typ.ufdsWindGeschwindigkeitMittelWert", "WGM"),
+	wgm("typ.ufdsWindGeschwindigkeitMittelWert", "WGM", 0),
 
 	/** Umfelddatenart Windgeschwindigkeit (Spitzenwert). */
-	wgs("typ.ufdsWindGeschwindigkeitSpitzenWert", "WGS"),
+	wgs("typ.ufdsWindGeschwindigkeitSpitzenWert", "WGS", 0),
 
 	/** Umfelddatenart Zeitreserve Eisglätte. */
-	zrge("typ.ufdsZeitReserveEisGlätte", "ZRGe"),
+	zrge("typ.ufdsZeitReserveEisGlätte", "ZRGe", 0),
 
 	/** Umfelddatenart Zeitreserve Reifglätte. */
-	zrgr("typ.ufdsZeitReserveReifGlätte", "ZRGr"),
-	
+	zrgr("typ.ufdsZeitReserveReifGlätte", "ZRGr", 0),
+
 	/** Umfelddatenart Zeitreserve Glätte Vaisala. */
-	zg("typ.ufdsZeitreserveGlätteVaisala", "ZG");
+	zg("typ.ufdsZeitreserveGlätteVaisala", "ZG", 0);
 
 	/**
 	 * Mapt den Systemobjekttyp eines Umfelddatensensors auf die Informationen
@@ -164,6 +164,12 @@ public enum UmfeldDatenArt {
 	 * Die Skalierung von Werten dieses Typs im Datenkatalog.
 	 */
 	private double skalierung = 1.0;
+
+	/**
+	 * Offset für die Statuswerte fehlerhaft, nicht ermittelbar und
+	 * fehlerhaft/nicht ermittelbar.
+	 */
+	private long statusOffset;
 
 	/**
 	 * Erfragt die Umfelddatenart eines Systemobjekts.
@@ -243,11 +249,15 @@ public enum UmfeldDatenArt {
 	 *            die PID des Systemobjekttyps der Umfelddatenart
 	 * @param abkuerzung
 	 *            die Abkürzung der Umfelddatenart
-	 */
-	UmfeldDatenArt(final String typPid, final String abkuerzung) {
+	 * @param statusOffset
+	 *            Offset für die Statuswerte fehlerhaft, nicht ermittelbar und
+	 *            fehlerhaft/nicht ermittelbar.
+	 **/
+	UmfeldDatenArt(final String typPid, final String abkuerzung, long statusOffset) {
 
 		this.typPid = typPid;
 		this.abkuerzung = abkuerzung;
+		this.statusOffset = statusOffset;
 		name = typPid.substring("typ.ufds".length());
 
 	}
@@ -303,6 +313,10 @@ public enum UmfeldDatenArt {
 	@Override
 	public String toString() {
 		return name + " (" + abkuerzung + ")";
+	}
+
+	public long getStatusOffset() {
+		return statusOffset;
 	}
 
 }
