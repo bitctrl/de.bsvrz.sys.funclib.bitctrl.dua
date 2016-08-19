@@ -125,6 +125,12 @@ public enum UmfeldDatenArt {
 	/** Umfelddatenart Windgeschwindigkeit (Spitzenwert). */
 	wgs("typ.ufdsWindGeschwindigkeitSpitzenWert", "WGS"),
 
+	/** Umfelddatenart Zeitreserve Eisglätte. */
+	zrge("typ.ufdsZeitReserveEisGlätte", "ZRGe"),
+
+	/** Umfelddatenart Zeitreserve Reifglätte. */
+	zrgr("typ.ufdsZeitReserveReifGlätte", "ZRGr"),
+	
 	/** Umfelddatenart Zeitreserve Glätte Vaisala. */
 	zg("typ.ufdsZeitreserveGlätteVaisala", "ZG");
 
