@@ -5,7 +5,7 @@
 
 	<groupId>de.bsvrz.sys</groupId>
 	<artifactId>de.bsvrz.sys.funclib.bitctrl.dua</artifactId>
-	<version>1.6.1</version>
+	<version>1.7.0</version>
 
 	<name>Datenverteilerfunktionsbibliothek BitCtrl</name>
 
@@ -123,6 +123,9 @@
 					<url>http://dl.bintray.com/datenverteiler/maven</url>
 				</pluginRepository>
 			</pluginRepositories>
+		</profile>
+		<profile>
+			<id>bintray-deploy</id>
 			<distributionManagement>
 				<repository>
 					<id>bintray-bitctrl-maven</id>

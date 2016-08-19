@@ -112,28 +112,7 @@ public class UmfeldDatenSensorWert implements Comparable<UmfeldDatenSensorWert> 
 	 * @return der Offset
 	 */
 	private long getWertStatusOffset() {
-		long offset = 0;
-
-		if (datenArt.equals(UmfeldDatenArt.fbf) || datenArt.equals(UmfeldDatenArt.hk)
-				|| datenArt.equals(UmfeldDatenArt.ns) || datenArt.equals(UmfeldDatenArt.ni)
-				|| datenArt.equals(UmfeldDatenArt.nm) || datenArt.equals(UmfeldDatenArt.rlf)
-				|| datenArt.equals(UmfeldDatenArt.sh) || datenArt.equals(UmfeldDatenArt.sw)
-				|| datenArt.equals(UmfeldDatenArt.wfd) || datenArt.equals(UmfeldDatenArt.wr)
-				|| datenArt.equals(UmfeldDatenArt.fbz) || datenArt.equals(UmfeldDatenArt.ld)
-				|| datenArt.equals(UmfeldDatenArt.rs) || datenArt.equals(UmfeldDatenArt.wgm)
-				|| datenArt.equals(UmfeldDatenArt.fbg) || datenArt.equals(UmfeldDatenArt.tsq)
-				|| datenArt.equals(UmfeldDatenArt.zg) || datenArt.equals(UmfeldDatenArt.wgs)) {
-			offset = 0;
-		} else if (datenArt.equals(UmfeldDatenArt.tt1) || datenArt.equals(UmfeldDatenArt.tt2)
-				|| datenArt.equals(UmfeldDatenArt.tt3) || datenArt.equals(UmfeldDatenArt.tpt)
-				|| datenArt.equals(UmfeldDatenArt.lt) || datenArt.equals(UmfeldDatenArt.gt)
-				|| datenArt.equals(UmfeldDatenArt.fbt)) {
-			offset = -1000;
-		} else {
-			throw new RuntimeException("Das Umfelddatum " + datenArt + " kann nicht identifiziert werden");
-		}
-
-		return offset;
+		return datenArt.getStatusOffset();
 	}
 
 	/**
