@@ -17,6 +17,11 @@ genutzt werden oder potentiell genutzt werden können.
 Versionsgeschichte
 ==================
 
+1.8.0
+=====
+
+Zusätzliche Datenart "GlätteAlarmStatus" ergänzt
+
 1.7.0
 =====
 

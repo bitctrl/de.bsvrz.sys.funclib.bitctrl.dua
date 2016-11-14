@@ -62,6 +62,9 @@ public enum UmfeldDatenArt {
 	/** Umfelddatenart Fahrbahnoberflächentemperatur. */
 	fbt("typ.ufdsFahrBahnOberFlächenTemperatur", "FBT", -1000),
 
+	/** Umfelddatenart GlätteAlarmStatus. */
+	gas("typ.ufdsGlätteAlarmStatus", "GAS", 0),
+
 	/** Umfelddatenart Gefriertemperatur. */
 	gt("typ.ufdsGefrierTemperatur", "GT", -1000),
 
