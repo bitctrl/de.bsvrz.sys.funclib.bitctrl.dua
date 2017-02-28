@@ -27,7 +27,7 @@
 package de.bsvrz.sys.funclib.bitctrl.dua.lve;
 
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import de.bsvrz.dav.daf.main.ClientDavInterface;
@@ -52,16 +52,6 @@ import de.bsvrz.sys.funclib.debug.Debug;
 public class MessStellenGruppe extends AbstractSystemObjekt {
 
 	/**
-	 * Mapt alle MessStelleGruppe-Systemobjekte auf Objekte dieser Klasse.
-	 */
-	private static Map<SystemObject, MessStellenGruppe> sysObjMsgObjMap = new HashMap<>();
-
-	/**
-	 * Datenverteiler-Verbindung..
-	 */
-	private static ClientDavInterface sDav;
-
-	/**
 	 * Messstellen dieser Gruppe (sortiert wie in Konfiguration).
 	 */
 	private MessStelle[] messStellen = new MessStelle[0];
@@ -75,18 +65,21 @@ public class MessStellenGruppe extends AbstractSystemObjekt {
 	/**
 	 * Standardkontruktor .
 	 *
+	 * @param netz
+	 *            das verwendete Verkehrsnetz
 	 * @param msgObjekt
 	 *            ein Systemobjekt vom Typ <code>typ.messStellenGruppe</code>
 	 * @throws DUAInitialisierungsException
 	 *             wenn die Messstellengruppe nicht initialisiert werden konnte
 	 */
 	@SuppressWarnings("unused")
-	protected MessStellenGruppe(final SystemObject msgObjekt) throws DUAInitialisierungsException {
+	protected MessStellenGruppe(DuaVerkehrsNetz netz, final SystemObject msgObjekt)
+			throws DUAInitialisierungsException {
 		super(msgObjekt);
 
 		final ConfigurationObject konfigObjekt = (ConfigurationObject) msgObjekt;
 
-		final AttributeGroup atgEigenschaften = MessStellenGruppe.sDav.getDataModel()
+		final AttributeGroup atgEigenschaften = msgObjekt.getDataModel()
 				.getAttributeGroup(DUAKonstanten.ATG_MESS_STELLEN_GRUPPE);
 		final Data eigenschaften = msgObjekt.getConfigurationData(atgEigenschaften);
 
@@ -100,7 +93,7 @@ public class MessStellenGruppe extends AbstractSystemObjekt {
 				for (int i = 0; i < eigenschaften.getReferenceArray("MessStellen").getLength(); i++) {
 					if ((eigenschaften.getReferenceArray("MessStellen").getReferenceValue(i) != null) && (eigenschaften
 							.getReferenceArray("MessStellen").getReferenceValue(i).getSystemObject() != null)) {
-						dummy[c++] = MessStelle.getInstanz(
+						dummy[c++] = netz.getMessStelle(
 								eigenschaften.getReferenceArray("MessStellen").getReferenceValue(i).getSystemObject());
 					}
 				}
@@ -122,69 +115,33 @@ public class MessStellenGruppe extends AbstractSystemObjekt {
 	 * Erfragt alle statischen Instanzen dieser Klasse.
 	 *
 	 * @return alle statischen Instanzen dieser Klasse
+	 * @deprecated die verwendeten MessStellenGruppen sollten aus
+	 *             {@link DuaVerkehrsNetz} ermittelt werden.
 	 */
+	@Deprecated
 	public static Collection<MessStellenGruppe> getInstanzen() {
-		return MessStellenGruppe.sysObjMsgObjMap.values();
+
+		DuaVerkehrsNetz verkehrsNetz = DuaVerkehrsNetz.getDefaultInstance();
+		if (verkehrsNetz == null) {
+			throw new RuntimeException("DuaVerkehrsNetz wurde noch nicht initialisiert");
+		}
+		return verkehrsNetz.getAlleMessStellenGruppen();
 	}
 
-	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
-	 * <code>typ.messStelleGruppe</code> statische Instanzen dieser Klasse
-	 * angelegt werden.
-	 *
-	 * @param dav1
-	 *            Datenverteiler-Verbindung
-	 * @throws DUAInitialisierungsException
-	 *             wenn eines der Objekte nicht initialisiert werden konnte
-	 */
-	protected static void initialisiere(final ClientDavInterface dav1) throws DUAInitialisierungsException {
-		if (dav1 == null) {
-			throw new NullPointerException("Datenverteiler-Verbindung ist <<null>>");
-		}
-
-		if (MessStellenGruppe.sDav != null) {
-			throw new RuntimeException("Objekt darf nur einmal initialisiert werden");
-		}
-		MessStellenGruppe.sDav = dav1;
-
-		for (final SystemObject msObj : MessStellenGruppe.sDav.getDataModel()
-				.getType(DUAKonstanten.TYP_MESS_STELLEN_GRUPPE).getElements()) {
-			if (msObj.isValid()) {
-				MessStellenGruppe.sysObjMsgObjMap.put(msObj, new MessStellenGruppe(msObj));
-			}
-		}
-	}
-
-	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
-	 * <code>typ.messStelleGruppe</code> statische Instanzen dieser Klasse
-	 * angelegt werden.
-	 *
-	 * @param dav1
-	 *            Datenverteiler-Verbindung
-	 *
-	 * @param kbs
-	 *            Menge der zu betrachtenden Konfigurationsbereiche
-	 * @throws DUAInitialisierungsException
-	 *             wenn eines der Objekte nicht initialisiert werden konnte
-	 */
-	protected static void initialisiere(final ClientDavInterface dav1, final ConfigurationArea[] kbs)
+	static Map<SystemObject, MessStellenGruppe> einlesen(DuaVerkehrsNetz netz, final ClientDavInterface dav1, final ConfigurationArea[] kbs)
 			throws DUAInitialisierungsException {
 		if (dav1 == null) {
 			throw new NullPointerException("Datenverteiler-Verbindung ist <<null>>");
 		}
 
-		if (MessStellenGruppe.sDav != null) {
-			throw new RuntimeException("Objekt darf nur einmal initialisiert werden");
-		}
-		MessStellenGruppe.sDav = dav1;
-
-		for (final SystemObject msObj : MessStellenGruppe.sDav.getDataModel()
-				.getType(DUAKonstanten.TYP_MESS_STELLEN_GRUPPE).getElements()) {
+		Map<SystemObject, MessStellenGruppe> result = new LinkedHashMap<>();
+		for (final SystemObject msObj : dav1.getDataModel().getType(DUAKonstanten.TYP_MESS_STELLEN_GRUPPE)
+				.getElements()) {
 			if (msObj.isValid() && DUAUtensilien.isObjektInKBsEnthalten(msObj, kbs)) {
-				MessStellenGruppe.sysObjMsgObjMap.put(msObj, new MessStellenGruppe(msObj));
+				result.put(msObj, new MessStellenGruppe(netz, msObj));
 			}
 		}
+		return result;
 	}
 
 	/**
@@ -196,18 +153,16 @@ public class MessStellenGruppe extends AbstractSystemObjekt {
 	 * @return eine mit dem übergebenen Systemobjekt assoziierte statische
 	 *         Instanz dieser Klasse oder <code>null</code>, wenn diese Instanz
 	 *         nicht ermittelt werden konnte
+	 * @deprecated die verwendeten MessStellenGruppen sollten aus
+	 *             {@link DuaVerkehrsNetz} ermittelt werden.
 	 */
+	@Deprecated
 	public static MessStellenGruppe getInstanz(final SystemObject msgObjekt) {
-		if (MessStellenGruppe.sDav == null) {
-			throw new RuntimeException("MessStellen-Klasse wurde noch nicht initialisiert");
+		DuaVerkehrsNetz verkehrsNetz = DuaVerkehrsNetz.getDefaultInstance();
+		if (verkehrsNetz == null) {
+			throw new RuntimeException("DuaVerkehrsNetz wurde noch nicht initialisiert");
 		}
-		MessStellenGruppe ergebnis = null;
-
-		if (msgObjekt != null) {
-			ergebnis = MessStellenGruppe.sysObjMsgObjMap.get(msgObjekt);
-		}
-
-		return ergebnis;
+		return verkehrsNetz.getMessStellenGruppe(msgObjekt);
 	}
 
 	/**

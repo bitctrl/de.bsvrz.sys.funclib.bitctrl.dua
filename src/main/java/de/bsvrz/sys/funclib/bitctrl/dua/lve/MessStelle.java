@@ -27,8 +27,8 @@
 package de.bsvrz.sys.funclib.bitctrl.dua.lve;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import de.bsvrz.dav.daf.main.ClientDavInterface;
@@ -57,16 +57,6 @@ import de.bsvrz.sys.funclib.debug.Debug;
 public class MessStelle extends AbstractSystemObjekt {
 
 	/**
-	 * Mapt alle MessStelle-Systemobjekte auf Objekte dieser Klasse.
-	 */
-	private static Map<SystemObject, MessStelle> sysObjMsObjMap = new HashMap<>();
-
-	/**
-	 * Datenverteiler-Verbindung.
-	 */
-	private static ClientDavInterface sDav;
-
-	/**
 	 * Zufahrten zu dieser Messstelle.
 	 */
 	private final Collection<MessQuerschnittAllgemein> zufahrten = new HashSet<>();
@@ -81,22 +71,28 @@ public class MessStelle extends AbstractSystemObjekt {
 	 */
 	private SystemObject pruefling;
 
+	private DuaVerkehrsNetz netz;
+
 	/**
 	 * Standardkontruktor.
 	 *
+	 * @param netz
+	 *            das verwendete Verkehrsnetz
 	 * @param msObjekt
 	 *            ein Systemobjekt vom Typ <code>typ.messStelle</code>
 	 * @throws DUAInitialisierungsException
 	 *             wenn die Messstelle nicht initialisiert werden konnte
 	 */
-	protected MessStelle(final SystemObject msObjekt) throws DUAInitialisierungsException {
+	protected MessStelle(DuaVerkehrsNetz netz, final SystemObject msObjekt) throws DUAInitialisierungsException {
 		super(msObjekt);
 
+		this.netz = netz;
+		
 		final ConfigurationObject konfigObjekt = (ConfigurationObject) msObjekt;
 		final ObjectSet mqMengeAbfahrten = konfigObjekt.getNonMutableSet("Abfahrten");
 		for (final SystemObject mqObj : mqMengeAbfahrten.getElements()) {
 			if (mqObj.isValid()) {
-				final MessQuerschnittAllgemein mqa = MessQuerschnittAllgemein.getInstanz(mqObj);
+				final MessQuerschnittAllgemein mqa = netz.getMessQuerSchnittAllgemein(mqObj);
 				if (mqa != null) {
 					abfahrten.add(mqa);
 				} else {
@@ -109,7 +105,7 @@ public class MessStelle extends AbstractSystemObjekt {
 		final ObjectSet mqMengeZufahrten = konfigObjekt.getNonMutableSet("Zufahrten");
 		for (final SystemObject mqObj : mqMengeZufahrten.getElements()) {
 			if (mqObj.isValid()) {
-				final MessQuerschnittAllgemein mqa = MessQuerschnittAllgemein.getInstanz(mqObj);
+				final MessQuerschnittAllgemein mqa = netz.getMessQuerSchnittAllgemein(mqObj);
 				if (mqa != null) {
 					zufahrten.add(mqa);
 				} else {
@@ -119,7 +115,7 @@ public class MessStelle extends AbstractSystemObjekt {
 			}
 		}
 
-		final AttributeGroup atgEigenschaften = MessStelle.sDav.getDataModel()
+		final AttributeGroup atgEigenschaften = msObjekt.getDataModel()
 				.getAttributeGroup(DUAKonstanten.ATG_MESS_STELLE);
 		final Data eigenschaften = msObjekt.getConfigurationData(atgEigenschaften);
 
@@ -133,63 +129,20 @@ public class MessStelle extends AbstractSystemObjekt {
 		}
 	}
 
-	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
-	 * <code>typ.messStelle</code> statische Instanzen dieser Klasse angelegt
-	 * werden.
-	 *
-	 * @param dav1
-	 *            Datenverteiler-Verbindung
-	 * @throws DUAInitialisierungsException
-	 *             wenn eines der Objekte nicht initialisiert werden konnte
-	 */
-	protected static void initialisiere(final ClientDavInterface dav1) throws DUAInitialisierungsException {
-		if (dav1 == null) {
-			throw new NullPointerException("Datenverteiler-Verbindung ist <<null>>");
-		}
-
-		if (MessStelle.sDav != null) {
-			throw new RuntimeException("Objekt darf nur einmal initialisiert werden");
-		}
-		MessStelle.sDav = dav1;
-
-		for (final SystemObject msObj : MessStelle.sDav.getDataModel().getType(DUAKonstanten.TYP_MESS_STELLE)
-				.getElements()) {
-			if (msObj.isValid()) {
-				MessStelle.sysObjMsObjMap.put(msObj, new MessStelle(msObj));
-			}
-		}
-	}
-
-	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
-	 * <code>typ.messStelle</code> statische Instanzen dieser Klasse angelegt
-	 * werden.
-	 *
-	 * @param dav1
-	 *            Datenverteiler-Verbindung
-	 * @param kbs
-	 *            Menge der zu betrachtenden Konfigurationsbereiche
-	 * @throws DUAInitialisierungsException
-	 *             wenn eines der Objekte nicht initialisiert werden konnte
-	 */
-	protected static void initialisiere(final ClientDavInterface dav1, final ConfigurationArea[] kbs)
+	static Map<SystemObject, MessStelle> einlesen(DuaVerkehrsNetz netz, final ClientDavInterface dav1, final ConfigurationArea[] kbs)
 			throws DUAInitialisierungsException {
 		if (dav1 == null) {
 			throw new NullPointerException("Datenverteiler-Verbindung ist <<null>>");
 		}
 
-		if (MessStelle.sDav != null) {
-			throw new RuntimeException("Objekt darf nur einmal initialisiert werden");
-		}
-		MessStelle.sDav = dav1;
-
-		for (final SystemObject msObj : MessStelle.sDav.getDataModel().getType(DUAKonstanten.TYP_MESS_STELLE)
-				.getElements()) {
+		Map<SystemObject, MessStelle> result = new LinkedHashMap<>();
+		for (final SystemObject msObj : dav1.getDataModel().getType(DUAKonstanten.TYP_MESS_STELLE).getElements()) {
 			if (msObj.isValid() && DUAUtensilien.isObjektInKBsEnthalten(msObj, kbs)) {
-				MessStelle.sysObjMsObjMap.put(msObj, new MessStelle(msObj));
+				result.put(msObj, new MessStelle(netz, msObj));
 			}
 		}
+
+		return result;
 	}
 
 	/**
@@ -201,18 +154,17 @@ public class MessStelle extends AbstractSystemObjekt {
 	 * @return eine mit dem übergebenen Systemobjekt assoziierte statische
 	 *         Instanz dieser Klasse oder <code>null</code>, wenn diese Instanz
 	 *         nicht ermittelt werden konnte
+	 * @deprecated es sollte auf eine Instanz des Typ {@link DuaVerkehrsNetz}
+	 *             zugegriffen werden
 	 */
+	@Deprecated
 	public static MessStelle getInstanz(final SystemObject msObjekt) {
-		if (MessStelle.sDav == null) {
+
+		DuaVerkehrsNetz verkehrsNetz = DuaVerkehrsNetz.getDefaultInstance();
+		if (verkehrsNetz == null) {
 			throw new RuntimeException("MessStellen-Klasse wurde noch nicht initialisiert");
 		}
-		MessStelle ergebnis = null;
-
-		if (msObjekt != null) {
-			ergebnis = MessStelle.sysObjMsObjMap.get(msObjekt);
-		}
-
-		return ergebnis;
+		return verkehrsNetz.getMessStelle(msObjekt);
 	}
 
 	/**
@@ -241,7 +193,7 @@ public class MessStelle extends AbstractSystemObjekt {
 	 * @return Referenz auf den MessQuerschnitt, der zu prüfen ist
 	 */
 	public final MessQuerschnittAllgemein getPruefling() {
-		return MessQuerschnittAllgemein.getInstanz(pruefling);
+		return netz.getMessQuerSchnittAllgemein(pruefling);
 	}
 
 	@Override

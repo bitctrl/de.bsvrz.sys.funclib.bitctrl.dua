@@ -27,7 +27,7 @@
 package de.bsvrz.sys.funclib.bitctrl.dua.lve;
 
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import de.bsvrz.dav.daf.main.ClientDavInterface;
@@ -50,17 +50,6 @@ import de.bsvrz.sys.funclib.debug.Debug;
  * @author BitCtrl Systems GmbH, Thierfelder
  */
 public class FahrStreifen extends AbstractSystemObjekt {
-
-	/**
-	 * Mapt alle Fahrstreifen-Systemobjekte auf Objekte der Klasse
-	 * <code>FahrStreifen</code>.
-	 */
-	private static Map<SystemObject, FahrStreifen> sysObjFsObjMap = new HashMap<>();
-
-	/**
-	 * Datenverteiler-Verbindung.
-	 */
-	private static ClientDavInterface sDav;
 
 	/**
 	 * die Lage dieses Fahrtreifens.
@@ -92,7 +81,7 @@ public class FahrStreifen extends AbstractSystemObjekt {
 			throw new NullPointerException("Übergebenes Fahrstreifenobjekt ist <<null>>");
 		}
 
-		final AttributeGroup atgEigenschaften = FahrStreifen.sDav.getDataModel()
+		final AttributeGroup atgEigenschaften = fsObjekt.getDataModel()
 				.getAttributeGroup(DUAKonstanten.ATG_FAHRSTREIFEN);
 		final Data eigenschaften = fsObjekt.getConfigurationData(atgEigenschaften);
 
@@ -107,75 +96,38 @@ public class FahrStreifen extends AbstractSystemObjekt {
 		}
 	}
 
-	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
-	 * <code>typ.fahrStreifen</code> statische Instanzen dieser Klasse angelegt
-	 * werden.
-	 *
-	 * @param dav1
-	 *            Datenverteiler-Verbindung
-	 * @throws DUAInitialisierungsException
-	 *             wenn eines der Objekte nicht initialisiert werden konnte
-	 */
-	protected static final void initialisiere(final ClientDavInterface dav1) throws DUAInitialisierungsException {
+	static final Map<SystemObject, FahrStreifen> einlesen(DuaVerkehrsNetz netz, final ClientDavInterface dav1,
+			final ConfigurationArea[] kbs) throws DUAInitialisierungsException {
+
 		if (dav1 == null) {
 			throw new NullPointerException("Datenverteiler-Verbindung ist <<null>>");
 		}
 
-		if (FahrStreifen.sDav != null) {
-			throw new RuntimeException("Objekt darf nur einmal initialisiert werden");
-		}
-		FahrStreifen.sDav = dav1;
-
-		for (final SystemObject fsObjekt : FahrStreifen.sDav.getDataModel().getType(DUAKonstanten.TYP_FAHRSTREIFEN)
-				.getElements()) {
-			if (fsObjekt.isValid()) {
-				FahrStreifen.sysObjFsObjMap.put(fsObjekt, new FahrStreifen(fsObjekt));
-			}
-		}
-	}
-
-	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
-	 * <code>typ.fahrStreifen</code> statische Instanzen dieser Klasse angelegt
-	 * werden.
-	 *
-	 * @param dav1
-	 *            Datenverteiler-Verbindung
-	 * @param kbs
-	 *            Menge der zu betrachtenden Konfigurationsbereiche
-	 * @throws DUAInitialisierungsException
-	 *             wenn eines der Objekte nicht initialisiert werden konnte
-	 */
-	protected static final void initialisiere(final ClientDavInterface dav1, final ConfigurationArea[] kbs)
-			throws DUAInitialisierungsException {
-		if (dav1 == null) {
-			throw new NullPointerException("Datenverteiler-Verbindung ist <<null>>");
-		}
-
-		if (FahrStreifen.sDav != null) {
-			throw new RuntimeException("Objekt darf nur einmal initialisiert werden");
-		}
-		FahrStreifen.sDav = dav1;
-
-		for (final SystemObject fsObjekt : FahrStreifen.sDav.getDataModel().getType(DUAKonstanten.TYP_FAHRSTREIFEN)
-				.getElements()) {
+		Map<SystemObject, FahrStreifen> result = new LinkedHashMap<>();
+		for (final SystemObject fsObjekt : dav1.getDataModel().getType(DUAKonstanten.TYP_FAHRSTREIFEN).getElements()) {
 			if (fsObjekt.isValid() && DUAUtensilien.isObjektInKBsEnthalten(fsObjekt, kbs)) {
-				FahrStreifen.sysObjFsObjMap.put(fsObjekt, new FahrStreifen(fsObjekt));
+				result.put(fsObjekt, new FahrStreifen(fsObjekt));
 			}
 		}
+
+		return result;
 	}
 
 	/**
 	 * Erfragt alle statischen Instanzen dieser Klasse.
 	 *
 	 * @return alle statischen Instanzen dieser Klasse
+	 * 
+	 * @deprecated der Zugriff auf ein Fahrstreifen-Objekt sollte über
+	 *             {@link DuaVerkehrsNetz#getAlleFahrStreifen()} erfolgen.
 	 */
+	@Deprecated
 	public static Collection<FahrStreifen> getInstanzen() {
-		if (FahrStreifen.sDav == null) {
+		DuaVerkehrsNetz verkehrsNetz = DuaVerkehrsNetz.getDefaultInstance();
+		if (verkehrsNetz == null) {
 			throw new RuntimeException("FahrStreifen-Klasse wurde noch nicht initialisiert");
 		}
-		return FahrStreifen.sysObjFsObjMap.values();
+		return verkehrsNetz.getAlleFahrStreifen();
 	}
 
 	/**
@@ -187,18 +139,17 @@ public class FahrStreifen extends AbstractSystemObjekt {
 	 * @return eine mit dem übergebenen Systemobjekt assoziierte statische
 	 *         Instanz dieser Klasse oder <code>null</code>, wenn diese Instanz
 	 *         nicht ermittelt werden konnte
+	 * 
+	 * @deprecated der Zugriff auf ein Fahrstreifen-Objekt sollte über das
+	 *             {@link DuaVerkehrsNetz#getFahrStreifen(SystemObject)} erfolgen.
 	 */
+	@Deprecated
 	public static final FahrStreifen getInstanz(final SystemObject fsObjekt) {
-		if (FahrStreifen.sDav == null) {
-			throw new RuntimeException("Fahrstreifen-Klasse wurde noch nicht initialisiert");
+		DuaVerkehrsNetz verkehrsNetz = DuaVerkehrsNetz.getDefaultInstance();
+		if (verkehrsNetz == null) {
+			throw new RuntimeException("FahrStreifen-Klasse wurde noch nicht initialisiert");
 		}
-		FahrStreifen ergebnis = null;
-
-		if (fsObjekt != null) {
-			ergebnis = FahrStreifen.sysObjFsObjMap.get(fsObjekt);
-		}
-
-		return ergebnis;
+		return verkehrsNetz.getFahrStreifen(fsObjekt);
 	}
 
 	/**

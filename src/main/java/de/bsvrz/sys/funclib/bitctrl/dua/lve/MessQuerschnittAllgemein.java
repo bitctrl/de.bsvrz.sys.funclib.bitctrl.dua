@@ -27,9 +27,9 @@
 package de.bsvrz.sys.funclib.bitctrl.dua.lve;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-import de.bsvrz.dav.daf.main.ClientDavInterface;
 import de.bsvrz.dav.daf.main.Data;
 import de.bsvrz.dav.daf.main.config.AttributeGroup;
 import de.bsvrz.dav.daf.main.config.SystemObject;
@@ -49,12 +49,6 @@ import de.bsvrz.sys.funclib.debug.Debug;
 public abstract class MessQuerschnittAllgemein extends AbstractSystemObjekt {
 
 	/**
-	 * Menge aller allgemeinen Messquerschnitte.
-	 */
-	private static final Collection<MessQuerschnittAllgemein> mqaMenge = new HashSet<>();
-	private static boolean initialized;
-
-	/**
 	 * Systemobjekt des Ersatzmessquerschnitts für die Messwertersetzung.
 	 */
 	private SystemObject ersatzQuerschnittObj;
@@ -67,19 +61,17 @@ public abstract class MessQuerschnittAllgemein extends AbstractSystemObjekt {
 	/**
 	 * Standardkonstruktor.
 	 *
-	 * @param dav
-	 *            Datenverteiler-Verbindung
 	 * @param mqaObjekt
 	 *            Systemobjekt eines allgemeinen Messquerschnittes
 	 */
-	protected MessQuerschnittAllgemein(final ClientDavInterface dav, final SystemObject mqaObjekt) {
+	protected MessQuerschnittAllgemein(final SystemObject mqaObjekt) {
 		super(mqaObjekt);
 
 		if (mqaObjekt == null) {
 			throw new NullPointerException("Übergebenes allgemeines Messquerschnittobjekt ist <<null>>");
 		}
 
-		final AttributeGroup atgEigenschaften = dav.getDataModel().getAttributeGroup(DUAKonstanten.ATG_MQ_ALLGEMEIN);
+		final AttributeGroup atgEigenschaften = mqaObjekt.getDataModel().getAttributeGroup(DUAKonstanten.ATG_MQ_ALLGEMEIN);
 		final Data eigenschaften = mqaObjekt.getConfigurationData(atgEigenschaften);
 
 		if (eigenschaften == null) {
@@ -97,15 +89,21 @@ public abstract class MessQuerschnittAllgemein extends AbstractSystemObjekt {
 	 * Erfragt alle statischen Instanzen dieser Klasse.
 	 *
 	 * @return alle statischen Instanzen dieser Klasse
+	 * @deprecated die verwendeten MessquerschnitteAllgemein sollten aus
+	 *             {@link DuaVerkehrsNetz} ermittelt werden.
 	 */
+	@Deprecated
 	public static Collection<MessQuerschnittAllgemein> getAlleInstanzen() {
-		if (!initialized) {
-			MessQuerschnittAllgemein.mqaMenge.addAll(MessQuerschnitt.getInstanzen());
-			MessQuerschnittAllgemein.mqaMenge.addAll(MessQuerschnittVirtuell.getInstanzen());
-			initialized = true;
+
+		DuaVerkehrsNetz verkehrsNetz = DuaVerkehrsNetz.getDefaultInstance();
+		if (verkehrsNetz == null) {
+			throw new RuntimeException("DuaVerkehrsNetz-Klasse wurde noch nicht initialisiert");
 		}
 
-		return MessQuerschnittAllgemein.mqaMenge;
+		Set<MessQuerschnittAllgemein> result = new LinkedHashSet<>(verkehrsNetz.getAlleMessQuerSchnitte());
+		result.addAll(verkehrsNetz.getAlleMessQuerSchnitteVirtuell());
+
+		return result;
 	}
 
 	/**
@@ -117,16 +115,16 @@ public abstract class MessQuerschnittAllgemein extends AbstractSystemObjekt {
 	 * @return eine mit dem übergebenen Systemobjekt assoziierte statische
 	 *         Instanz dieser Klasse oder <code>null</code>, wenn diese Instanz
 	 *         nicht ermittelt werden konnte
+	 * @deprecated die verwendeten MessquerschnitteAllgemein sollten aus
+	 *             {@link DuaVerkehrsNetz} ermittelt werden.
 	 */
+	@Deprecated
 	public static MessQuerschnittAllgemein getInstanz(final SystemObject mqaObjekt) {
-		MessQuerschnittAllgemein ergebnis = null;
-
-		ergebnis = MessQuerschnitt.getInstanz(mqaObjekt);
-		if (ergebnis == null) {
-			ergebnis = MessQuerschnittVirtuell.getInstanz(mqaObjekt);
+		DuaVerkehrsNetz verkehrsNetz = DuaVerkehrsNetz.getDefaultInstance();
+		if (verkehrsNetz == null) {
+			throw new RuntimeException("DuaVerkehrsNetz-Klasse wurde noch nicht initialisiert");
 		}
-
-		return ergebnis;
+		return verkehrsNetz.getMessQuerSchnittAllgemein(mqaObjekt);
 	}
 
 	/**

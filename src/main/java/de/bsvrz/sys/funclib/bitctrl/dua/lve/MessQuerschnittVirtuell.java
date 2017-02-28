@@ -28,8 +28,8 @@
 package de.bsvrz.sys.funclib.bitctrl.dua.lve;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import de.bsvrz.dav.daf.main.ClientDavInterface;
@@ -92,17 +92,6 @@ public class MessQuerschnittVirtuell extends MessQuerschnittAllgemein {
 	}
 
 	/**
-	 * Mapt alle MessQuerschnittVirtuell-Systemobjekte auf Objekte dieser
-	 * Klasse.
-	 */
-	private static Map<SystemObject, MessQuerschnittVirtuell> sysObjMqvObjMap = new HashMap<>();
-
-	/**
-	 * Datenverteiler-Verbindung.
-	 */
-	private static ClientDavInterface sDav;
-
-	/**
 	 * Die aktuelle Vorschrift, nach der die virtuellen MQs berechnet werden
 	 * sollen.
 	 */
@@ -143,9 +132,13 @@ public class MessQuerschnittVirtuell extends MessQuerschnittAllgemein {
 	 */
 	private MessQuerschnittAnteile messQuerschnittAnteile;
 
+	private DuaVerkehrsNetz netz;
+
 	/**
 	 * Standardkontruktor.
 	 *
+	 * @param netz
+	 *            das verwendete Verkehrsnetz
 	 * @param mqvObjekt
 	 *            ein Systemobjekt vom Typ
 	 *            <code>typ.messQuerschnittVirtuell</code>
@@ -153,14 +146,16 @@ public class MessQuerschnittVirtuell extends MessQuerschnittAllgemein {
 	 *             wenn der virtuelle Messquerschnitt nicht initialisiert werden
 	 *             konnte
 	 */
-	protected MessQuerschnittVirtuell(final SystemObject mqvObjekt) throws DUAInitialisierungsException {
-		super(MessQuerschnittVirtuell.sDav, mqvObjekt);
+	private MessQuerschnittVirtuell(DuaVerkehrsNetz netz, final SystemObject mqvObjekt) throws DUAInitialisierungsException {
+		super(mqvObjekt);
 
+		this.netz = netz;
+		
 		if (mqvObjekt == null) {
 			throw new NullPointerException("Uebergebenes MessQuerschnittVirtuell-Systemobjekt ist <<null>>");
 		}
 
-		final AttributeGroup atgEigenschaftenSTD = MessQuerschnittVirtuell.sDav.getDataModel()
+		final AttributeGroup atgEigenschaftenSTD = mqvObjekt.getDataModel()
 				.getAttributeGroup(DUAKonstanten.ATG_MQ_VIRTUELL_STANDARD);
 		final Data eigenschaftenSTD = mqvObjekt.getConfigurationData(atgEigenschaftenSTD);
 
@@ -170,30 +165,25 @@ public class MessQuerschnittVirtuell extends MessQuerschnittAllgemein {
 		} else {
 			mqVirtLage = MessQuerschnittVirtuellLage.getZustand(eigenschaftenSTD.getUnscaledValue("Lage").intValue());
 			if (eigenschaftenSTD.getReferenceValue("MessQuerschnittVor") != null) {
-				mqVorObj = MessQuerschnitt
-						.getInstanz(eigenschaftenSTD.getReferenceValue("MessQuerschnittVor").getSystemObject());
+				mqVorObj = netz.getMessQuerSchnitt(eigenschaftenSTD.getReferenceValue("MessQuerschnittVor").getSystemObject());
 			}
 			if (eigenschaftenSTD.getReferenceValue("MessQuerschnittNach") != null) {
-				mqNachObj = MessQuerschnitt
-						.getInstanz(eigenschaftenSTD.getReferenceValue("MessQuerschnittNach").getSystemObject());
+				mqNachObj = netz.getMessQuerSchnitt(eigenschaftenSTD.getReferenceValue("MessQuerschnittNach").getSystemObject());
 			}
 			if (eigenschaftenSTD.getReferenceValue("MessQuerschnittMitte") != null) {
-				mqMitteObj = MessQuerschnitt
-						.getInstanz(eigenschaftenSTD.getReferenceValue("MessQuerschnittMitte").getSystemObject());
+				mqMitteObj = netz.getMessQuerSchnitt(eigenschaftenSTD.getReferenceValue("MessQuerschnittMitte").getSystemObject());
 			}
 			if (eigenschaftenSTD.getReferenceValue("MessQuerschnittAusfahrt") != null) {
-				mqAusfahrtObj = MessQuerschnitt
-						.getInstanz(eigenschaftenSTD.getReferenceValue("MessQuerschnittAusfahrt").getSystemObject());
+				mqAusfahrtObj = netz.getMessQuerSchnitt(eigenschaftenSTD.getReferenceValue("MessQuerschnittAusfahrt").getSystemObject());
 			}
 			if (eigenschaftenSTD.getReferenceValue("MessQuerschnittEinfahrt") != null) {
-				mqEinfahrtObj = MessQuerschnitt
-						.getInstanz(eigenschaftenSTD.getReferenceValue("MessQuerschnittEinfahrt").getSystemObject());
+				mqEinfahrtObj = netz.getMessQuerSchnitt(eigenschaftenSTD.getReferenceValue("MessQuerschnittEinfahrt").getSystemObject());
 			}
 			berechnungsVorschrift = BerechnungsVorschrift.AUF_BASIS_VON_ATG_MQ_VIRTUELL_STANDARD;
 		}
 
 		try {
-			messQuerschnittAnteile = new AtgMessQuerschnittVirtuell(MessQuerschnittVirtuell.sDav, mqvObjekt);
+			messQuerschnittAnteile = new AtgMessQuerschnittVirtuell(mqvObjekt);
 			berechnungsVorschrift = BerechnungsVorschrift.AUF_BASIS_VON_ATG_MQ_VIRTUELL_V_LAGE;
 		} catch (final KeineDatenException e) {
 			Debug.getLogger().fine("\"atg.messQuerschnittVirtuellVLage\" von MessQuerschnittVirtuell-Objekt "
@@ -201,7 +191,7 @@ public class MessQuerschnittVirtuell extends MessQuerschnittAllgemein {
 		}
 
 		try {
-			messQuerschnittAnteile = new AtgMessQuerschnittVirtuellVLage(MessQuerschnittVirtuell.sDav, mqvObjekt);
+			messQuerschnittAnteile = new AtgMessQuerschnittVirtuellVLage(mqvObjekt);
 			berechnungsVorschrift = BerechnungsVorschrift.AUF_BASIS_VON_ATG_MQ_VIRTUELL_V_LAGE;
 		} catch (final KeineDatenException e) {
 			Debug.getLogger().fine("\"atg.messQuerschnittVirtuellVLage\" von MessQuerschnittVirtuell-Objekt "
@@ -210,75 +200,37 @@ public class MessQuerschnittVirtuell extends MessQuerschnittAllgemein {
 
 	}
 
-	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
-	 * <code>typ.messQuerschnittVirtuell</code> statische Instanzen dieser
-	 * Klasse angelegt werden.
-	 *
-	 * @param dav1
-	 *            Datenverteiler-Verbindung
-	 * @throws DUAInitialisierungsException
-	 *             wenn eines der Objekte nicht initialisiert werden konnte
-	 */
-	protected static void initialisiere(final ClientDavInterface dav1) throws DUAInitialisierungsException {
+	static Map<SystemObject, MessQuerschnittVirtuell> einlesen(DuaVerkehrsNetz netz, final ClientDavInterface dav1,
+			final ConfigurationArea[] kbs) throws DUAInitialisierungsException {
 		if (dav1 == null) {
 			throw new NullPointerException("Datenverteiler-Verbindung ist <<null>>");
 		}
 
-		if (MessQuerschnittVirtuell.sDav != null) {
-			throw new RuntimeException("Objekt darf nur einmal initialisiert werden");
-		}
-		MessQuerschnittVirtuell.sDav = dav1;
-
-		for (final SystemObject mqvObjekt : MessQuerschnittVirtuell.sDav.getDataModel()
-				.getType(DUAKonstanten.TYP_MQ_VIRTUELL).getElements()) {
-			if (mqvObjekt.isValid()) {
-				MessQuerschnittVirtuell.sysObjMqvObjMap.put(mqvObjekt, new MessQuerschnittVirtuell(mqvObjekt));
-			}
-		}
-	}
-
-	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
-	 * <code>typ.messQuerschnittVirtuell</code> statische Instanzen dieser
-	 * Klasse angelegt werden.
-	 *
-	 * @param dav1
-	 *            Datenverteiler-Verbindung
-	 * @param kbs
-	 *            Menge der zu betrachtenden Konfigurationsbereiche
-	 * @throws DUAInitialisierungsException
-	 *             wenn eines der Objekte nicht initialisiert werden konnte
-	 */
-	protected static void initialisiere(final ClientDavInterface dav1, final ConfigurationArea[] kbs)
-			throws DUAInitialisierungsException {
-		if (dav1 == null) {
-			throw new NullPointerException("Datenverteiler-Verbindung ist <<null>>");
-		}
-
-		if (MessQuerschnittVirtuell.sDav != null) {
-			throw new RuntimeException("Objekt darf nur einmal initialisiert werden");
-		}
-		MessQuerschnittVirtuell.sDav = dav1;
-
-		for (final SystemObject mqvObjekt : MessQuerschnittVirtuell.sDav.getDataModel()
-				.getType(DUAKonstanten.TYP_MQ_VIRTUELL).getElements()) {
+		Map<SystemObject, MessQuerschnittVirtuell> result = new LinkedHashMap<>();
+		for (final SystemObject mqvObjekt : dav1.getDataModel().getType(DUAKonstanten.TYP_MQ_VIRTUELL).getElements()) {
 			if (mqvObjekt.isValid() && DUAUtensilien.isObjektInKBsEnthalten(mqvObjekt, kbs)) {
-				MessQuerschnittVirtuell.sysObjMqvObjMap.put(mqvObjekt, new MessQuerschnittVirtuell(mqvObjekt));
+				result.put(mqvObjekt, new MessQuerschnittVirtuell(netz, mqvObjekt));
 			}
 		}
+
+		return result;
 	}
 
 	/**
 	 * Erfragt alle statischen Instanzen dieser Klasse.
 	 *
 	 * @return alle statischen Instanzen dieser Klasse
+	 * @deprecated es sollte auf eine Instanz einer {@link DuaVerkehrsNetz}
+	 *             zurückgegriffen werden.
 	 */
+	@Deprecated
 	public static Collection<MessQuerschnittVirtuell> getInstanzen() {
-		if (MessQuerschnittVirtuell.sDav == null) {
+
+		DuaVerkehrsNetz verkehrsNetz = DuaVerkehrsNetz.getDefaultInstance();
+		if (verkehrsNetz == null) {
 			throw new RuntimeException("MessQuerschnittVirtuell-Klasse wurde noch nicht initialisiert");
 		}
-		return MessQuerschnittVirtuell.sysObjMqvObjMap.values();
+		return verkehrsNetz.getAlleMessQuerSchnitteVirtuell();
 	}
 
 	/**
@@ -290,18 +242,17 @@ public class MessQuerschnittVirtuell extends MessQuerschnittAllgemein {
 	 * @return eine mit dem übergebenen Systemobjekt assoziierte statische
 	 *         Instanz dieser Klasse oder <code>null</code>, wenn diese Instanz
 	 *         nicht ermittelt werden konnte
+	 * @deprecated es sollte auf eine Instanz einer {@link DuaVerkehrsNetz}
+	 *             zurückgegriffen werden.
 	 */
+	@Deprecated
 	public static MessQuerschnittVirtuell getInstanz(final SystemObject mqvObjekt) {
-		if (MessQuerschnittVirtuell.sDav == null) {
+		DuaVerkehrsNetz verkehrsNetz = DuaVerkehrsNetz.getDefaultInstance();
+		if (verkehrsNetz == null) {
 			throw new RuntimeException("MessQuerschnittVirtuell-Klasse wurde noch nicht initialisiert");
 		}
-		MessQuerschnittVirtuell ergebnis = null;
 
-		if (mqvObjekt != null) {
-			ergebnis = MessQuerschnittVirtuell.sysObjMqvObjMap.get(mqvObjekt);
-		}
-
-		return ergebnis;
+		return verkehrsNetz.getMessQuerSchnittVirtuell(mqvObjekt);
 	}
 
 	@Override
@@ -312,7 +263,7 @@ public class MessQuerschnittVirtuell extends MessQuerschnittAllgemein {
 				|| (getBerechnungsVorschrift() == BerechnungsVorschrift.AUF_BASIS_VON_ATG_MQ_VIRTUELL_V_LAGE)) {
 			for (final AtgMessQuerschnittVirtuellVLage.AtlMessQuerSchnittBestandTeil mqBestandteil : getMessQuerschnittAnteile()
 					.getMessQuerSchnittBestandTeile()) {
-				final MessQuerschnittAllgemein mqa = MessQuerschnittAllgemein.getInstanz(mqBestandteil.getMQReferenz());
+				final MessQuerschnittAllgemein mqa = netz.getMessQuerSchnittAllgemein(mqBestandteil.getMQReferenz());
 				if (mqa != null) {
 					fahrStreifenMenge.addAll(mqa.getFahrStreifen());
 				}
