@@ -26,8 +26,6 @@
 
 package de.bsvrz.sys.funclib.bitctrl.dua;
 
-import java.nio.channels.UnsupportedAddressTypeException;
-
 import com.bitctrl.Constants;
 
 import de.bsvrz.sys.funclib.bitctrl.daf.AbstractDavZustand;

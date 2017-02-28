@@ -64,11 +64,28 @@ public class AtgMessQuerschnittVirtuell implements MessQuerschnittAnteile {
 	 * @throws KeineDatenException
 	 *             Wird geworfen, wenn die konfigurierende Attributgruppe nicht
 	 *             definiert ist.
+	 * @deprecated ClientDavInterface wird nicht benötigt
 	 */
-	public AtgMessQuerschnittVirtuell(final ClientDavInterface dav, final SystemObject objekt)
-			throws KeineDatenException {
+	@Deprecated
+	public AtgMessQuerschnittVirtuell(ClientDavInterface dav, final SystemObject objekt) throws KeineDatenException {
+		this(objekt);
+	}
+
+	/**
+	 * Standardkonstruktor.
+	 *
+	 * @param dav
+	 *            Verbindung zum Datenverteiler.
+	 * @param objekt
+	 *            der virtuelle Messquerschnitt, dessen Konfigurationsdaten
+	 *            ausgelesen werden sollen.
+	 * @throws KeineDatenException
+	 *             Wird geworfen, wenn die konfigurierende Attributgruppe nicht
+	 *             definiert ist.
+	 */
+	public AtgMessQuerschnittVirtuell(final SystemObject objekt) throws KeineDatenException {
 		final Data atgData = objekt
-				.getConfigurationData(dav.getDataModel().getAttributeGroup(DUAKonstanten.ATG_MQ_VIRTUELL));
+				.getConfigurationData(objekt.getDataModel().getAttributeGroup(DUAKonstanten.ATG_MQ_VIRTUELL));
 		if (atgData == null) {
 			throw new KeineDatenException(
 					"Die Attributgruppe \"atg.messQuerschnittVirtuell\" von VMQ " + objekt + " ist nicht definiert.");

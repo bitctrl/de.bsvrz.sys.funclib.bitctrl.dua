@@ -17,6 +17,14 @@ genutzt werden oder potentiell genutzt werden können.
 Versionsgeschichte
 ==================
 
+1.9.0
+=====
+
+Statische Intialisierung des DuAVerkehrNetz entfernt
+
+- Statische Methoden als deprecated markiert
+- Kompatibiltätsmechanismus implementiert
+
 1.8.0
 =====
 

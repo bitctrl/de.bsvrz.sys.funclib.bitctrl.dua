@@ -27,10 +27,15 @@
 package de.bsvrz.sys.funclib.bitctrl.dua.lve;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.bsvrz.dav.daf.main.ClientDavInterface;
 import de.bsvrz.dav.daf.main.config.ConfigurationArea;
+import de.bsvrz.dav.daf.main.config.SystemObject;
 import de.bsvrz.sys.funclib.bitctrl.dua.DUAInitialisierungsException;
 import de.bsvrz.sys.funclib.debug.Debug;
 
@@ -41,16 +46,47 @@ import de.bsvrz.sys.funclib.debug.Debug;
  */
 public class DuaVerkehrsNetz {
 
+	@Deprecated
+	private static DuaVerkehrsNetz defaultInstance;
+	
 	/**
-	 * Flag: Wurde das statische DUA-Verkehrsnetz bereits initialisiert?
+	 * die Datenverteilerverbindung mit dem das Netz initialisiert wurde. Es
+	 * wird nur eine Datenverteilerverbindung unterstützt.
 	 */
-	private static boolean initialisiert;
+	private ClientDavInterface usedDav;
+	
+	private final Map<SystemObject, FahrStreifen> fahrStreifen = new LinkedHashMap<>();
+	private final Map<SystemObject, MessQuerschnitt> messQuerSchnitte = new LinkedHashMap<>();
+	private final Map<SystemObject, MessQuerschnittVirtuell> messQuerSchnitteVirtuell = new LinkedHashMap<>();
+	private final Map<SystemObject, MessStelle> messStellen = new LinkedHashMap<>();
+	private final Map<SystemObject, MessStellenGruppe> messStellenGruppen = new LinkedHashMap<>();
+
 
 	/**
-	 * Standardkonstruktor.
+	 * erzeugt ein {@link DuaVerkehrsNetz} auf Basis der übergebenen
+	 * Datenverteilerverbindung.
+	 * 
+	 * Das verwendete Modell kann durch die Übergabe einer Menge von
+	 * Konfigurationsbereichen eingeschränkt werden. Ist das übergebene Feld
+	 * leer oder wird <code>null</code> übergeben, erfolgt keine Beschränkung.
+	 * 
+	 * @param dav
+	 *            die verwendete Datenverteilerverbindung
+	 * @param kbs
+	 *            die optionale Liste der KB auf die das Netz beschränkt werden
+	 *            soll
+	 * 
+	 * @throws DUAInitialisierungsException die Initialisierung des Netzes ist fehlgeschlagen.
 	 */
-	protected DuaVerkehrsNetz() {
-
+	public DuaVerkehrsNetz(ClientDavInterface dav, final ConfigurationArea[] kbs) throws DUAInitialisierungsException {
+		defaultInstance = this;
+		usedDav = dav;
+		fahrStreifen.putAll(FahrStreifen.einlesen(this, dav, kbs));
+		messQuerSchnitte.putAll(MessQuerschnitt.einlesen(this, dav, kbs));
+		messQuerSchnitteVirtuell.putAll(MessQuerschnittVirtuell.einlesen(this, dav, kbs));
+		messStellen.putAll(MessStelle.einlesen(this, dav, kbs));
+		ermittleErsatzUndNachbarFS();
+		messStellenGruppen.putAll(MessStellenGruppe.einlesen(this, dav, kbs));
 	}
 
 	/**
@@ -63,18 +99,18 @@ public class DuaVerkehrsNetz {
 	 * @throws DUAInitialisierungsException
 	 *             wenn es Probleme geben sollte, die die Initialisierung des
 	 *             Netzes (im Sinne der DUA) nicht möglich machen
+	 * 
+	 * @deprecated eine Applikation sollte eine Instanz des
+	 *             {@link DuaVerkehrsNetz} halten. Damit wäre die Relation von
+	 *             Datenverteilerverbindung (DatenModell) und implizit
+	 *             zwischengespeicherten Modellobjekten eindeutig.
 	 */
+	@Deprecated
 	public static synchronized void initialisiere(final ClientDavInterface dav) throws DUAInitialisierungsException {
-		if (DuaVerkehrsNetz.initialisiert) {
+		if ((defaultInstance != null) && (dav == defaultInstance.usedDav)) {
 			Debug.getLogger().warning("Das DUA-Verkehrsnetz wurde bereits initialisiert");
 		} else {
-			DuaVerkehrsNetz.initialisiert = true;
-			FahrStreifen.initialisiere(dav);
-			MessQuerschnitt.initialisiere(dav);
-			MessQuerschnittVirtuell.initialisiere(dav);
-			MessStelle.initialisiere(dav);
-			DuaVerkehrsNetz.ermittleErsatzUndNachbarFS();
-			MessStellenGruppe.initialisiere(dav);
+			defaultInstance = new DuaVerkehrsNetz(dav, null);
 		}
 	}
 
@@ -90,20 +126,25 @@ public class DuaVerkehrsNetz {
 	 * @throws DUAInitialisierungsException
 	 *             wenn es Probleme geben sollte, die die Initialisierung des
 	 *             Netzes (im Sinne der DUA) nicht möglich machen
+	 *
+	 * @deprecated eine Applikation sollte eine Instanz des
+	 *             {@link DuaVerkehrsNetz} halten. Damit wäre die Relation von
+	 *             Datenverteilerverbindung (DatenModell) und implizit
+	 *             zwischengespeicherten Modellobjekten eindeutig.
 	 */
+	@Deprecated
 	public static synchronized void initialisiere(final ClientDavInterface dav, final ConfigurationArea[] kbs)
 			throws DUAInitialisierungsException {
-		if (DuaVerkehrsNetz.initialisiert) {
+		if ((defaultInstance != null) && (dav == defaultInstance.usedDav)) {
 			Debug.getLogger().warning("Das DUA-Verkehrsnetz wurde bereits initialisiert");
 		} else {
-			DuaVerkehrsNetz.initialisiert = true;
-			FahrStreifen.initialisiere(dav, kbs);
-			MessQuerschnitt.initialisiere(dav, kbs);
-			MessQuerschnittVirtuell.initialisiere(dav, kbs);
-			MessStelle.initialisiere(dav, kbs);
-			DuaVerkehrsNetz.ermittleErsatzUndNachbarFS();
-			MessStellenGruppe.initialisiere(dav, kbs);
+			defaultInstance = new DuaVerkehrsNetz(dav, kbs);
 		}
+	}
+
+	@Deprecated
+	static DuaVerkehrsNetz getDefaultInstance() {
+		return defaultInstance;
 	}
 
 	/**
@@ -111,9 +152,9 @@ public class DuaVerkehrsNetz {
 	 * diese nicht explizit versorgt sind und trägt sie an den entsprechenden
 	 * Fahrtreifen ein
 	 */
-	private static void ermittleErsatzUndNachbarFS() {
+	private void ermittleErsatzUndNachbarFS() {
 
-		for (final MessQuerschnitt mq : MessQuerschnitt.getInstanzen()) {
+		for (final MessQuerschnitt mq : getAlleMessQuerSchnitte()) {
 			for (final FahrStreifen fs : mq.getFahrStreifen()) {
 
 				if (fs.getNachbarFahrStreifen() == null) {
@@ -125,7 +166,7 @@ public class DuaVerkehrsNetz {
 
 				if (fs.getNachbarFahrStreifen() == null) {
 					Debug.getLogger()
-					.warning("Für Fahrstreifen " + fs + " kann " + "kein Nachbarfahrstreifen ermittelt werden");
+							.warning("Für Fahrstreifen " + fs + " kann " + "kein Nachbarfahrstreifen ermittelt werden");
 				}
 
 				if (fs.getErsatzFahrStreifen() == null) {
@@ -154,10 +195,60 @@ public class DuaVerkehrsNetz {
 
 				if (fs.getErsatzFahrStreifen() == null) {
 					Debug.getLogger()
-					.warning("Für Fahrstreifen " + fs + " kann " + "kein Ersatzfahrstreifen ermittelt werden");
+							.warning("Für Fahrstreifen " + fs + " kann " + "kein Ersatzfahrstreifen ermittelt werden");
 				}
 			}
 		}
-
 	}
+	
+	public Collection<FahrStreifen> getAlleFahrStreifen() {
+		return Collections.unmodifiableCollection(fahrStreifen.values());
+	}
+
+	public FahrStreifen getFahrStreifen(SystemObject systemObject) {
+		return fahrStreifen.get(systemObject);
+	}
+
+	public Collection<MessQuerschnitt> getAlleMessQuerSchnitte() {
+		return Collections.unmodifiableCollection(messQuerSchnitte.values());
+	}
+
+	public MessQuerschnitt getMessQuerSchnitt(SystemObject systemObject) {
+		return messQuerSchnitte.get(systemObject);
+	}
+
+	public Collection<MessQuerschnittVirtuell> getAlleMessQuerSchnitteVirtuell() {
+		return Collections.unmodifiableCollection(messQuerSchnitteVirtuell.values());
+	}
+
+	public MessQuerschnittVirtuell getMessQuerSchnittVirtuell(SystemObject systemObject) {
+		return messQuerSchnitteVirtuell.get(systemObject);
+	}
+
+	public MessQuerschnittAllgemein getMessQuerSchnittAllgemein(SystemObject mqaObjekt) {
+		MessQuerschnittAllgemein result = getMessQuerSchnitt(mqaObjekt);
+		if( result != null) {
+			return result;
+		}
+		
+		return getMessQuerSchnittVirtuell(mqaObjekt);
+	}
+
+	
+	public Collection<MessStelle> getAlleMessStellen() {
+		return Collections.unmodifiableCollection(messStellen.values());
+	}
+
+	public MessStelle getMessStelle(SystemObject systemObject) {
+		return messStellen.get(systemObject);
+	}
+
+	public Collection<MessStellenGruppe> getAlleMessStellenGruppen() {
+		return Collections.unmodifiableCollection(messStellenGruppen.values());
+	}
+
+	public MessStellenGruppe getMessStellenGruppe(SystemObject systemObject) {
+		return messStellenGruppen.get(systemObject);
+	}
+
 }

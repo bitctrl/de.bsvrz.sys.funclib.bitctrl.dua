@@ -28,7 +28,7 @@ package de.bsvrz.sys.funclib.bitctrl.dua.lve;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,28 +52,19 @@ import de.bsvrz.sys.funclib.debug.Debug;
 public class MessQuerschnitt extends MessQuerschnittAllgemein {
 
 	/**
-	 * Mapt alle Messquerschnitt-Systemobjekte auf Objekte dieser Klasse.
-	 */
-	private static Map<SystemObject, MessQuerschnitt> sysObjMqObjMap = new HashMap<>();
-
-	/**
-	 * Datenverteiler-Verbindung.
-	 */
-	private static ClientDavInterface sDav;
-
-	/**
 	 * Menge der an diesem Messquerschnitt definierten Fahstreifen.
 	 */
 	private final List<FahrStreifen> fahrStreifen = new ArrayList<>();
 
+
 	/**
-	 * Standardkontruktor.
+	 * Konstruktor.
 	 *
 	 * @param mqObjekt
 	 *            ein Systemobjekt vom Typ <code>typ.messQuerschnitt</code>
 	 */
-	protected MessQuerschnitt(final SystemObject mqObjekt) {
-		super(MessQuerschnitt.sDav, mqObjekt);
+	private MessQuerschnitt(DuaVerkehrsNetz netz, final SystemObject mqObjekt) {
+		super(mqObjekt);
 
 		if (mqObjekt == null) {
 			throw new NullPointerException("Übergebenes Messquerschnitt-Systemobjekt ist <<null>>");
@@ -83,7 +74,7 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 		final ObjectSet fsMenge = konfigObjekt.getNonMutableSet("FahrStreifen");
 		for (final SystemObject fsObj : fsMenge.getElements()) {
 			if (fsObj.isValid()) {
-				final FahrStreifen fs = FahrStreifen.getInstanz(fsObj);
+				final FahrStreifen fs = netz.getFahrStreifen(fsObj);
 				if (fs != null) {
 					fahrStreifen.add(fs);
 				} else {
@@ -94,70 +85,37 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 		}
 	}
 
-	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
-	 * <code>typ.messQuerschnitt</code> statische Instanzen dieser Klasse
-	 * angelegt werden.
-	 *
-	 * @param dav1
-	 *            Datenverteiler-Verbindung
-	 */
-	protected static void initialisiere(final ClientDavInterface dav1) {
+	static Map<SystemObject, MessQuerschnitt> einlesen(DuaVerkehrsNetz netz, final ClientDavInterface dav1, final ConfigurationArea[] kbs) {
 		if (dav1 == null) {
 			throw new NullPointerException("Datenverteiler-Verbindung ist <<null>>");
 		}
 
-		if (MessQuerschnitt.sDav != null) {
-			throw new RuntimeException("Objekt darf nur einmal initialisiert werden");
-		}
-		MessQuerschnitt.sDav = dav1;
+		Map<SystemObject, MessQuerschnitt> result = new LinkedHashMap<>();
 
-		for (final SystemObject mqObjekt : MessQuerschnitt.sDav.getDataModel().getType(DUAKonstanten.TYP_MQ)
-				.getElements()) {
-			if (mqObjekt.isValid()) {
-				MessQuerschnitt.sysObjMqObjMap.put(mqObjekt, new MessQuerschnitt(mqObjekt));
-			}
-		}
-	}
-
-	/**
-	 * Initialisiert diese Klasse, indem für alle Systemobjekte vom Typ
-	 * <code>typ.messQuerschnitt</code> statische Instanzen dieser Klasse
-	 * angelegt werden.
-	 *
-	 * @param dav1
-	 *            Datenverteiler-Verbindung
-	 * @param kbs
-	 *            Menge der zu betrachtenden Konfigurationsbereiche
-	 */
-	protected static void initialisiere(final ClientDavInterface dav1, final ConfigurationArea[] kbs) {
-		if (dav1 == null) {
-			throw new NullPointerException("Datenverteiler-Verbindung ist <<null>>");
-		}
-
-		if (MessQuerschnitt.sDav != null) {
-			throw new RuntimeException("Objekt darf nur einmal initialisiert werden");
-		}
-		MessQuerschnitt.sDav = dav1;
-
-		for (final SystemObject mqObjekt : MessQuerschnitt.sDav.getDataModel().getType(DUAKonstanten.TYP_MQ)
-				.getElements()) {
+		for (final SystemObject mqObjekt : dav1.getDataModel().getType(DUAKonstanten.TYP_MQ).getElements()) {
 			if (mqObjekt.isValid() && DUAUtensilien.isObjektInKBsEnthalten(mqObjekt, kbs)) {
-				MessQuerschnitt.sysObjMqObjMap.put(mqObjekt, new MessQuerschnitt(mqObjekt));
+				result.put(mqObjekt, new MessQuerschnitt(netz, mqObjekt));
 			}
 		}
+
+		return result;
 	}
 
 	/**
 	 * Erfragt alle statischen Instanzen dieser Klasse.
 	 *
 	 * @return alle statischen Instanzen dieser Klasse
+	 * 
+	 * @deprecated die verwendeten Messquerschnitte sollten aus
+	 *             {@link DuaVerkehrsNetz} ermittelt werden.
 	 */
+	@Deprecated
 	public static Collection<MessQuerschnitt> getInstanzen() {
-		if (MessQuerschnitt.sDav == null) {
-			throw new RuntimeException("Messquerschnitt-Klasse wurde noch nicht initialisiert");
+		DuaVerkehrsNetz verkehrsNetz = DuaVerkehrsNetz.getDefaultInstance();
+		if (verkehrsNetz == null) {
+			throw new RuntimeException("MessQuerschnitt-Klasse wurde noch nicht initialisiert");
 		}
-		return MessQuerschnitt.sysObjMqObjMap.values();
+		return verkehrsNetz.getAlleMessQuerSchnitte();
 	}
 
 	/**
@@ -169,18 +127,17 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 	 * @return eine mit dem übergebenen Systemobjekt assoziierte statische
 	 *         Instanz dieser Klasse oder <code>null</code>, wenn diese Instanz
 	 *         nicht ermittelt werden konnte
+	 *         
+	 * @deprecated ein Messquerschnitt sollte aus
+	 *             {@link DuaVerkehrsNetz} ermittelt werden.
 	 */
+	@Deprecated
 	public static MessQuerschnitt getInstanz(final SystemObject mqObjekt) {
-		if (MessQuerschnitt.sDav == null) {
-			throw new RuntimeException("Messquerschnitt-Klasse wurde noch nicht initialisiert");
+		DuaVerkehrsNetz verkehrsNetz = DuaVerkehrsNetz.getDefaultInstance();
+		if (verkehrsNetz == null) {
+			throw new RuntimeException("MessQuerschnitt-Klasse wurde noch nicht initialisiert");
 		}
-		MessQuerschnitt ergebnis = null;
-
-		if (mqObjekt != null) {
-			ergebnis = MessQuerschnitt.sysObjMqObjMap.get(mqObjekt);
-		}
-
-		return ergebnis;
+		return verkehrsNetz.getMessQuerSchnitt(mqObjekt);
 	}
 
 	@Override
