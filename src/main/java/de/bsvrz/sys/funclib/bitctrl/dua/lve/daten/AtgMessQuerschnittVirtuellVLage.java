@@ -81,8 +81,6 @@ public class AtgMessQuerschnittVirtuellVLage implements MessQuerschnittAnteile {
 	/**
 	 * Standardkonstruktor.
 	 *
-	 * @param dav
-	 *            Verbindung zum Datenverteiler.
 	 * @param objekt
 	 *            der virtuelle Messquerschnitt, dessen Konfigurationsdaten
 	 *            ausgelesen werden sollen.

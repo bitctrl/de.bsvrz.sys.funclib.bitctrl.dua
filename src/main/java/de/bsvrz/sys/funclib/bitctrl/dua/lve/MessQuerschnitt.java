@@ -56,10 +56,11 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 	 */
 	private final List<FahrStreifen> fahrStreifen = new ArrayList<>();
 
-
 	/**
 	 * Konstruktor.
-	 *
+	 * 
+	 * @param netz
+	 *            das verwendete Verkehrsnetz
 	 * @param mqObjekt
 	 *            ein Systemobjekt vom Typ <code>typ.messQuerschnitt</code>
 	 */
@@ -85,7 +86,8 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 		}
 	}
 
-	static Map<SystemObject, MessQuerschnitt> einlesen(DuaVerkehrsNetz netz, final ClientDavInterface dav1, final ConfigurationArea[] kbs) {
+	static Map<SystemObject, MessQuerschnitt> einlesen(DuaVerkehrsNetz netz, final ClientDavInterface dav1,
+			final ConfigurationArea[] kbs) {
 		if (dav1 == null) {
 			throw new NullPointerException("Datenverteiler-Verbindung ist <<null>>");
 		}
@@ -127,9 +129,9 @@ public class MessQuerschnitt extends MessQuerschnittAllgemein {
 	 * @return eine mit dem übergebenen Systemobjekt assoziierte statische
 	 *         Instanz dieser Klasse oder <code>null</code>, wenn diese Instanz
 	 *         nicht ermittelt werden konnte
-	 *         
-	 * @deprecated ein Messquerschnitt sollte aus
-	 *             {@link DuaVerkehrsNetz} ermittelt werden.
+	 * 
+	 * @deprecated ein Messquerschnitt sollte aus {@link DuaVerkehrsNetz}
+	 *             ermittelt werden.
 	 */
 	@Deprecated
 	public static MessQuerschnitt getInstanz(final SystemObject mqObjekt) {

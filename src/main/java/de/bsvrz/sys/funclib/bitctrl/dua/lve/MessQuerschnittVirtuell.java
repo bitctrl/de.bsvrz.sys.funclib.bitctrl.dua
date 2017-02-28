@@ -137,6 +137,8 @@ public class MessQuerschnittVirtuell extends MessQuerschnittAllgemein {
 	/**
 	 * Standardkontruktor.
 	 *
+	 * @param netz
+	 *            das verwendete Verkehrsnetz
 	 * @param mqvObjekt
 	 *            ein Systemobjekt vom Typ
 	 *            <code>typ.messQuerschnittVirtuell</code>

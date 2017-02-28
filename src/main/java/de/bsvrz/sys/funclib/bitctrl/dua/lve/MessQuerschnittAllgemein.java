@@ -30,7 +30,6 @@ import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import de.bsvrz.dav.daf.main.ClientDavInterface;
 import de.bsvrz.dav.daf.main.Data;
 import de.bsvrz.dav.daf.main.config.AttributeGroup;
 import de.bsvrz.dav.daf.main.config.SystemObject;
@@ -62,8 +61,6 @@ public abstract class MessQuerschnittAllgemein extends AbstractSystemObjekt {
 	/**
 	 * Standardkonstruktor.
 	 *
-	 * @param dav
-	 *            Datenverteiler-Verbindung
 	 * @param mqaObjekt
 	 *            Systemobjekt eines allgemeinen Messquerschnittes
 	 */

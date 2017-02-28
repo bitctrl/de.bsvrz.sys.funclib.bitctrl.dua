@@ -65,6 +65,8 @@ public class MessStellenGruppe extends AbstractSystemObjekt {
 	/**
 	 * Standardkontruktor .
 	 *
+	 * @param netz
+	 *            das verwendete Verkehrsnetz
 	 * @param msgObjekt
 	 *            ein Systemobjekt vom Typ <code>typ.messStellenGruppe</code>
 	 * @throws DUAInitialisierungsException

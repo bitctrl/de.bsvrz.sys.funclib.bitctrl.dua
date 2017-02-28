@@ -76,6 +76,8 @@ public class MessStelle extends AbstractSystemObjekt {
 	/**
 	 * Standardkontruktor.
 	 *
+	 * @param netz
+	 *            das verwendete Verkehrsnetz
 	 * @param msObjekt
 	 *            ein Systemobjekt vom Typ <code>typ.messStelle</code>
 	 * @throws DUAInitialisierungsException

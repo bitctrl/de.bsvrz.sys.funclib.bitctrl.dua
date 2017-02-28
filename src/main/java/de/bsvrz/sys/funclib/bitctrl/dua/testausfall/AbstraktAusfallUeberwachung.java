@@ -91,7 +91,7 @@ implements IKontrollProzessListener<Long> {
 	 *            ein Datum
 	 * @return die im übergebenen Datum enthaltene Intervalllänge T
 	 */
-	protected abstract long getTVon(final ResultData resultat);
+	protected abstract long getTVon(ResultData resultat);
 
 	/**
 	 * Erfragt das ausgefallene Datum, dass sich aus dem übergebenen Datum
@@ -102,7 +102,7 @@ implements IKontrollProzessListener<Long> {
 	 * @return das ausgefallene Datum, dass sich aus dem übergebenen Datum
 	 *         ergibt
 	 */
-	protected abstract ResultData getAusfallDatumVon(final ResultData originalResultat);
+	protected abstract ResultData getAusfallDatumVon(ResultData originalResultat);
 
 	@Override
 	public void initialisiere(final IVerwaltung dieVerwaltung) throws DUAInitialisierungsException {
