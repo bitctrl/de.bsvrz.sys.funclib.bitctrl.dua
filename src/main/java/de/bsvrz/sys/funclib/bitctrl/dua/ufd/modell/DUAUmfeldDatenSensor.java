@@ -52,11 +52,6 @@ import de.bsvrz.sys.funclib.bitctrl.dua.ufd.typen.UmfeldDatenArt;
 public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 
 	/**
-	 * statische Instanzen dieser Klasse.
-	 */
-	private static Map<SystemObject, DUAUmfeldDatenSensor> instanzen = new HashMap<>();
-
-	/**
 	 * das Systemobjekt.
 	 */
 	private final SystemObject objekt;
@@ -101,34 +96,6 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	private final UmfeldDatenArt datenArt;
 
 	/**
-	 * Erfragt die statische Instanz dieser Klasse, die mit dem uebergebenen
-	 * Systemobjekt assoziiert ist (nicht vorhandene werden ggf. angelegt)
-	 *
-	 * @param dav
-	 *            Datenverteiler-Verbindung
-	 * @param objekt
-	 *            ein Systemobjekt eines Umfelddatensensors
-	 * @return die statische Instanz dieser Klasse, die mit dem uebergebenen
-	 *         Systemobjekt assoziiert ist
-	 * @throws UmfeldDatenSensorUnbekannteDatenartException
-	 */
-	static final DUAUmfeldDatenSensor getInstanz(final ClientDavInterface dav, final SystemObject objekt)
-			throws UmfeldDatenSensorUnbekannteDatenartException {
-		if (objekt == null) {
-			throw new NullPointerException("Umfelddatensensor mit Systemobjekt <<null>> existiert nicht");
-		}
-
-		DUAUmfeldDatenSensor instanz = DUAUmfeldDatenSensor.instanzen.get(objekt);
-
-		if (instanz == null) {
-			instanz = new DUAUmfeldDatenSensor(dav, objekt);
-			DUAUmfeldDatenSensor.instanzen.put(objekt, instanz);
-		}
-
-		return instanz;
-	}
-
-	/**
 	 * Standardkonstruktor.
 	 *
 	 * @param dav
@@ -138,7 +105,7 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	 * @throws UmfeldDatenSensorUnbekannteDatenartException
 	 *             der Sensor hat keinen der unterstützten Typen
 	 */
-	protected DUAUmfeldDatenSensor(final ClientDavInterface dav, final SystemObject objekt)
+	DUAUmfeldDatenSensor(final ClientDavInterface dav, final SystemObject objekt)
 			throws UmfeldDatenSensorUnbekannteDatenartException {
 		if (objekt == null) {
 			throw new NullPointerException("Als Umfelddatensensor wurde <<null>> uebergeben");
@@ -302,10 +269,10 @@ public class DUAUmfeldDatenSensor implements ClientReceiverInterface {
 	/**
 	 * entfernt die gespeicherten Instanzen für Testzwecke.
 	 *
-	 * TODO prüfen, wozu das gut ist!
+	 * @deprecated die Funktion wird nicht mehr benötigt
 	 */
+	@Deprecated
 	protected static void resetCache() {
-		DUAUmfeldDatenSensor.instanzen.clear();
 	}
 
 }
