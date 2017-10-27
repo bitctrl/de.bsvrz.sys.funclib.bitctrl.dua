@@ -17,6 +17,11 @@ genutzt werden oder potentiell genutzt werden können.
 Versionsgeschichte
 ==================
 
+1.9.1
+=====
+
+Statische Map in DUAUmfelddatenSensor eliminiert
+
 1.9.0
 =====
 
