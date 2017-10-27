@@ -29,6 +29,7 @@ package de.bsvrz.sys.funclib.bitctrl.dua.ufd.modell;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -49,14 +50,14 @@ import de.bsvrz.sys.funclib.debug.Debug;
  */
 public final class DUAUmfeldDatenMessStelle {
 
-	/**
-	 * statische Instanzen dieser Klasse.
-	 */
-	private static final Map<SystemObject, DUAUmfeldDatenMessStelle> instanzen = new HashMap<>();
-	/**
-	 * das Systemobjekt.
-	 */
+	/** statische Instanzen dieser Klasse. */
+	private static final Map<SystemObject, DUAUmfeldDatenMessStelle> INSTANZEN = new LinkedHashMap<>();
+
+	/** das Systemobjekt. */
 	private final SystemObject objekt;
+
+	/** die verwendeten Sensoren. */
+	private static final Map<SystemObject, DUAUmfeldDatenSensor> SENSORENMAP = new LinkedHashMap<>();
 
 	/**
 	 * Mapt die Umfelddatensensoren dieser Messstelle auf deren
@@ -80,9 +81,10 @@ public final class DUAUmfeldDatenMessStelle {
 		}
 
 		/* es wird immer nur ein ClientDavInterface bedient, die Initialisierung kann nur einmalig erfolgen. */
-		instanzen.clear();
+		INSTANZEN.clear();
+		SENSORENMAP.clear();
 		for (final SystemObject mStObj : messStellenObjekte) {
-			DUAUmfeldDatenMessStelle.instanzen.put(mStObj, new DUAUmfeldDatenMessStelle(dav, mStObj));
+			DUAUmfeldDatenMessStelle.INSTANZEN.put(mStObj, new DUAUmfeldDatenMessStelle(dav, mStObj));
 		}
 	}
 
@@ -95,7 +97,7 @@ public final class DUAUmfeldDatenMessStelle {
 	 * @return die statischen Instanzen dieser Klasse (ggf. leere Liste)
 	 */
 	public static Collection<DUAUmfeldDatenMessStelle> getInstanzen() {
-		return DUAUmfeldDatenMessStelle.instanzen.values();
+		return DUAUmfeldDatenMessStelle.INSTANZEN.values();
 	}
 
 	/**
@@ -112,11 +114,11 @@ public final class DUAUmfeldDatenMessStelle {
 	 *         Instanz gefunden wurde
 	 */
 	public static DUAUmfeldDatenMessStelle getInstanz(final SystemObject messStellenObjekt) {
-		if (DUAUmfeldDatenMessStelle.instanzen == null) {
+		if (DUAUmfeldDatenMessStelle.INSTANZEN == null) {
 			throw new RuntimeException("DUAUmfeldDatenMessStelle wurde noch nicht initialisiert");
 		}
 
-		return DUAUmfeldDatenMessStelle.instanzen.get(messStellenObjekt);
+		return DUAUmfeldDatenMessStelle.INSTANZEN.get(messStellenObjekt);
 	}
 
 	/**
@@ -141,9 +143,13 @@ public final class DUAUmfeldDatenMessStelle {
 		final NonMutableSet sensorenMenge = ((ConfigurationObject) objekt).getNonMutableSet("UmfeldDatenSensoren");
 		for (final SystemObject sensorObj : sensorenMenge.getElements()) {
 			if (sensorObj.isValid()) {
-				final DUAUmfeldDatenSensor sensor;
+				DUAUmfeldDatenSensor sensor;
 				try {
-					sensor = DUAUmfeldDatenSensor.getInstanz(dav, sensorObj);
+					sensor = SENSORENMAP.get(sensorObj);
+					if( sensor == null) {
+						sensor = new DUAUmfeldDatenSensor(dav, sensorObj);
+						SENSORENMAP.put(sensorObj, sensor);
+					}
 				} catch (final UmfeldDatenSensorUnbekannteDatenartException ex) {
 					Debug.getLogger().warning("UmfeldDatenMessStelle '" + getObjekt()
 					+ "': Umfelddatensensor wird nicht verarbeitet: " + ex.getMessage());
