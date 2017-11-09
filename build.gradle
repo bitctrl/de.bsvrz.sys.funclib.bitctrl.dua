@@ -44,3 +44,17 @@ artifacts.archives packageTests
 nerzswe {
 	sweName = "DUA Funktionsbibliothek"
 }
+
+findbugsMain {
+  reports {
+    xml.enabled = false
+    html.enabled = true
+  }
+}
+
+findbugsTest {
+  reports {
+    xml.enabled = false
+    html.enabled = true
+  }
+}
