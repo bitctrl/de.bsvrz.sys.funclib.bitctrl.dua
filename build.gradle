@@ -11,7 +11,7 @@ buildscript {
      mavenLocal()
     }
     dependencies {
-        classpath 'de.bsvrz.gradle:de.bsvrz.gradle.nerzswe:0.1'
+        classpath 'de.bsvrz.gradle:de.bsvrz.gradle.nerzswe:0.1.0'
     }
 }
 
