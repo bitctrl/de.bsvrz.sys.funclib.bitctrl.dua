@@ -1,20 +1,27 @@
-apply plugin: 'de.bsvrz.gradle.nerzswe'
 
-/* 
+/********************************************************************************** 
 	Repositories aus denen das Nerz-SWE-Plugin geladen werden kann.
 	
-	Der Abschnitt kann entfallen, wenn das Plugin auf dem Gradle-Plugin-Server
-	publiziert wird.
-*/
-buildscript {
-    repositories {
-     mavenLocal()
-    }
-    dependencies {
-        classpath 'de.bsvrz.gradle:de.bsvrz.gradle.nerzswe:0.1.0'
-    }
-}
+	Der Abschnitt kann entfallen, da das Plugin auf dem Gradle-Plugin-Server
+	publiziert wurde.
+    Für den lokalen Test der NERZ-SWE-Plugin-Entwicklung ist potentiell der 
+    Zugriff auf das lokale MAVEN-Repository erforderlich.
+**********************************************************************************/
 
+// apply plugin: 'de.bsvrz.gradle.nerzswe'
+
+// buildscript {
+//     repositories {
+//      mavenLocal()
+//     }
+//     dependencies {
+//         classpath 'de.bsvrz.gradle.nerzswe:0.1.0'
+//     }
+// }
+
+plugins {
+  id "de.bsvrz.gradle.nerzswe" version "0.1.0"
+}
 
 description = "DUA BitCtrl Funktionsbibliothek"
 version = '1.9.1-SNAPSHOT'
@@ -25,9 +32,7 @@ version = '1.9.1-SNAPSHOT'
 repositories {
    maven { url "http://dl.bintray.com/bitctrl/maven" }
    mavenCentral()
-   mavenLocal()
 }
-
 
 /*
 	Abhängigkeiten der SWE.
