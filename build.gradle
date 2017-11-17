@@ -21,10 +21,18 @@ buildscript {
 }
 */
 
+
 plugins {
-  id "de.bsvrz.gradle.nerzswe" version "0.1.2"
+  id "de.bsvrz.gradle.nerzswe" version "0.1.3"
 }
 
+nerzswe {
+//   	mainClassName = ...
+   	sweStatus = 'BETA'
+	sweDatum = '2017-11-17'
+}
+
+group = "de.bsvrz.sys"
 description = "DUA BitCtrl Funktionsbibliothek"
 version = '1.9.1-SNAPSHOT'
 
@@ -47,15 +55,5 @@ dependencies {
     compile group: 'de.bsvrz.sys', name: 'de.bsvrz.sys.funclib.bitctrl', version:'1.5.0'
     testCompile group: 'junit', name: 'junit', version:'4.12'
 }
-
-/*
-	Properties des NERZ-SWE-Plugins. 
-
-	nerzswe {
-    	runCheckStyle = true
-    	runFindBugs = true
-    	mainClassName = ...
-	}
-*/
 
 
