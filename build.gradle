@@ -7,7 +7,6 @@
     Für den lokalen Test der NERZ-SWE-Plugin-Entwicklung ist potentiell der 
     Zugriff auf das lokale MAVEN-Repository erforderlich.
 **********************************************************************************/
-
 /*
 apply plugin: 'de.bsvrz.gradle.nerzswe'
 
@@ -16,14 +15,13 @@ buildscript {
      mavenLocal()
     }
     dependencies {
-        classpath ':de.bsvrz.gradle.nerzswe:0.1.3'
+        classpath ':de.bsvrz.gradle.nerzswe:0.1.4'
     }
 }
 */
 
-
 plugins {
-  id "de.bsvrz.gradle.nerzswe" version "0.1.3"
+  id "de.bsvrz.gradle.nerzswe" version "0.1.4"
 }
 
 nerzswe {
