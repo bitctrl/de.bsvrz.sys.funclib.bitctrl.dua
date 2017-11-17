@@ -8,19 +8,21 @@
     Zugriff auf das lokale MAVEN-Repository erforderlich.
 **********************************************************************************/
 
-// apply plugin: 'de.bsvrz.gradle.nerzswe'
+/*
+apply plugin: 'de.bsvrz.gradle.nerzswe'
 
-// buildscript {
-//     repositories {
-//      mavenLocal()
-//     }
-//     dependencies {
-//         classpath 'de.bsvrz.gradle.nerzswe:0.1.0'
-//     }
-// }
+buildscript {
+    repositories {
+     mavenLocal()
+    }
+    dependencies {
+        classpath ':de.bsvrz.gradle.nerzswe:0.1.3'
+    }
+}
+*/
 
 plugins {
-  id "de.bsvrz.gradle.nerzswe" version "0.1.0"
+  id "de.bsvrz.gradle.nerzswe" version "0.1.2"
 }
 
 description = "DUA BitCtrl Funktionsbibliothek"
