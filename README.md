@@ -1,10 +1,5 @@
-********************************************************************************
-*                        Allgemeine DuA-Funktionen                             *
-********************************************************************************
-
-
-Übersicht
-=========
+Allgemeine DuA-Funktionen
+=========================
 
 Dieses Modul enthält allgemeine Funktionen die von mehreren SWE des Segments DuA
 genutzt werden oder potentiell genutzt werden können.

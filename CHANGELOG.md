@@ -83,7 +83,7 @@ UmfeldDatenArt
 
 [Noch nicht veröffentlicht]: https://gitlab.nerz-ev.de/uwe.peuker/de.bsvrz.gradle.nerzswe/compare/v1.9.1...HEAD
 [Version 1.9.1]: 
-https://gitlab.nerz-ev.de/ERZ/SWE_de.bsvrz.sys.funclib.bitctrl.dua/compare/v1.9.0...v1.6.1
+https://gitlab.nerz-ev.de/ERZ/SWE_de.bsvrz.sys.funclib.bitctrl.dua/compare/v1.9.0...v1.9.1
 [Version 1.9.0]: 
 https://gitlab.nerz-ev.de/ERZ/SWE_de.bsvrz.sys.funclib.bitctrl.dua/compare/v1.8.0...v1.9.0
 [Version 1.8.0]: 
