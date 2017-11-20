@@ -1,0 +1,57 @@
+
+/********************************************************************************** 
+	Repositories aus denen das Nerz-SWE-Plugin geladen werden kann.
+	
+	Der Abschnitt kann entfallen, da das Plugin auf dem Gradle-Plugin-Server
+	publiziert wurde.
+    Für den lokalen Test der NERZ-SWE-Plugin-Entwicklung ist potentiell der 
+    Zugriff auf das lokale MAVEN-Repository erforderlich.
+**********************************************************************************/
+/*
+apply plugin: 'de.bsvrz.gradle.nerzswe'
+
+buildscript {
+    repositories {
+     mavenLocal()
+    }
+    dependencies {
+        classpath ':de.bsvrz.gradle.nerzswe:0.1.4'
+    }
+}
+*/
+
+plugins {
+  id "de.bsvrz.gradle.nerzswe" version "0.1.4"
+}
+
+nerzswe {
+//   	mainClassName = ...
+   	sweStatus = 'BETA'
+	sweDatum = '2017-11-17'
+}
+
+group = "de.bsvrz.sys"
+description = "DUA BitCtrl Funktionsbibliothek"
+version = '1.9.1-SNAPSHOT'
+
+/*
+	Repositories aus denen die Komponenten für den Build der SWE. 
+*/
+repositories {
+   maven { url "http://dl.bintray.com/bitctrl/maven" }
+   mavenCentral()
+}
+
+/*
+	Abhängigkeiten der SWE.
+*/
+dependencies {
+    compile group: 'com.bitctrl', name: 'com.bitctrl', version:'2.0.2'
+    compile group: 'de.bsvrz.dav', name: 'de.bsvrz.dav.daf', version:'3.8.0'
+    compile group: 'de.bsvrz.pat', name: 'de.bsvrz.pat.onlprot', version:'3.8.0'
+    compile group: 'de.bsvrz.sys', name: 'de.bsvrz.sys.funclib.application', version:'3.8.0'
+    compile group: 'de.bsvrz.sys', name: 'de.bsvrz.sys.funclib.bitctrl', version:'1.5.0'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+}
+
+
