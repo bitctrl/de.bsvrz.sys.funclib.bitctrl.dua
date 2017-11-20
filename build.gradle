@@ -26,13 +26,13 @@ plugins {
 
 nerzswe {
 //   	mainClassName = ...
-   	sweStatus = 'BETA'
+   	sweStatus = 'FREI'
 	sweDatum = '2017-11-17'
 }
 
 group = "de.bsvrz.sys"
 description = "DUA BitCtrl Funktionsbibliothek"
-version = '1.9.1-SNAPSHOT'
+version = '1.9.1'
 
 /*
 	Repositories aus denen die Komponenten für den Build der SWE. 
