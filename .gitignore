@@ -33,6 +33,7 @@ buildNumber.properties
 # Gradle:
 # .idea/gradle.xml
 # .idea/libraries
+build/
 
 # Mongo Explorer plugin:
 # .idea/mongoSettings.xml
@@ -99,5 +100,8 @@ local.properties
 
 # TeXlipse plugin
 .texlipse
+
+# Github-Travis
+.travis.yml
 
 /.fbExcludeFilterFile
