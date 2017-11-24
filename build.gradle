@@ -8,31 +8,31 @@
     Zugriff auf das lokale MAVEN-Repository erforderlich.
 **********************************************************************************/
 /*
-apply plugin: 'de.bsvrz.gradle.nerzswe'
-
 buildscript {
     repositories {
      mavenLocal()
     }
     dependencies {
-        classpath ':de.bsvrz.gradle.nerzswe:0.1.4'
+        classpath ':de.bsvrz.gradle.nerzswe:0.1.6'
     }
 }
+apply plugin: 'de.bsvrz.gradle.nerzswe'
 */
 
 plugins {
-  id "de.bsvrz.gradle.nerzswe" version "0.1.4"
+  id "de.bsvrz.gradle.nerzswe" version "0.1.6"
+  id "com.jfrog.bintray" version "1.8.0"
 }
 
 nerzswe {
 //   	mainClassName = ...
-   	sweStatus = 'BETA'
+   	sweStatus = 'FREI'
 	sweDatum = '2017-11-17'
 }
 
 group = "de.bsvrz.sys"
 description = "DUA BitCtrl Funktionsbibliothek"
-version = '1.9.1-SNAPSHOT'
+version = '1.9.1'
 
 /*
 	Repositories aus denen die Komponenten für den Build der SWE. 
@@ -55,3 +55,23 @@ dependencies {
 }
 
 
+/* lokales Maven-Repositiory im build-Verzeichnis */
+publishing {
+	repositories {
+		maven {
+        	url "$buildDir/repo"         
+        }
+    }
+}
+
+/* Veröffentlichung auf bintray. */
+bintray {
+	user = project.hasProperty('user') ? property('user') : ""
+    key = project.hasProperty('key') ? property('key') : ""
+	publications = ['mavenJava']
+    pkg {
+    	userOrg = 'bitctrl'
+        repo = 'maven'
+        name = 'de.bsvrz.sys.funclib.bitctrl.dua'
+    }
+}
