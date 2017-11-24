@@ -101,7 +101,4 @@ local.properties
 # TeXlipse plugin
 .texlipse
 
-# Github-Travis
-.travis.yml
-
 /.fbExcludeFilterFile
